@@ -11,7 +11,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
                 <Cpu className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">VLSIGuru</span>
+              <span className="text-xl font-bold">sVIOS TECHNOLOGIES</span>
             </div>
             <p className="text-gray-400">Empowering engineers with cutting-edge VLSI education and training.</p>
           </div>
@@ -96,7 +96,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 VLSIGuru. All rights reserved.</p>
+          <p>&copy; 2025 sVIOS TECHNOLOGIES. All rights reserved.</p>
         </div>
       </div>
     </footer>

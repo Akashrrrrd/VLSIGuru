@@ -11,7 +11,7 @@ export function Header() {
             <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
               <Cpu className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">VLSIGuru</span>
+            <span className="text-xl font-bold text-gray-900">sVIOS TECHNOLOGIES</span>
           </div>
 
           <nav className="hidden md:flex space-x-8">

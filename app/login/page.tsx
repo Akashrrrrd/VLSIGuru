@@ -16,7 +16,7 @@ export default function LoginPage() {
           <Card>
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Welcome Back</CardTitle>
-              <p className="text-gray-600">Sign in to your VLSIGuru account</p>
+              <p className="text-gray-600">Sign in to your sVIOS TECHNOLOGIES account</p>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
