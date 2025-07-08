@@ -10,17 +10,9 @@ export function HeroSection() {
           Master VLSI Design with{" "}
           <span className="text-purple-600">Affordable Learning</span>
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Explore a wide range of VLSI-focused courses crafted to empower
-          engineers and enthusiasts. Join us to enhance your skills in
-          cutting-edge semiconductor technologies.
+        <p className="text-xl text-gray-600 mb-8 max-w-5xl mx-auto">
+          sVIOS Technologies leverages its extensive industry understanding and digital capabilities to create top-notch end-to-end engineering solutions. By integrating several sectors and technologies with the contributions offered by various individuals who specialize in their areas of expertise, issues can potentially be solved more effectively and quickly. We are able to address the most significant and complex problems in the automotive, high-tech, healthcare, medical device, robotics, and semiconductor sectors because to our multifaceted approach. We produce highly trained engineers and assists global electronics industry in accomplishing its growing need for expertise in VLSI, robotics, and smart automation.
         </p>
-        {/* <Link href="/courses">
-          <Button className="text-lg px-6 py-3">
-            Book Now
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-        </Link> */}
       </div>
     </section>
   );

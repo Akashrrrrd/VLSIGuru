@@ -1,7 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -48,32 +47,21 @@ export function CourseCard({ course }: CourseCardProps) {
             {course.title}
           </h3>
 
-          <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-            <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span>{course.rating}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Users className="w-4 h-4" />
-              <span>{course.students}</span>
-            </div>
-          </div>
-
           <div className="flex items-center gap-2 mb-3">
-            {course.discount && <span className="text-sm text-gray-500 line-through">${course.price}</span>}
-            <span className="text-lg font-bold text-purple-600">${discountedPrice}</span>
+            {course.discount && <span className="text-sm text-gray-500 line-through">₹{course.price}</span>}
+            <span className="text-lg font-bold text-purple-600">₹{discountedPrice}</span>
           </div>
         </CardContent>
       </Link>
 
       <CardFooter className="flex flex-col gap-2 p-4 pt-0">
-        <Link href={`/enroll/${course.id}`} className="w-full">
+        <Link 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfCgEnbswX5k-KNOW43rvgYlNxxHHZa5AKK4SYAtWV959o1bg/viewform?usp=header" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-full"
+        >
           <Button className="w-full bg-purple-600 hover:bg-purple-700">ENROLL NOW</Button>
-        </Link>
-        <Link href={`/watch/${course.id}`} className="w-full">
-          <Button variant="outline" className="w-full">
-            Watch Preview
-          </Button>
         </Link>
       </CardFooter>
     </Card>

@@ -65,7 +65,7 @@ export const coursesData: Course[] = [
     id: 1,
     title: "Design Verification",
     description:
-      "Master design verification concepts, methodologies, and practical skills required to verify digital designs effectively using SystemVerilog, UVM, and Assertion-Based Verification.",
+      "The primary objective of the Design Verification Course is to equip engineers and VLSI professionals with the skills and methodologies necessary to validate the correctness, performance, and reliability of digital designs before fabrication. This course provides a comprehensive understanding of design verification concepts, methodologies, and practical skills required to verify digital designs effectively. The course focuses on industry-standard verification techniques, languages, and tools such as SystemVerilog, UVM (Universal Verification Methodology), and Assertion-Based Verification.",
     category: "VLSI Design",
     price: 250,
     rating: 4.8,
@@ -82,7 +82,7 @@ export const coursesData: Course[] = [
     },
     duration: "24 weeks",
     weeks: 24,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course1.png",
     overview: {
       welcome: "Welcome to the Design Verification Course!",
       description:
@@ -431,7 +431,7 @@ export const coursesData: Course[] = [
     },
     duration: "8 weeks",
     weeks: 8,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course2.png",
     overview: {
       welcome: "Welcome to Design For Testability Course!",
       description:
@@ -507,7 +507,7 @@ export const coursesData: Course[] = [
     id: 3,
     title: "Physical Design",
     description:
-      "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure.",
+      "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure. Students learn about power planning, clock tree synthesis, DRC/LVS verification, and sign-off methodologies. This course is designed for students with a basic understanding of digital electronics, Verilog and CMOS concepts for them to handle critical roles in semiconductor design teams.",
     category: "Physical Design",
     price: 289,
     rating: 4.7,
@@ -522,7 +522,7 @@ export const coursesData: Course[] = [
     },
     duration: "26 weeks",
     weeks: 26,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course3.png",
     overview: {
       welcome: "Welcome to Physical Design Course!",
       description:
@@ -908,7 +908,7 @@ export const coursesData: Course[] = [
     },
     duration: "12 weeks",
     weeks: 12,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course4.png",
     overview: {
       welcome: "Welcome to FPGA Based System Design Course!",
       description:
@@ -993,7 +993,7 @@ export const coursesData: Course[] = [
     },
     duration: "8 weeks",
     weeks: 8,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course5.png",
     overview: {
       welcome: "Welcome to Gate Level Simulation Course!",
       description:
@@ -1078,7 +1078,7 @@ export const coursesData: Course[] = [
     },
     duration: "10 weeks",
     weeks: 10,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course6.png",
     overview: {
       welcome: "Welcome to IP Verification Course!",
       description:
@@ -1163,7 +1163,7 @@ export const coursesData: Course[] = [
     },
     duration: "12 weeks",
     weeks: 12,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course7.png",
     overview: {
       welcome: "Welcome to AHB2AXI Bridge Verification Course!",
       description:
@@ -1248,7 +1248,7 @@ export const coursesData: Course[] = [
     },
     duration: "11 weeks",
     weeks: 11,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course8.png",
     overview: {
       welcome: "Welcome to AXI2AHB Bridge Verification Course!",
       description:
@@ -1333,7 +1333,7 @@ export const coursesData: Course[] = [
     },
     duration: "9 weeks",
     weeks: 9,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course9.png",
     overview: {
       welcome: "Welcome to AHB2APB Bridge Verification Course!",
       description:
@@ -1419,7 +1419,7 @@ export const coursesData: Course[] = [
     },
     duration: "8 weeks",
     weeks: 8,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course10.png",
     overview: {
       welcome: "Welcome to AHB-LITE DECODER Bridge Verification Course!",
       description:
@@ -1504,7 +1504,7 @@ export const coursesData: Course[] = [
     },
     duration: "10 weeks",
     weeks: 10,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course11.png",
     overview: {
       welcome: "Welcome to AHB-LITE2AHB CONVERTOR Bridge Verification Course!",
       description:
@@ -1589,7 +1589,7 @@ export const coursesData: Course[] = [
     },
     duration: "10 weeks",
     weeks: 10,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/course12.png",
     overview: {
       welcome: "Welcome to Embedded and IoT Course!",
       description:

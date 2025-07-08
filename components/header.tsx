@@ -1,17 +1,24 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { HelpCircle, Cpu } from "lucide-react"
+import { HelpCircle } from "lucide-react"
 
 export function Header() {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-              <Cpu className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">sVIOS TECHNOLOGIES</span>
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/Brand_Logo.png" // Replace with your actual image filename
+                alt="sVIOS Technologies"
+                width={300} // Increased width for larger image
+                height={60} // Increased height for larger image
+                className="h-16 w-auto max-w-[200px]" // Larger height with max-width constraint
+                priority
+              />
+            </Link>
           </div>
 
           <nav className="hidden md:flex space-x-8">
