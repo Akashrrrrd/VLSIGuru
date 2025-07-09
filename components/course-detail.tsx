@@ -81,6 +81,91 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
   // Original course content for available courses
   const discountedPrice = course.discount ? course.price - (course.price * course.discount) / 100 : course.price
 
+  // Function to get schedule data based on course title/category
+  const getScheduleData = () => {
+    const courseTitle = course.title.toLowerCase()
+    const courseCategory = course.category.toLowerCase()
+    
+    // Design Verification Schedule
+    if (courseTitle.includes("design verification") || courseCategory.includes("design verification")) {
+      return {
+        duration: "6 months (24 weeks)",
+        data: [
+          { stage: "I", description: "Review of Digital Electronics and Logic Design", duration: "2 Weeks" },
+          { stage: "II", description: "System Design using Verilog HDL", duration: "2 Weeks" },
+          { stage: "III", description: "Essentials of Linux", duration: "1 Week" },
+          { stage: "IV", description: "Scripting", duration: "1 Week" },
+          { stage: "V", description: "SystemVerilog", duration: "8 Weeks" },
+          { stage: "VI", description: "Universal Verification Methodology", duration: "6 Weeks" },
+          { stage: "VII", description: "Working in Live project", duration: "3 Weeks" },
+          { stage: "VIII", description: "Interview / Soft Skills", duration: "1 Week" },
+        ],
+        total: "24 Weeks"
+      }
+    }
+    
+    // Physical Design Schedule
+    if (courseTitle.includes("physical design") || courseCategory.includes("physical design")) {
+      return {
+        duration: "6 months (26 weeks)",
+        data: [
+          { stage: "I", description: "Digital Logic & Verilog HDL", duration: "6 Weeks" },
+          { 
+            stage: "II", 
+            description: (
+              <div>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Introduction to Physical Design</li>
+                  <li>Floorplanning and Powerplanning</li>
+                  <li>Placement</li>
+                  <li>Clock Tree Synthesis (CTS)</li>
+                  <li>Routing</li>
+                  <li>Optimization</li>
+                  <li>Static Timing Analysis (STA)</li>
+                  <li>Sign-Off and Tape-out</li>
+                </ul>
+              </div>
+            ), 
+            duration: "12 Weeks" 
+          },
+          { 
+            stage: "III", 
+            description: (
+              <div>
+                <div className="bg-blue-100 p-2 rounded mb-2">
+                  <span className="font-semibold text-blue-800">🧪 Lab/Project Work:</span>
+                </div>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Floorplanning and power planning</li>
+                  <li>Placement and CTS implementation</li>
+                  <li>Routing and DRC/LVS verification</li>
+                  <li>Final project: Block-level or mini SoC physical implementation</li>
+                </ul>
+              </div>
+            ), 
+            duration: "7 Weeks" 
+          },
+          { stage: "IV", description: "Interview / Soft Skills", duration: "1 Week" },
+        ],
+        total: "26 Weeks"
+      }
+    }
+    
+    // Dummy data for other courses
+    return {
+      duration: "4 months (16 weeks)",
+      data: [
+        { stage: "I", description: "Foundation and Basics", duration: "4 Weeks" },
+        { stage: "II", description: "Core Concepts and Theory", duration: "6 Weeks" },
+        { stage: "III", description: "Practical Implementation", duration: "4 Weeks" },
+        { stage: "IV", description: "Project Work and Assessment", duration: "2 Weeks" },
+      ],
+      total: "16 Weeks"
+    }
+  }
+
+  const scheduleInfo = getScheduleData()
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Course Header */}
@@ -136,7 +221,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
 
       {/* Course Content Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-7 bg-white border rounded-lg p-1">
+        <TabsList className="grid w-full grid-cols-3 bg-white border rounded-lg p-1">
           <TabsTrigger
             value="syllabus"
             className="data-[state=active]:bg-purple-600 data-[state=active]:text-white gap-2"
@@ -160,13 +245,13 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
         <TabsContent value="overview" className="mt-6">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-2xl font-bold mb-4 text-purple-600">{course.overview.welcome}</h3>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">{course.overview.description}</p>
+              <h3 className="text-2xl font-bold mb-4 text-purple-600">{course.overview?.welcome}</h3>
+              <p className="text-gray-600 mb-6 text-lg leading-relaxed">{course.overview?.description}</p>
 
               <div className="bg-blue-50 p-6 rounded-lg mb-6">
                 <h4 className="font-bold text-lg mb-4 text-blue-900">🎯 Learning Objectives</h4>
                 <ul className="space-y-3">
-                  {course.overview.objectives.map((objective, index) => (
+                  {course.overview?.objectives?.map((objective, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">
                         {index + 1}
@@ -207,7 +292,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
                 concepts.
               </p>
               <div className="space-y-4">
-                {course.syllabus.map((week, index) => (
+                {course.syllabus?.map((week, index) => (
                   <Collapsible key={index}>
                     <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg hover:from-purple-100 hover:to-blue-100 transition-colors">
                       <div className="flex items-center gap-3">
@@ -220,7 +305,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
                     </CollapsibleTrigger>
                     <CollapsibleContent className="p-4 border border-t-0 rounded-b-lg bg-white">
                       <ul className="space-y-2">
-                        {week.topics.map((topic, topicIndex) => (
+                        {week.topics?.map((topic, topicIndex) => (
                           <li key={topicIndex} className="flex items-start gap-2">
                             <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
                             <span className="text-gray-700">{topic}</span>
@@ -238,43 +323,50 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
         <TabsContent value="schedule" className="mt-6">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-2xl font-bold mb-6 text-purple-600">📅 Course Schedule & Details</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-900 mb-2">Course Duration</h4>
-                    <p className="text-gray-700">{course.schedule.duration}</p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-900 mb-2">Session Format</h4>
-                    <p className="text-gray-700">{course.schedule.sessions}</p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-900 mb-2">Learning Mode</h4>
-                    <p className="text-gray-700">{course.schedule.mode}</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-blue-900 mb-2">Tools & Software</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {course.schedule.tools.map((tool, index) => (
-                        <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
-                          {tool}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-green-900 mb-2">Course Fee</h4>
-                    <p className="text-2xl font-bold text-green-700">${course.schedule.fee}</p>
-                  </div>
-                </div>
+              <h3 className="text-2xl font-bold mb-4 text-red-600">Schedule</h3>
+              <p className="text-lg font-semibold mb-6">Course Duration: {scheduleInfo.duration}</p>
+              
+              {/* Schedule Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-red-600 text-white">
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Stage</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Description</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {scheduleInfo.data.map((item, index) => (
+                      <tr key={index} className={index % 2 === 0 ? "bg-red-50" : "bg-white"}>
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-center">{item.stage}</td>
+                        <td className="border border-gray-300 px-4 py-3">
+                          {typeof item.description === 'string' ? item.description : item.description}
+                        </td>
+                        <td className="border border-gray-300 px-4 py-3 text-center">{item.duration}</td>
+                      </tr>
+                    ))}
+                    <tr className="bg-red-100 font-semibold">
+                      <td className="border border-gray-300 px-4 py-3 text-center">Total</td>
+                      <td className="border border-gray-300 px-4 py-3"></td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">{scheduleInfo.total}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="mt-6 bg-purple-50 p-6 rounded-lg">
-                <h4 className="font-semibold text-purple-900 mb-3">📋 Weekly Breakdown</h4>
-                <p className="text-purple-800">{course.schedule.breakdown}</p>
-              </div>
+
+              {/* Notes - Only show for Design Verification course */}
+              {(course.title.toLowerCase().includes("design verification") || 
+                course.category.toLowerCase().includes("design verification")) && (
+                <div className="mt-6 space-y-3">
+                  <p className="text-red-600 font-semibold">
+                    <span className="font-bold">Note1:</span> Weekly assignments and Module Assessments will be conducted.
+                  </p>
+                  <p className="text-red-600 font-semibold">
+                    <span className="font-bold">Note2:</span> Assessments will be in the form of written test / Presentation / MCQ / Coding.
+                  </p>
+                </div>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
@@ -284,7 +376,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold mb-6 text-purple-600">❓ Frequently Asked Questions</h3>
               <div className="space-y-4">
-                {course.faqs.map((faq, index) => (
+                {course.faqs?.map((faq, index) => (
                   <Collapsible key={index}>
                     <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                       <span className="font-semibold text-left">Q: {faq.question}</span>

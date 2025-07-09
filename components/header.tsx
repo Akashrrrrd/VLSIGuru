@@ -7,15 +7,15 @@ export function Header() {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/Brand_Logo.png" // Replace with your actual image filename
+                src="/Brand_Logo.png"
                 alt="sVIOS Technologies"
-                width={300} // Increased width for larger image
-                height={60} // Increased height for larger image
-                className="h-16 w-auto max-w-[200px]" // Larger height with max-width constraint
+                width={400}
+                height={80}
+                className="h-24 w-auto max-w-[400px]"
                 priority
               />
             </Link>
