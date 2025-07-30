@@ -241,12 +241,12 @@ export function VideoPlayer({ courseId }: VideoPlayerProps) {
                       <p className="text-sm text-gray-600 mb-4">
                         Enroll in this course to access all {course.videos.length} videos and course materials.
                       </p>
-                      <Link href={`/enroll/${course.id}`}>
-                        <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                          Enroll Now - $
-                          {course.discount ? course.price - (course.price * course.discount) / 100 : course.price}
-                        </Button>
-                      </Link>
+            <Link href={`/enroll/${course.id}`}>
+              <Button className="w-full bg-red-600 hover:bg-red-700">
+                Enroll Now - $
+                {course.discount ? course.price - (course.price * course.discount) / 100 : course.price}
+              </Button>
+            </Link>
                     </div>
                   </div>
                 </>

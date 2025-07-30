@@ -34,9 +34,9 @@ export function CourseCard({ course }: CourseCardProps) {
             height={200}
             className="w-full h-48 object-cover"
           />
-          {course.discount && (
+          {/* {course.discount && (
             <Badge className="absolute top-2 right-2 bg-red-500 text-white">{course.discount}% OFF</Badge>
-          )}
+          )} */}
         </div>
 
         <CardContent className="p-4">
@@ -47,10 +47,10 @@ export function CourseCard({ course }: CourseCardProps) {
             {course.title}
           </h3>
 
-          <div className="flex items-center gap-2 mb-3">
+          {/* <div className="flex items-center gap-2 mb-3">
             {course.discount && <span className="text-sm text-gray-500 line-through">₹{course.price}</span>}
             <span className="text-lg font-bold text-purple-600">₹{discountedPrice}</span>
-          </div>
+          </div> */}
         </CardContent>
       </Link>
 
@@ -61,7 +61,7 @@ export function CourseCard({ course }: CourseCardProps) {
           rel="noopener noreferrer"
           className="w-full"
         >
-          <Button className="w-full bg-purple-600 hover:bg-purple-700">ENROLL NOW</Button>
+          <Button className="w-full bg-red-600 hover:bg-red-700">ENROLL NOW</Button>
         </Link>
       </CardFooter>
     </Card>

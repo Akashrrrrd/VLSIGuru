@@ -1,37 +1,32 @@
-import Link from "next/link"
-import { Cpu } from "lucide-react"
+import Link from "next/link";
+import { Cpu } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-white" />
-              </div>
+        {/* Change grid to flex and center all three sections */}
+        <div className="flex flex-col md:flex-row justify-center text-center gap-12">
+          <div className="md:w-1/3">
+            <div className="flex justify-center items-center space-x-2 mb-4">
               <span className="text-xl font-bold">sVIOS TECHNOLOGIES</span>
             </div>
-            <p className="text-gray-400">Empowering engineers with cutting-edge VLSI education and training.</p>
+            <p className="text-gray-400">
+              Gateway to the world of VLSI and IoT
+            </p>
           </div>
 
-          <div>
+          <div className="md:w-1/3">
             <h3 className="font-semibold mb-4">Courses</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link href="#" className="hover:text-white">
-                  VLSI Design
+                  Design Verification
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-white">
-                  Verification
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  FPGA Design
+                  Design for Testability
                 </Link>
               </li>
               <li>
@@ -39,17 +34,17 @@ export function Footer() {
                   Physical Design
                 </Link>
               </li>
+              <li>
+                <Link href="#" className="hover:text-white">
+                  FPGA Based Design System
+                </Link>
+              </li>
             </ul>
           </div>
 
-          <div>
+          <div className="md:w-1/3">
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Help Center
-                </Link>
-              </li>
               <li>
                 <Link href="#" className="hover:text-white">
                   Contact Us
@@ -57,38 +52,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#" className="hover:text-white">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Community
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <Link href="#" className="hover:text-white">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Terms of Service
+                  FAQs
                 </Link>
               </li>
             </ul>
@@ -100,5 +64,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

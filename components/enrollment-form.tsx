@@ -94,7 +94,7 @@ export function EnrollmentForm({ courseId }: EnrollmentFormProps) {
                 <Button variant="outline">View Course Details</Button>
               </Link>
               <Link href="/courses">
-                <Button className="bg-purple-600 hover:bg-purple-700">Browse More Courses</Button>
+                <Button className="bg-red-600 hover:bg-red-700">Browse More Courses</Button>
               </Link>
             </div>
           </CardContent>
@@ -272,7 +272,7 @@ export function EnrollmentForm({ courseId }: EnrollmentFormProps) {
 
                 <Button
                   type="submit"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-lg py-3"
+                  className="w-full bg-red-600 hover:bg-red-700 text-lg py-3"
                   disabled={!formData.agreeTerms}
                 >
                   Submit Enrollment Request

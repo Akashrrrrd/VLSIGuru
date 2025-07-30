@@ -27,7 +27,7 @@ export default function ContactPage() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-purple-600" />
+                    <Mail className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-purple-600" />
+                    <Phone className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
@@ -57,7 +57,7 @@ export default function ContactPage() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-purple-600" />
+                    <MapPin className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Address</h3>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 <Input placeholder="Email" type="email" />
                 <Input placeholder="Subject" />
                 <Textarea placeholder="Your message" rows={6} />
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                <Button className="w-full bg-red-600 hover:bg-red-700">
                   Send Message
                 </Button>
               </CardContent>

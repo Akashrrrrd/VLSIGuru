@@ -3,7 +3,6 @@ export interface Course {
   title: string
   description: string
   category: string
-  price: number
   rating: number
   students: number
   discount?: number
@@ -18,11 +17,6 @@ export interface Course {
   duration: string
   weeks: number
   image: string
-  overview: {
-    welcome: string
-    description: string
-    objectives: string[]
-  }
   syllabus: {
     week: number
     title: string
@@ -40,24 +34,6 @@ export interface Course {
     question: string
     answer: string
   }[]
-  materials: {
-    type: string
-    title: string
-    description: string
-  }[]
-  certificate: {
-    title: string
-    description: string
-    features: string[]
-  }
-  videos: {
-    id: number
-    title: string
-    duration: string
-    description: string
-    url: string
-    isFree: boolean
-  }[]
 }
 
 export const coursesData: Course[] = [
@@ -67,7 +43,6 @@ export const coursesData: Course[] = [
     description:
       "The primary objective of the Design Verification Course is to equip engineers and VLSI professionals with the skills and methodologies necessary to validate the correctness, performance, and reliability of digital designs before fabrication. This course provides a comprehensive understanding of design verification concepts, methodologies, and practical skills required to verify digital designs effectively. The course focuses on industry-standard verification techniques, languages, and tools such as SystemVerilog, UVM (Universal Verification Methodology), and Assertion-Based Verification.",
     category: "VLSI Design",
-    price: 250,
     rating: 4.8,
     students: 1100,
     discount: 10,
@@ -83,23 +58,6 @@ export const coursesData: Course[] = [
     duration: "24 weeks",
     weeks: 24,
     image: "/course1.png",
-    overview: {
-      welcome: "Welcome to the Design Verification Course!",
-      description:
-        "The primary objective of the Design Verification Course is to equip engineers and VLSI professionals with the skills and methodologies necessary to validate the correctness, performance, and reliability of digital designs before fabrication. This course provides a comprehensive understanding of design verification concepts, methodologies, and practical skills required to verify digital designs effectively. The course focuses on industry-standard verification techniques, languages, and tools such as SystemVerilog, UVM (Universal Verification Methodology), and Assertion-Based Verification.",
-      objectives: [
-        "Develop high-quality SystemVerilog-based testbenches",
-        "Master SystemVerilog constructs for verification",
-        "Apply Universal Verification Methodology (UVM) for modular test environments",
-        "Perform Constrained Random Verification (CRV) for thorough testing",
-        "Utilize Assertion-Based Verification (ABV) to catch design errors early",
-        "Achieve high functional and code coverage for design completeness",
-        "Execute effective verification planning and management",
-        "Troubleshoot and debug simulation failures efficiently",
-        "Operate industry-standard verification tools",
-        "Be industry-ready for roles like Verification Engineer and Verification Specialist",
-      ],
-    },
     syllabus: [
       {
         week: 1,
@@ -118,6 +76,8 @@ export const coursesData: Course[] = [
           "Encoder, Decoder, Multiplexer, Demultiplexer, Code converters",
           "Sequential Circuits: Latches, Flip-Flops, FF Conversion",
           "Finite State Machine: Mealy/Moore machine, Sequence detector",
+          "RAM, ROM, FIFO – Synchronous and asynchronous, FIFO depth calculation",
+          "Setup and Hold time, Frequency divisions",
         ],
       },
       {
@@ -344,81 +304,13 @@ export const coursesData: Course[] = [
           "Yes this is offered in In-person offline sessions, Fully online (live or self-paced), and Hybrid (online + lab sessions) modes.",
       },
     ],
-    materials: [
-      {
-        type: "Video Lectures",
-        title: "Comprehensive Video Library",
-        description: "60+ hours of detailed video lectures covering all verification concepts",
-      },
-      {
-        type: "Lab Exercises",
-        title: "Hands-on Verification Labs",
-        description: "Practical exercises using industry-standard verification tools and methodologies",
-      },
-      {
-        type: "Reference Materials",
-        title: "Industry Documentation",
-        description: "Access to industry-standard verification guidelines and best practices",
-      },
-      {
-        type: "Project Templates",
-        title: "Verification Project Templates",
-        description: "Complete project templates for various verification scenarios",
-      },
-    ],
-    certificate: {
-      title: "Design Verification Professional Certificate",
-      description: "Demonstrates comprehensive expertise in design verification and industry-standard methodologies",
-      features: [
-        "Industry-recognized certification",
-        "Digital verification with unique ID",
-        "Shareable on LinkedIn and other platforms",
-        "Lifetime validity",
-        "Endorsed by industry professionals",
-      ],
-    },
-    videos: [
-      {
-        id: 1,
-        title: "Introduction to Design Verification",
-        duration: "22:30",
-        description: "Overview of design verification flow and industry applications",
-        url: "/placeholder-video.mp4",
-        isFree: true,
-      },
-      {
-        id: 2,
-        title: "SystemVerilog Fundamentals",
-        duration: "28:45",
-        description: "Deep dive into SystemVerilog language features for verification",
-        url: "/placeholder-video.mp4",
-        isFree: false,
-      },
-      {
-        id: 3,
-        title: "UVM Methodology Overview",
-        duration: "25:15",
-        description: "Introduction to Universal Verification Methodology",
-        url: "/placeholder-video.mp4",
-        isFree: false,
-      },
-      {
-        id: 4,
-        title: "Assertion-Based Verification",
-        duration: "35:20",
-        description: "Comprehensive coverage of SystemVerilog assertions",
-        url: "/placeholder-video.mp4",
-        isFree: false,
-      },
-    ],
   },
   {
     id: 2,
     title: "Design For Testability",
     description:
-      "Learn design for testability (DFT) techniques to ensure efficient testing of digital circuits and improve manufacturing yield.",
+      "Design For Testability is a specialization in the SOC design cycle, which facilitates design for detecting manufacturing defects. With the increase in size and complexity of chips, facilitated by the advancement of manufacturing technologies, Design for Testability has evolved as a specialization in itself over a period of time. In the design for Test Course the importance is given to cover the concepts, methodology thoroughly with the right emphasis on hands-on training, using Synopsys DFT Tools with at least 50% time allocated to lab Sessions.",
     category: "VLSI Design",
-    price: 199,
     rating: 4.6,
     students: 890,
     trainer: {
@@ -429,77 +321,215 @@ export const coursesData: Course[] = [
       specialization: "DFT, BIST, Scan Design, Test Pattern Generation",
       bio: "Dr. Anita is a renowned expert in DFT methodologies with extensive experience in test engineering for complex SoC designs.",
     },
-    duration: "8 weeks",
-    weeks: 8,
+    duration: "24 weeks",
+    weeks: 24,
     image: "/course2.png",
-    overview: {
-      welcome: "Welcome to Design For Testability Course!",
-      description:
-        "Master the design for testability techniques essential for modern VLSI circuits. Learn scan design, BIST implementation, and test pattern generation methodologies.",
-      objectives: [
-        "Understand DFT fundamentals and test principles",
-        "Master scan design and implementation",
-        "Learn BIST and test pattern generation",
-        "Implement comprehensive test strategies",
-      ],
-    },
     syllabus: [
       {
         week: 1,
-        title: "DFT Fundamentals",
+        title: "Review of Digital Electronics and Logic Design - Part 1",
         topics: [
-          "Test principles and fault models",
-          "Controllability and observability",
-          "Test economics and quality",
-          "DFT flow overview",
+          "Number systems, Number conversions, Binary arithmetic",
+          "Boolean algebra, Complements, Boolean expression",
+          "Logic Gates, K-Map, Boolean expression implementation",
         ],
       },
       {
         week: 2,
-        title: "Scan Design",
-        topics: ["Scan chain concepts", "Scan flip-flop design", "Scan insertion flow", "Scan compression"],
+        title: "Review of Digital Electronics and Logic Design - Part 2",
+        topics: [
+          "Combinational Circuits: Adders/Subtractors, Parallel adders",
+          "Encoder, Decoder, Multiplexer, Demultiplexer, Code converters",
+          "Sequential Circuits: Latches, Flip-Flops, FF Conversion",
+          "Finite State Machine: Mealy/Moore machine, Sequence detector",
+          "RAM, ROM, FIFO – Synchronous and asynchronous, FIFO depth calculation",
+          "Setup and Hold time, Frequency divisions",
+        ],
+      },
+      {
+        week: 3,
+        title: "System Design using Verilog HDL - Part 1",
+        topics: [
+          "Basic concepts: Lexical conventions, Operators, Data types",
+          "System Tasks, Compiler Directives, File input and output",
+          "Modules and Ports: Module definition, Port declaration",
+        ],
+      },
+      {
+        week: 4,
+        title: "System Design using Verilog HDL - Part 2",
+        topics: [
+          "Behavioral Modelling: Initial and always, blocking and non-blocking statements",
+          "Delay control, event control, conditional statements, loops",
+          "Modelling Styles: Gate Level, Data flow, Behavioral level, Structural level",
+        ],
+      },
+      {
+        week: 5,
+        title: "Essentials of Linux",
+        topics: [
+          "Introduction of Linux, Command line Operators",
+          "File Operations, Processes, Text Editors",
+          "Text Manipulating, Network Operations, Special Keystrokes",
+        ],
+      },
+      {
+        week: 6,
+        title: "Scripting",
+        topics: [
+          "Introduction to Perl/Tcl/Shell/Python",
+          "Interactive Mode Programming, Script Mode Programming",
+          "Data types, Lists, Arrays, Operators, condition statements",
+          "Subroutines and Modules, Reading and Writing files",
+        ],
+      },
+      {
+        week: 7,
+        title: "Introduction To DFT, DFT Basics",
+        topics: ["ASIC FLOW", "DFT Basics", "Chip Fabrication process", "ATE Basics"],
+      },
+      {
+        week: 8,
+        title: "Scan Insertion",
+        topics: [
+          "Scan Architecture overview",
+          "Scan design basics",
+          "Scan Golden Rules",
+          "Scan DRC Checks",
+          "Scan Insertion",
+          "Generate test protocol and understanding",
+          "Lock-Up Latches",
+        ],
+      },
+      {
+        week: 9,
+        title: "Scan Compression",
+        topics: ["Basics /Need for compression", "Compression Techniques", "On-Chip-Clocking", "At-Speed Testing"],
+      },
+      {
+        week: 10,
+        title: "Hierarchical Scan And Boundary Scan",
+        topics: ["Hierarchical Scan", "Bscan (Boundary Scan)", "jtag 1149.1"],
+      },
+      {
+        week: 11,
+        title: "Introduction To ATPG, ATPG Basics",
+        topics: ["ATPG Basics", "Faults Collapsing", "ATPG Algorithms"],
+      },
+      {
+        week: 12,
+        title: "Fault Models, Fault Classes",
+        topics: ["Fault Models", "ATPG DRC", "Fault Classes", "ATPG"],
+      },
+      {
+        week: 13,
+        title: "Pattern Generation and Simulations",
+        topics: ["Simulation basics", "ATPG Simulations", "Coverage Improvement"],
+      },
+      {
+        week: 14,
+        title: "At-Speed ATPG and Simulations",
+        topics: ["At-Speed ATPG", "LOC and LOS", "At-Speed Simulations"],
+      },
+      {
+        week: 15,
+        title: "Simulations and Debugging",
+        topics: ["Scan Simulations Debug", "Diagnosis Flow", "Fault Simulation"],
+      },
+      {
+        week: 16,
+        title: "BIST",
+        topics: ["BIST Architecture", "Memory BIST", "Logic BIST"],
+      },
+      {
+        week: 17,
+        title: "Project - Week 1",
+        topics: ["DFT implementation project setup", "Scan insertion practical", "Tool setup and environment"],
+      },
+      {
+        week: 18,
+        title: "Project - Week 2",
+        topics: ["ATPG pattern generation", "Coverage analysis", "Debug and optimization"],
+      },
+      {
+        week: 19,
+        title: "Project - Week 3",
+        topics: ["At-speed testing implementation", "BIST implementation", "Final project completion"],
+      },
+      {
+        week: 20,
+        title: "Project - Week 4",
+        topics: ["Project documentation", "Results analysis", "Presentation preparation"],
+      },
+      {
+        week: 21,
+        title: "Working in Live Project - Week 1",
+        topics: ["Real-world DFT projects", "Industry-standard flows", "Project planning and setup"],
+      },
+      {
+        week: 22,
+        title: "Working in Live Project - Week 2",
+        topics: [
+          "Implementation and debugging",
+          "Coverage analysis and optimization",
+          "Code review and best practices",
+        ],
+      },
+      {
+        week: 23,
+        title: "Working in Live Project - Week 3",
+        topics: ["Final project completion", "Documentation and presentation", "Project evaluation and feedback"],
+      },
+      {
+        week: 24,
+        title: "Interview / Soft Skills",
+        topics: [
+          "Technical interview preparation",
+          "Resume building and portfolio development",
+          "Soft skills and communication training",
+          "Mock interviews and feedback",
+        ],
       },
     ],
     schedule: {
-      duration: "8 weeks (16 sessions, 2 per week)",
+      duration: "24 weeks (48 sessions, 2 per week)",
       sessions: "Live sessions + practical labs",
       mode: "Hands-on DFT implementation with real designs",
       tools: ["Synopsys DFT Compiler", "Cadence Modus", "TetraMAX", "Test tools"],
       fee: 199,
-      breakdown: "DFT implementation projects, test pattern generation, and comprehensive testing methodologies",
+      breakdown:
+        "Weekly assignments and Module Assessments will be conducted. Assessments will be in the form of written test / Presentation / MCQ / Coding.",
     },
     faqs: [
       {
-        question: "What is Design for Testability?",
+        question: "Who should take this course?",
         answer:
-          "DFT is a design methodology that makes testing easier by adding testability features during the design phase.",
+          "This course is ideal for VLSI/ASIC/FPGA design engineers, Verification engineers transitioning into DFT roles, Electrical/Electronics engineering students, and Professionals preparing for roles in semiconductor test and product engineering.",
       },
-    ],
-    materials: [
       {
-        type: "DFT Tools",
-        title: "Industry DFT Tools",
-        description: "Access to industry-standard DFT and test generation tools",
+        question: "What are the prerequisites?",
+        answer:
+          "You should have basic knowledge of Digital Electronics, familiarity with Verilog/VHDL, and some exposure to ASIC design flow and timing concepts.",
       },
-    ],
-    certificate: {
-      title: "Design For Testability Expert Certificate",
-      description: "Validates expertise in DFT methodologies and test engineering",
-      features: [
-        "DFT methodology certification",
-        "Test engineering validation",
-        "Industry recognition",
-        "Professional credibility",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "DFT Introduction",
-        duration: "20:15",
-        description: "Overview of design for testability concepts",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Is the course theoretical or hands-on?",
+        answer:
+          "The course is a blend of theory and hands-on labs. You will use tools like DFTAdvisor, FastScan, or Tessent, insert scan chains, generate patterns, and simulate faults, and work on a DFT-enabled RTL-to-GDS flow.",
+      },
+      {
+        question: "What kind of projects will I work on?",
+        answer:
+          "Example projects include scan insertion and ATPG pattern generation for an RTL block, fault coverage analysis and improvement, BIST controller design and implementation, and boundary scan implementation for a SoC block.",
+      },
+      {
+        question: "Will I get a certificate?",
+        answer:
+          "Yes. Upon successful completion of assignments and final project, a Certificate of Completion will be issued.",
+      },
+      {
+        question: "Are there career opportunities in DFT?",
+        answer:
+          "Absolutely. DFT is a core specialization in the semiconductor industry. Roles include DFT Engineer, Test/Validation Engineer, Product Engineer, and SoC Integration Engineer (with DFT knowledge).",
       },
     ],
   },
@@ -509,7 +539,6 @@ export const coursesData: Course[] = [
     description:
       "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure. Students learn about power planning, clock tree synthesis, DRC/LVS verification, and sign-off methodologies. This course is designed for students with a basic understanding of digital electronics, Verilog and CMOS concepts for them to handle critical roles in semiconductor design teams.",
     category: "Physical Design",
-    price: 289,
     rating: 4.7,
     students: 456,
     trainer: {
@@ -520,26 +549,13 @@ export const coursesData: Course[] = [
       specialization: "Physical Design Flow, Timing Closure, Signal Integrity",
       bio: "Deepak is a physical design expert with extensive experience in advanced node implementations and has led multiple successful tape-outs.",
     },
-    duration: "26 weeks",
-    weeks: 26,
+    duration: "24 weeks",
+    weeks: 24,
     image: "/course3.png",
-    overview: {
-      welcome: "Welcome to Physical Design Course!",
-      description:
-        "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure. Students learn about power planning, clock tree synthesis, DRC/LVS verification, and sign-off methodologies. This course is designed for students with a basic understanding of digital electronics, Verilog and CMOS concepts for them to handle critical roles in semiconductor design teams.",
-      objectives: [
-        "Understand complete physical design flow from RTL to GDSII",
-        "Master floorplanning, placement, and routing techniques",
-        "Learn clock tree synthesis and timing closure methodologies",
-        "Implement power planning and analysis techniques",
-        "Perform physical verification and sign-off procedures",
-        "Handle advanced node design challenges and optimization",
-      ],
-    },
     syllabus: [
       {
         week: 1,
-        title: "Digital Logic & Verilog HDL - Week 1",
+        title: "Review of Digital Electronics and Logic Design - Week 1",
         topics: [
           "Digital logic fundamentals",
           "Boolean algebra and logic gates",
@@ -549,7 +565,7 @@ export const coursesData: Course[] = [
       },
       {
         week: 2,
-        title: "Digital Logic & Verilog HDL - Week 2",
+        title: "Review of Digital Electronics and Logic Design - Week 2",
         topics: [
           "Sequential circuit design",
           "Flip-flops and latches",
@@ -559,7 +575,7 @@ export const coursesData: Course[] = [
       },
       {
         week: 3,
-        title: "Digital Logic & Verilog HDL - Week 3",
+        title: "System Design using Verilog HDL - Week 1",
         topics: [
           "Advanced Verilog constructs",
           "Testbench development",
@@ -569,7 +585,7 @@ export const coursesData: Course[] = [
       },
       {
         week: 4,
-        title: "Digital Logic & Verilog HDL - Week 4",
+        title: "System Design using Verilog HDL - Week 2",
         topics: [
           "Memory design and modeling",
           "Clock domain crossing",
@@ -579,22 +595,21 @@ export const coursesData: Course[] = [
       },
       {
         week: 5,
-        title: "Digital Logic & Verilog HDL - Week 5",
+        title: "Essentials of Linux",
         topics: [
-          "Advanced sequential circuits",
-          "Pipeline design concepts",
-          "Timing analysis basics",
-          "Power considerations in RTL",
+          "Introduction of Linux, Command line Operators",
+          "File Operations, Processes, Text Editors",
+          "Text Manipulating, Network Operations, Special Keystrokes",
         ],
       },
       {
         week: 6,
-        title: "Digital Logic & Verilog HDL - Week 6",
+        title: "Scripting",
         topics: [
-          "System-level design",
-          "Interface protocols",
-          "Design verification basics",
-          "RTL to synthesis handoff",
+          "Introduction to Perl/Tcl/Shell/Python",
+          "Interactive Mode Programming, Script Mode Programming",
+          "Data types, Lists, Arrays, Operators, condition statements",
+          "Subroutines and Modules, Reading and Writing files",
         ],
       },
       {
@@ -694,96 +709,76 @@ export const coursesData: Course[] = [
       },
       {
         week: 17,
-        title: "Optimization Techniques",
+        title: "STA and Sign-off - Week 1",
         topics: [
-          "Timing optimization methods",
-          "Power optimization strategies",
-          "Area optimization techniques",
-          "Multi-objective optimization",
+          "Advanced timing analysis",
+          "Multi-corner multi-mode analysis",
+          "Timing optimization techniques",
+          "Sign-off timing closure",
         ],
       },
       {
         week: 18,
-        title: "Advanced Physical Design Topics",
+        title: "STA and Sign-off - Week 2",
         topics: [
-          "Advanced node challenges",
-          "FinFET design considerations",
-          "Double patterning effects",
-          "Variability and yield",
+          "Power analysis and optimization",
+          "Signal integrity analysis",
+          "Final verification and sign-off",
+          "Tape-out preparation",
         ],
       },
       {
         week: 19,
-        title: "Lab/Project Work - Week 1",
+        title: "STA and Sign-off - Week 3",
         topics: [
-          "Floorplanning and power planning lab",
-          "Tool setup and environment",
-          "Design database preparation",
-          "Initial floorplan creation",
+          "Advanced node challenges",
+          "Variability and yield optimization",
+          "Manufacturing considerations",
+          "Final sign-off procedures",
         ],
       },
       {
         week: 20,
-        title: "Lab/Project Work - Week 2",
+        title: "STA and Sign-off - Week 4",
         topics: [
-          "Placement and CTS implementation",
-          "Standard cell placement",
-          "Clock tree synthesis",
-          "Timing analysis",
+          "Complete sign-off flow",
+          "Final verification checks",
+          "GDSII generation and validation",
+          "Manufacturing handoff procedures",
         ],
       },
       {
         week: 21,
-        title: "Lab/Project Work - Week 3",
+        title: "Working in Live Project - Week 1",
         topics: [
-          "Routing and optimization",
-          "Global and detailed routing",
-          "Design rule fixing",
-          "Performance optimization",
+          "Real-world physical design projects",
+          "Complete backend flow execution",
+          "Project planning and setup",
+          "Tool setup and environment",
         ],
       },
       {
         week: 22,
-        title: "Lab/Project Work - Week 4",
+        title: "Working in Live Project - Week 2",
         topics: [
-          "DRC/LVS verification",
-          "Physical verification flow",
-          "Error analysis and fixing",
-          "Sign-off preparation",
+          "Implementation and debugging",
+          "Performance optimization",
+          "Coverage analysis and optimization",
+          "Code review and best practices",
         ],
       },
       {
         week: 23,
-        title: "Lab/Project Work - Week 5",
+        title: "Working in Live Project - Week 3",
         topics: [
-          "Final project: Block-level implementation",
-          "Complete backend flow execution",
-          "Performance analysis",
-          "Documentation",
+          "Final project completion",
+          "Documentation and presentation",
+          "Project evaluation and feedback",
+          "Industry best practices",
         ],
       },
       {
         week: 24,
-        title: "Lab/Project Work - Week 6",
-        topics: [
-          "Mini SoC physical implementation",
-          "Integration and verification",
-          "Final optimization",
-          "Project presentation",
-        ],
-      },
-      {
-        week: 25,
-        title: "Lab/Project Work - Week 7",
-        topics: [
-          "Project completion and review",
-          "Best practices implementation",
-          "Industry case studies",
-          "Final evaluation",
-        ],
-      },
-      {
-        week: 26,
         title: "Interview / Soft Skills",
         topics: [
           "Technical interview preparation",
@@ -794,13 +789,13 @@ export const coursesData: Course[] = [
       },
     ],
     schedule: {
-      duration: "26 weeks (52 sessions, 2 per week)",
+      duration: "24 weeks (48 sessions, 2 per week)",
       sessions: "Live sessions + extensive lab work + project implementation",
       mode: "Comprehensive hands-on learning with real physical design projects",
       tools: ["Cadence Innovus", "Synopsys IC Compiler", "Calibre", "PrimeTime", "Physical verification tools"],
       fee: 289,
       breakdown:
-        "4-stage learning approach: Digital Logic & Verilog (6 weeks), Physical Design Theory (12 weeks), Lab/Project Work (7 weeks), Interview Preparation (1 week)",
+        "8-stage learning approach: Digital Logic & Verilog (4 weeks), Linux & Scripting (2 weeks), Physical Design Theory (10 weeks), STA and Sign-off (4 weeks), Live Project Work (3 weeks), Interview Preparation (1 week)",
     },
     faqs: [
       {
@@ -829,73 +824,13 @@ export const coursesData: Course[] = [
           "Physical Design Engineer, Backend Engineer, CAD Engineer, Timing Analysis Engineer, and Physical Verification Engineer roles in semiconductor companies.",
       },
     ],
-    materials: [
-      {
-        type: "EDA Tools",
-        title: "Physical Design Tools",
-        description: "Access to industry-standard physical design and verification tools",
-      },
-      {
-        type: "Technology Files",
-        title: "Advanced Node PDKs",
-        description: "Process design kits for advanced technology nodes",
-      },
-      {
-        type: "Reference Flows",
-        title: "Industry Design Flows",
-        description: "Complete reference flows and implementation scripts",
-      },
-      {
-        type: "Lab Exercises",
-        title: "Hands-on Projects",
-        description: "Comprehensive lab exercises covering the complete physical design flow",
-      },
-    ],
-    certificate: {
-      title: "Physical Design and Layout Expert Certificate",
-      description: "Validates expertise in complete physical design and backend implementation",
-      features: [
-        "Complete backend flow certification",
-        "Physical design expertise validation",
-        "Tool proficiency recognition",
-        "Industry implementation skills",
-        "Project-based learning validation",
-      ],
-    },
-    videos: [
-      {
-        id: 1,
-        title: "Physical Design Flow Introduction",
-        duration: "28:45",
-        description: "Overview of complete physical design flow and challenges",
-        url: "/placeholder-video.mp4",
-        isFree: true,
-      },
-      {
-        id: 2,
-        title: "Floorplanning and Power Planning",
-        duration: "35:20",
-        description: "Comprehensive coverage of floorplanning and power planning",
-        url: "/placeholder-video.mp4",
-        isFree: false,
-      },
-      {
-        id: 3,
-        title: "Placement and Routing Techniques",
-        duration: "40:15",
-        description: "Advanced placement and routing algorithms and optimization",
-        url: "/placeholder-video.mp4",
-        isFree: false,
-      },
-    ],
   },
   {
     id: 4,
     title: "FPGA Based System Design",
     description:
-      "Master FPGA design methodologies, HDL programming, and implementation techniques for reconfigurable computing systems.",
+      "The FPGA Based System Design course aims to equip students with a solid foundation in designing and implementing digital systems using Field Programmable Gate Arrays (FPGAs). The course focuses on teaching hardware description languages like Verilog or VHDL for modeling and simulating digital logic, along with practical exposure to FPGA toolchains for synthesis, place-and-route, and implementation. Candidates will learn to build system-level designs by integrating IP cores, soft-core processors, and custom hardware accelerators. Emphasis is placed on hands-on development using industry-standard FPGA platforms, enabling learners to prototype embedded systems that combine both hardware and software components.",
     category: "FPGA",
-    price: 299,
     rating: 4.8,
     students: 445,
     trainer: {
@@ -909,69 +844,162 @@ export const coursesData: Course[] = [
     duration: "12 weeks",
     weeks: 12,
     image: "/course4.png",
-    overview: {
-      welcome: "Welcome to FPGA Based System Design Course!",
-      description:
-        "Master FPGA design from fundamentals to advanced implementation techniques. Learn HDL programming, synthesis, timing closure, and system-level design for reconfigurable computing applications.",
-      objectives: [
-        "Understand FPGA architecture and capabilities",
-        "Master HDL programming for FPGAs",
-        "Learn synthesis and implementation flows",
-        "Develop high-performance FPGA systems",
-      ],
-    },
     syllabus: [
       {
         week: 1,
-        title: "FPGA Architecture Fundamentals",
+        title: "Review of Digital Electronics and Logic Design - Part 1",
         topics: [
-          "FPGA vs ASIC comparison",
-          "FPGA internal architecture",
-          "CLBs, LUTs, and routing",
-          "Memory and DSP blocks",
+          "Number systems, Number conversions, Binary arithmetic",
+          "Boolean algebra, Complements, Boolean expression",
+          "Logic Gates, K-Map, Boolean expression implementation",
+        ],
+      },
+      {
+        week: 2,
+        title: "Review of Digital Electronics and Logic Design - Part 2",
+        topics: [
+          "Combinational Circuits: Adders/Subtractors, Parallel adders",
+          "Encoder, Decoder, Multiplexer, Demultiplexer, Code converters",
+          "Sequential Circuits: Latches, Flip-Flops, FF Conversion",
+          "Finite State Machine: Mealy/Moore machine, Sequence detector",
+        ],
+      },
+      {
+        week: 3,
+        title: "System Design using Verilog HDL - Part 1",
+        topics: [
+          "Basic concepts: Lexical conventions, Operators, Data types",
+          "System Tasks, Compiler Directives, File input and output",
+          "Modules and Ports: Module definition, Port declaration",
+        ],
+      },
+      {
+        week: 4,
+        title: "System Design using Verilog HDL - Part 2",
+        topics: [
+          "Behavioral Modelling: Initial and always, blocking and non-blocking statements",
+          "Delay control, event control, conditional statements, loops",
+          "Modelling Styles: Gate Level, Data flow, Behavioral level, Structural level",
+        ],
+      },
+      {
+        week: 5,
+        title: "FPGA Architecture & Tools",
+        topics: [
+          "Overview of FPGA & CPLD",
+          "Architecture of popular FPGAs (Xilinx/Intel Lattice)",
+          "CLBs, LUTs, FFs, DSP Blocks, BRAM, IOs",
+          "Introduction to Vivado / Quartus Prime / Diamond",
+        ],
+      },
+      {
+        week: 6,
+        title: "Simulation & Synthesis",
+        topics: [
+          "Functional Simulation (ModelSim/XSIM)",
+          "Timing Simulation",
+          "Synthesis Flow & Constraints",
+          "Netlist, RTL Schematic, Technology Mapping",
+        ],
+      },
+      {
+        week: 7,
+        title: "FPGA Implementation Flow",
+        topics: [
+          "Floorplanning, Timing Constraints (XDC)",
+          "Clocking & Reset Strategies",
+          "Static Timing Analysis",
+          "Bitstream Generation",
+          "On-chip Debugging (ILA/Chipscope)",
+        ],
+      },
+      {
+        week: 8,
+        title: "Protocol Implementation on FPGA",
+        topics: ["AXI/AHB Bus Overview", "Interfacing with ADC/DAC and Sensors"],
+      },
+      {
+        week: 9,
+        title: "Embedded System on FPGA",
+        topics: ["MicroBlaze / Nios II Processor Integration"],
+      },
+      {
+        week: 10,
+        title: "Real-Time Projects (Hands-On) - Week 1",
+        topics: ["Project 1: Traffic Light Controller (FSM)", "Project 2: Audio/Video Processing (Basic)"],
+      },
+      {
+        week: 11,
+        title: "Real-Time Projects (Hands-On) - Week 2",
+        topics: ["Project 3: Sensor Interfacing (e.g., DHT11 or MPU6050)", "Project 4: AXI-based Custom IP in Vivado"],
+      },
+      {
+        week: 12,
+        title: "Interview / Soft Skills",
+        topics: [
+          "Technical interview preparation",
+          "Resume building and portfolio development",
+          "Soft skills and communication training",
+          "Mock interviews and feedback",
         ],
       },
     ],
     schedule: {
       duration: "12 weeks (24 sessions, 2 per week)",
-      sessions: "Hands-on FPGA development + design projects",
-      mode: "Project-based learning with real FPGA boards",
+      sessions: "Project-based learning with real FPGA boards",
+      mode: "Hands-on FPGA development + design projects",
       tools: ["Xilinx Vivado", "Intel Quartus", "ModelSim", "FPGA development boards"],
       fee: 299,
       breakdown: "FPGA design projects, implementation exercises, and comprehensive system development",
     },
     faqs: [
       {
-        question: "What is FPGA Based System Design?",
+        question: "What is the objective of this course?",
         answer:
-          "FPGA-based system design involves creating digital systems using Field-Programmable Gate Arrays, which are reconfigurable hardware platforms.",
+          "The course aims to provide hands-on, industry-relevant skills in FPGA System Design, focusing on RTL coding, simulation, synthesis, and real-time project implementation using Verilog and popular FPGA toolchains like Xilinx Vivado or Intel Quartus.",
       },
-    ],
-    materials: [
       {
-        type: "FPGA Boards",
-        title: "Development Hardware",
-        description: "Access to FPGA development boards and evaluation kits",
+        question: "Who can enroll in this course?",
+        answer:
+          "B.E./B.Tech/M.E./M.Tech students from ECE, EEE, Instrumentation, Working professionals looking to switch to FPGA/VLSI domain, Faculty members upskilling in Digital/Embedded domains, and Fresh graduates aiming for core hardware jobs.",
       },
-    ],
-    certificate: {
-      title: "FPGA System Design Expert Certificate",
-      description: "Validates expertise in FPGA design and reconfigurable computing",
-      features: [
-        "FPGA design methodology certification",
-        "Implementation expertise validation",
-        "Tool proficiency recognition",
-        "System design capabilities",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "FPGA Architecture Overview",
-        duration: "24:15",
-        description: "Understanding FPGA internal architecture and capabilities",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Do I need prior knowledge of Verilog or FPGA?",
+        answer:
+          "No prior FPGA experience is required. Basic digital electronics knowledge (gates, flip-flops, counters, FSMs) is recommended. The course starts from fundamentals and moves to advanced topics.",
+      },
+      {
+        question: "What tools and software will I learn?",
+        answer:
+          "Xilinx Vivado or Intel Quartus Prime (depending on FPGA board), ModelSim/QuestaSim for simulation, Git/GitHub (basic version control), and optionally: Vivado IP Integrator, MicroBlaze/Nios II.",
+      },
+      {
+        question: "Will I get hands-on experience?",
+        answer:
+          "Yes, this is a project-driven course. Students will implement multiple real-time digital systems and communication protocols on FPGA, along with testbenches and simulations.",
+      },
+      {
+        question: "Is hardware mandatory for this course?",
+        answer: "Yes.",
+      },
+      {
+        question: "What are the key job roles after this course?",
+        answer: "FPGA Design Engineer, RTL Design Engineer, Embedded FPGA Developer.",
+      },
+      {
+        question: "Will I get a certificate?",
+        answer:
+          "Yes, participants will receive a course completion certificate. For those completing all project submissions, a Project Excellence Certificate will also be awarded.",
+      },
+      {
+        question: "Will this help in VLSI/FPGA job interviews?",
+        answer:
+          "Absolutely. The course includes interview preparation, resume review, and mock interviews focused on RTL, FPGA, and system design topics commonly asked in companies like Intel, Xilinx, AMD, Wipro, Tata Elxsi, etc.",
+      },
+      {
+        question: "Is placement assistance provided?",
+        answer:
+          "Yes, job-oriented batches may include: Resume forwarding to hiring partners, Mock interviews, and Job alerts in FPGA/VLSI domain. (Note: Final selection depends on individual performance and company criteria.)",
       },
     ],
   },
@@ -980,7 +1008,6 @@ export const coursesData: Course[] = [
     title: "Gate Level Simulation",
     description: "Master gate-level simulation techniques for digital circuit verification and timing analysis.",
     category: "VLSI Design",
-    price: 199,
     rating: 4.8,
     students: 1250,
     trainer: {
@@ -994,17 +1021,6 @@ export const coursesData: Course[] = [
     duration: "8 weeks",
     weeks: 8,
     image: "/course5.png",
-    overview: {
-      welcome: "Welcome to Gate Level Simulation Course!",
-      description:
-        "This comprehensive course covers gate-level simulation techniques essential for digital circuit verification. You'll learn industry-standard methodologies for timing analysis, power estimation, and functional verification at the gate level.",
-      objectives: [
-        "Understand gate-level netlist structure and simulation",
-        "Master timing analysis and delay calculation",
-        "Learn power estimation techniques",
-        "Implement comprehensive test strategies",
-      ],
-    },
     syllabus: [
       {
         week: 1,
@@ -1015,6 +1031,41 @@ export const coursesData: Course[] = [
           "Simulation vs synthesis flow",
           "Industry tools overview",
         ],
+      },
+      {
+        week: 2,
+        title: "Timing Analysis Basics",
+        topics: ["Setup and hold timing", "Delay calculation", "Critical path analysis", "Timing constraints"],
+      },
+      {
+        week: 3,
+        title: "Power Estimation Techniques",
+        topics: ["Static power analysis", "Dynamic power calculation", "Power optimization", "Low power design"],
+      },
+      {
+        week: 4,
+        title: "Functional Verification",
+        topics: ["Test pattern generation", "Coverage analysis", "Fault simulation", "Debug techniques"],
+      },
+      {
+        week: 5,
+        title: "Advanced Simulation Topics",
+        topics: ["Multi-corner analysis", "Process variation", "Temperature effects", "Voltage scaling"],
+      },
+      {
+        week: 6,
+        title: "Industry Tools and Flows",
+        topics: ["Commercial simulators", "Tool setup", "Script automation", "Result analysis"],
+      },
+      {
+        week: 7,
+        title: "Project Work",
+        topics: ["Hands-on simulation project", "Real design analysis", "Report generation", "Optimization"],
+      },
+      {
+        week: 8,
+        title: "Final Assessment",
+        topics: ["Project presentation", "Technical review", "Industry best practices", "Career guidance"],
       },
     ],
     schedule: {
@@ -1031,41 +1082,22 @@ export const coursesData: Course[] = [
         answer:
           "You'll master gate-level simulation techniques, timing analysis, power estimation, and industry-standard verification methodologies used in modern semiconductor design.",
       },
-    ],
-    materials: [
       {
-        type: "Video Lectures",
-        title: "Comprehensive Video Library",
-        description: "40+ hours of detailed video lectures covering all simulation concepts",
+        question: "What are the prerequisites?",
+        answer: "Basic knowledge of digital electronics, Verilog/VHDL, and computer architecture.",
       },
-    ],
-    certificate: {
-      title: "Gate Level Simulation Specialist Certificate",
-      description: "Demonstrates expertise in gate-level simulation and timing analysis",
-      features: [
-        "Industry-recognized certification",
-        "Digital verification with unique ID",
-        "Shareable on professional platforms",
-        "Lifetime validity",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "Introduction to Gate Level Simulation",
-        duration: "15:30",
-        description: "Overview of gate-level simulation concepts and industry applications",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Is this course hands-on?",
+        answer: "Yes, the course includes extensive hands-on exercises using industry-standard simulation tools.",
       },
     ],
   },
   {
     id: 6,
-    title: "IP Verification (APB, AHB, AXI)",
-    description: "Comprehensive verification of AMBA protocol IPs including APB, AHB, and AXI interfaces.",
+    title: "AMBA IP Verification (APB, AHB, AXI) ",
+    description:
+      "The primary objective of AMBA protocol verification using SystemVerilog and UVM is to ensure that the design under test (DUT) strictly adheres to the protocol specifications (e.g., AXI, AHB, APB) in both functional behavior and timing. A UVM-based testbench is developed to generate legal and corner-case stimulus, using sequences to simulate various bus transactions while drivers, monitors, and scoreboards check correctness and data integrity. SystemVerilog Assertions (SVA) are integrated to enforce protocol rules such as proper handshakes, signal stability, ordering, and exclusive access conditions, catching violations early during simulation.",
     category: "Verification",
-    price: 249,
     rating: 4.9,
     students: 980,
     trainer: {
@@ -1076,81 +1108,108 @@ export const coursesData: Course[] = [
       specialization: "AMBA Protocols, UVM, SystemVerilog",
       bio: "Priya is a verification expert specializing in AMBA protocol verification with extensive experience in automotive and mobile SoC verification.",
     },
-    duration: "10 weeks",
-    weeks: 10,
+    duration: "4 weeks",
+    weeks: 4,
     image: "/course6.png",
-    overview: {
-      welcome: "Welcome to IP Verification Course!",
-      description:
-        "Master the verification of AMBA protocol IPs including APB, AHB, and AXI. Learn industry-standard verification methodologies using UVM and SystemVerilog.",
-      objectives: [
-        "Understand AMBA protocol specifications",
-        "Develop comprehensive verification environments",
-        "Master UVM methodology for IP verification",
-        "Implement coverage-driven verification",
-      ],
-    },
     syllabus: [
       {
         week: 1,
-        title: "AMBA Protocol Overview",
+        title: "Introduction to AMBA Protocols",
         topics: [
-          "AMBA specification introduction",
-          "APB protocol fundamentals",
-          "AHB protocol basics",
-          "AXI protocol overview",
+          "Overview of AMBA and the ARM ecosystem",
+          "Importance of protocols in SoC design",
+          "Evolution of AMBA: APB, AHB, AXI, and ACE",
+          "Use-cases and real-world applications",
+        ],
+      },
+      {
+        week: 2,
+        title: "Deep Dive into AMBA APB Protocol",
+        topics: [
+          "APB signal description and timing diagram",
+          "Read/write transaction flow",
+          "APB use in low-bandwidth peripherals",
+          "Modeling APB Master and Slave behavior",
+        ],
+      },
+      {
+        week: 3,
+        title: "AMBA AHB Protocol",
+        topics: [
+          "AHB architecture and features",
+          "Transaction types: single, burst, split, retry",
+          "Bus arbitration and pipelining",
+          "Designing and verifying AHB master/slave interfaces",
+        ],
+      },
+      {
+        week: 4,
+        title: "AMBA AXI Protocol",
+        topics: [
+          "AXI features: multiple outstanding transactions, QoS, burst types",
+          "AXI signal groups: Read/Write address, data, response channels",
+          "AXI4 vs AXI4-Lite",
+          "Transaction flow and timing diagrams",
         ],
       },
     ],
     schedule: {
-      duration: "10 weeks (20 sessions, 2 per week)",
+      duration: "4 weeks (8 sessions, 2 per week)",
       sessions: "Live sessions + practical labs",
       mode: "Interactive online sessions with real-time protocol analysis",
       tools: ["Questa Sim", "UVM Library", "SystemVerilog", "Protocol Analyzers"],
       fee: 249,
-      breakdown: "Protocol-specific assignments, verification environment development, and comprehensive testing",
+      breakdown: "Weekly assignments and Assessments will be conducted.",
     },
     faqs: [
       {
-        question: "What protocols will I learn to verify?",
+        question: "Who is this course intended for?",
         answer:
-          "You'll master verification of APB, AHB, and AXI protocols, covering all aspects from basic functionality to advanced performance verification.",
+          "This course is designed for VLSI design and verification engineers, Students pursuing a career in semiconductor or embedded systems, Professionals looking to upskill in protocol-based verification using UVM, and Anyone with a background in digital design and basic Verilog/SystemVerilog.",
       },
-    ],
-    materials: [
       {
-        type: "Protocol Specifications",
-        title: "AMBA Protocol Documentation",
-        description: "Complete ARM AMBA specification documents and reference materials",
+        question: "What are the prerequisites for this course?",
+        answer:
+          "Basic knowledge of Digital Electronics and Computer Architecture, Familiarity with Verilog/SystemVerilog, and Understanding of simulation tools (like ModelSim/VCS/Questa) is helpful but not mandatory.",
       },
-    ],
-    certificate: {
-      title: "AMBA Protocol Verification Expert Certificate",
-      description: "Validates expertise in APB, AHB, and AXI protocol verification",
-      features: [
-        "Protocol-specific certification",
-        "Industry recognition",
-        "UVM methodology validation",
-        "Professional credibility",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "AMBA Protocol Introduction",
-        duration: "20:15",
-        description: "Overview of AMBA protocol family and verification challenges",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "What will I learn by the end of the course?",
+        answer:
+          "You will be able to understand and verify AMBA protocols (APB, AHB, AXI), build a complete UVM-based testbench, write SystemVerilog test cases and sequences for AMBA-based DUTs, analyze functional coverage, assertions, and debug failures, and apply reusable verification methodologies in real-world SoC projects.",
+      },
+      {
+        question: "Which AMBA protocols are covered in this course?",
+        answer:
+          "APB (Advanced Peripheral Bus), AHB (Advanced High-performance Bus), and AXI (Advanced eXtensible Interface) – including AXI4 and AXI-Lite.",
+      },
+      {
+        question: "Will there be hands-on labs or projects?",
+        answer:
+          "Yes. The course includes: Lab sessions using SystemVerilog and UVM, Step-by-step projects for verifying APB, AHB, and AXI, and Debugging and simulation exercises using industry-standard tools.",
+      },
+      {
+        question: "What tools and simulators will be used?",
+        answer:
+          "SystemVerilog simulators such as Mentor Questa, Synopsys VCS, or Cadence Xcelium. Open-source tools may also be introduced for practice (e.g., edaplayground).",
+      },
+      {
+        question: "Will I get a certificate?",
+        answer:
+          "Yes, a certificate of completion will be provided upon: Successful completion of assignments/projects and Attendance and/or performance-based criteria.",
+      },
+      {
+        question: "What kind of support is provided during the course?",
+        answer:
+          "Depending on the course provider, support may include: Instructor Q&A sessions, Forums or chat groups, and 1:1 mentorship or project reviews.",
       },
     ],
   },
   {
     id: 7,
-    title: "On-Chip AMBA BUS AHB2AXI Bridge Verification",
-    description: "Specialized verification of AHB to AXI bridge designs for on-chip interconnect systems.",
+    title: "Verification of AMBA Bridge AHB2AXI",
+    description:
+      "This course is designed to equip learners with the practical and theoretical skills needed to verify an AMBA AHB to AXI Bridge, a critical component in modern SoC interconnect systems. The bridge plays a vital role in enabling communication between modules using different protocols—AHB (Advanced High-performance Bus) and AXI (Advanced eXtensible Interface). The course takes a hands-on approach, guiding students through the design behavior of the bridge and building a SystemVerilog UVM-based verification environment to verify its correctness and compliance. The focus is on functional verification, including transaction modeling, protocol conversion validation, coverage closure, and debugging.",
     category: "Verification",
-    price: 299,
     rating: 4.7,
     students: 756,
     trainer: {
@@ -1161,81 +1220,103 @@ export const coursesData: Course[] = [
       specialization: "Bridge Verification, Interconnect Design, System-level Verification",
       bio: "Vikram specializes in complex SoC verification with focus on interconnect and bridge verification for high-performance computing systems.",
     },
-    duration: "12 weeks",
-    weeks: 12,
+    duration: "4 weeks",
+    weeks: 4,
     image: "/course7.png",
-    overview: {
-      welcome: "Welcome to AHB2AXI Bridge Verification Course!",
-      description:
-        "Master the verification of AHB to AXI bridge designs, essential for modern SoC interconnect systems. Learn advanced verification techniques for protocol conversion and data integrity.",
-      objectives: [
-        "Understand bridge architecture and functionality",
-        "Develop comprehensive bridge verification environments",
-        "Master protocol conversion verification",
-        "Implement system-level verification strategies",
-      ],
-    },
     syllabus: [
       {
         week: 1,
-        title: "Bridge Architecture Fundamentals",
+        title: "Introduction to AMBA Protocols",
         topics: [
-          "AHB2AXI bridge overview",
-          "Protocol conversion concepts",
-          "Bridge design requirements",
-          "Performance considerations",
+          "Overview of AHB and AXI",
+          "Signal-level and transaction-level comparison",
+          "Role of AHB-AXI Bridge in SoC",
+        ],
+      },
+      {
+        week: 2,
+        title: "Bridge Architecture Understanding",
+        topics: [
+          "Read/Write operation flow through the bridge",
+          "Handling protocol differences (e.g., burst types, handshakes, pipelining)",
+          "Timing and latency considerations",
+        ],
+      },
+      {
+        week: 3,
+        title: "SystemVerilog for Verification",
+        topics: ["Classes, randomization, interfaces, and assertions", "Writing testbenches for bridge DUTs"],
+      },
+      {
+        week: 4,
+        title: "UVM-Based Verification Environment",
+        topics: [
+          "UVM component hierarchy: agents, sequences, monitors, scoreboard",
+          "Writing reusable and modular code for AHB master and AXI slave agents",
+          "Integrating UVM components to test the bridge",
         ],
       },
     ],
     schedule: {
-      duration: "12 weeks (24 sessions, 2 per week)",
+      duration: "4 weeks (8 sessions, 2 per week)",
       sessions: "Live sessions + intensive lab work",
       mode: "Project-based learning with real bridge designs",
       tools: ["Questa Sim", "Synopsys VCS", "Formal verification tools", "Custom bridge models"],
       fee: 299,
-      breakdown: "Bridge-specific verification projects, performance analysis, and comprehensive system testing",
+      breakdown: "Weekly assignments and Assessments will be conducted.",
     },
     faqs: [
       {
-        question: "What makes bridge verification unique?",
+        question: "What is the AHB to AXI bridge?",
         answer:
-          "Bridge verification requires understanding both protocols, protocol conversion mechanisms, data integrity across domains, and system-level integration challenges.",
+          "It is a hardware module that enables communication between IP blocks using the AHB protocol and those using the AXI protocol, ensuring compatibility and data transfer across different AMBA interfaces.",
       },
-    ],
-    materials: [
       {
-        type: "Bridge Specifications",
-        title: "AHB2AXI Bridge Documentation",
-        description: "Detailed bridge specifications and implementation guidelines",
+        question: "What makes this course different?",
+        answer:
+          "This course specifically focuses on protocol bridge verification, a real-world scenario in SoC design, using SystemVerilog and UVM, covering both technical depth and practical implementation.",
       },
-    ],
-    certificate: {
-      title: "Bridge Verification Specialist Certificate",
-      description: "Validates expertise in AHB2AXI bridge verification and system integration",
-      features: [
-        "Specialized bridge verification certification",
-        "System-level verification validation",
-        "Industry-recognized expertise",
-        "Advanced verification methodology",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "AHB2AXI Bridge Overview",
-        duration: "18:45",
-        description: "Introduction to bridge architecture and verification challenges",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Is this course suitable for beginners?",
+        answer:
+          "Yes, if you already have: Basic knowledge of digital design and Some familiarity with Verilog/SystemVerilog and UVM.",
+      },
+      {
+        question: "Will I work on real hardware or IP?",
+        answer:
+          "No physical hardware is required. You'll verify a synthesizable RTL model of a bridge. The course focuses on simulation and testbench development, which reflects standard industry practice.",
+      },
+      {
+        question: "Will I get hands-on experience?",
+        answer:
+          "Yes, the course includes: Labs after each module, Full project from scratch, and Debugging tasks and coverage analysis.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes, upon successful completion of the course and final project submission, you'll receive a certificate of completion.",
+      },
+      {
+        question: "Can I reuse the UVM components I build?",
+        answer:
+          "Yes, the UVM agents for AHB and AXI are developed as modular and reusable components, suitable for use in future IP or SoC-level verification environments.",
+      },
+      {
+        question: "Does the course cover assertions?",
+        answer:
+          "Yes. You'll learn how to write SystemVerilog assertions for protocol-level checks, such as handshake timing, burst length correctness, and data/response verification.",
+      },
+      {
+        question: "What kind of support is provided?",
+        answer: "Instructor-led Q&A sessions, Debug help during labs/projects, and Community/forum support.",
       },
     ],
   },
   {
     id: 8,
-    title: "On-Chip AMBA BUS AXI2AHB Bridge Verification",
+    title: "Verification of AMBA Bridge AXI2AHB",
     description: "Specialized verification of AXI to AHB bridge designs for on-chip interconnect systems.",
     category: "Verification",
-    price: 289,
     rating: 4.6,
     students: 634,
     trainer: {
@@ -1249,17 +1330,6 @@ export const coursesData: Course[] = [
     duration: "11 weeks",
     weeks: 11,
     image: "/course8.png",
-    overview: {
-      welcome: "Welcome to AXI2AHB Bridge Verification Course!",
-      description:
-        "Master the verification of AXI to AHB bridge designs for modern SoC interconnect systems. Learn advanced verification techniques for reverse protocol conversion and system integration.",
-      objectives: [
-        "Understand AXI2AHB bridge architecture",
-        "Master reverse protocol conversion verification",
-        "Implement comprehensive test scenarios",
-        "Learn system-level integration testing",
-      ],
-    },
     syllabus: [
       {
         week: 1,
@@ -1270,6 +1340,56 @@ export const coursesData: Course[] = [
           "Bridge design challenges",
           "Performance considerations",
         ],
+      },
+      {
+        week: 2,
+        title: "Protocol Analysis",
+        topics: ["AXI to AHB mapping", "Signal conversion", "Timing requirements", "Error handling"],
+      },
+      {
+        week: 3,
+        title: "Verification Environment Setup",
+        topics: ["UVM testbench architecture", "Agent development", "Interface design", "Test planning"],
+      },
+      {
+        week: 4,
+        title: "Test Development",
+        topics: ["Basic functionality tests", "Corner case scenarios", "Error injection", "Performance tests"],
+      },
+      {
+        week: 5,
+        title: "Coverage and Assertions",
+        topics: ["Functional coverage", "Code coverage", "Assertion development", "Coverage analysis"],
+      },
+      {
+        week: 6,
+        title: "Debug and Analysis",
+        topics: ["Waveform analysis", "Debug techniques", "Issue resolution", "Performance tuning"],
+      },
+      {
+        week: 7,
+        title: "Advanced Topics",
+        topics: ["Multi-master scenarios", "Outstanding transactions", "QoS handling", "Power considerations"],
+      },
+      {
+        week: 8,
+        title: "Integration Testing",
+        topics: ["System-level testing", "Integration scenarios", "Regression testing", "Automation"],
+      },
+      {
+        week: 9,
+        title: "Project Work - Phase 1",
+        topics: ["Project setup", "Initial implementation", "Basic testing", "Review and feedback"],
+      },
+      {
+        week: 10,
+        title: "Project Work - Phase 2",
+        topics: ["Advanced testing", "Coverage closure", "Debug and optimization", "Documentation"],
+      },
+      {
+        week: 11,
+        title: "Final Assessment",
+        topics: ["Project presentation", "Technical review", "Best practices", "Career guidance"],
       },
     ],
     schedule: {
@@ -1286,41 +1406,21 @@ export const coursesData: Course[] = [
         answer:
           "AXI2AHB involves reverse protocol conversion with different challenges in handling AXI's advanced features when converting to simpler AHB protocol.",
       },
-    ],
-    materials: [
       {
-        type: "Bridge Models",
-        title: "AXI2AHB Bridge IP",
-        description: "Complete bridge models and verification IP for hands-on learning",
+        question: "What are the prerequisites?",
+        answer: "Basic knowledge of AMBA protocols, SystemVerilog, and UVM methodology.",
       },
-    ],
-    certificate: {
-      title: "AXI2AHB Bridge Verification Expert Certificate",
-      description: "Validates expertise in AXI2AHB bridge verification and protocol conversion",
-      features: [
-        "Reverse bridge verification certification",
-        "Protocol conversion expertise",
-        "System integration validation",
-        "Industry recognition",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "AXI2AHB Bridge Introduction",
-        duration: "22:30",
-        description: "Overview of AXI to AHB bridge architecture and verification",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Will I get hands-on experience?",
+        answer: "Yes, extensive hands-on labs and project work with real bridge designs.",
       },
     ],
   },
   {
     id: 9,
-    title: "On-Chip AMBA BUS AHB2APB Bridge Verification",
+    title: "Verification of AMBA Bridge AHB2APB",
     description: "Comprehensive verification of AHB to APB bridge designs for peripheral interface systems.",
     category: "Verification",
-    price: 259,
     rating: 4.5,
     students: 567,
     trainer: {
@@ -1334,17 +1434,6 @@ export const coursesData: Course[] = [
     duration: "9 weeks",
     weeks: 9,
     image: "/course9.png",
-    overview: {
-      welcome: "Welcome to AHB2APB Bridge Verification Course!",
-      description:
-        "Master the verification of AHB to APB bridge designs for peripheral interface systems. Learn verification techniques for high-speed to low-speed protocol conversion.",
-      objectives: [
-        "Understand AHB2APB bridge functionality",
-        "Master peripheral interface verification",
-        "Learn protocol downgrade verification",
-        "Implement comprehensive bridge testing",
-      ],
-    },
     syllabus: [
       {
         week: 1,
@@ -1355,6 +1444,46 @@ export const coursesData: Course[] = [
           "Peripheral interface requirements",
           "Bridge timing considerations",
         ],
+      },
+      {
+        week: 2,
+        title: "Protocol Fundamentals",
+        topics: ["AHB protocol review", "APB protocol details", "Bridge functionality", "Design constraints"],
+      },
+      {
+        week: 3,
+        title: "Verification Planning",
+        topics: ["Test plan development", "Coverage planning", "Verification strategy", "Tool selection"],
+      },
+      {
+        week: 4,
+        title: "Testbench Development",
+        topics: ["UVM environment setup", "Agent development", "Sequence creation", "Scoreboard design"],
+      },
+      {
+        week: 5,
+        title: "Test Implementation",
+        topics: ["Basic tests", "Error scenarios", "Edge cases", "Performance validation"],
+      },
+      {
+        week: 6,
+        title: "Coverage and Debug",
+        topics: ["Coverage analysis", "Debug techniques", "Issue resolution", "Optimization"],
+      },
+      {
+        week: 7,
+        title: "Advanced Verification",
+        topics: ["System integration", "Multi-peripheral testing", "Power verification", "Timing analysis"],
+      },
+      {
+        week: 8,
+        title: "Project Work",
+        topics: ["Complete verification project", "Implementation", "Testing", "Documentation"],
+      },
+      {
+        week: 9,
+        title: "Final Review",
+        topics: ["Project presentation", "Results analysis", "Best practices", "Industry insights"],
       },
     ],
     schedule: {
@@ -1371,42 +1500,22 @@ export const coursesData: Course[] = [
         answer:
           "AHB2APB verification focuses on protocol downgrade from high-speed AHB to simple APB, ensuring proper peripheral access and timing compliance.",
       },
-    ],
-    materials: [
       {
-        type: "Bridge IP",
-        title: "AHB2APB Verification IP",
-        description: "Complete verification IP and testbench components for AHB2APB bridges",
+        question: "What are the career opportunities?",
+        answer: "Bridge verification engineer, peripheral verification specialist, system integration engineer.",
       },
-    ],
-    certificate: {
-      title: "AHB2APB Bridge Verification Certificate",
-      description: "Validates expertise in AHB2APB bridge verification and peripheral interfaces",
-      features: [
-        "Bridge verification certification",
-        "Peripheral interface expertise",
-        "Protocol conversion validation",
-        "Industry standard recognition",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "AHB2APB Bridge Fundamentals",
-        duration: "19:45",
-        description: "Introduction to AHB2APB bridge verification concepts",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Is this suitable for beginners?",
+        answer: "Yes, with basic knowledge of digital design and AMBA protocols. The course starts with fundamentals.",
       },
     ],
   },
   {
     id: 10,
-    title: "On-Chip AMBA BUS AHB-LITE DECODER Bridge Verification",
+    title: "Verification of AHB-Lite Decoder",
     description:
       "Specialized verification of AHB-LITE decoder bridge designs for address decoding and routing systems.",
     category: "Verification",
-    price: 239,
     rating: 4.4,
     students: 423,
     trainer: {
@@ -1420,17 +1529,6 @@ export const coursesData: Course[] = [
     duration: "8 weeks",
     weeks: 8,
     image: "/course10.png",
-    overview: {
-      welcome: "Welcome to AHB-LITE DECODER Bridge Verification Course!",
-      description:
-        "Master the verification of AHB-LITE decoder bridge designs for address decoding and routing systems. Learn verification techniques for multi-slave systems and address mapping.",
-      objectives: [
-        "Understand AHB-LITE decoder functionality",
-        "Master address decoding verification",
-        "Learn multi-slave system verification",
-        "Implement routing verification strategies",
-      ],
-    },
     syllabus: [
       {
         week: 1,
@@ -1441,6 +1539,41 @@ export const coursesData: Course[] = [
           "Multi-slave system architecture",
           "Routing mechanisms",
         ],
+      },
+      {
+        week: 2,
+        title: "Address Decoding Logic",
+        topics: ["Address mapping", "Decode logic design", "Error handling", "Default slave response"],
+      },
+      {
+        week: 3,
+        title: "Verification Environment",
+        topics: ["Testbench architecture", "Multi-slave agents", "Address generators", "Response checkers"],
+      },
+      {
+        week: 4,
+        title: "Test Development",
+        topics: ["Address range tests", "Boundary conditions", "Error scenarios", "Performance tests"],
+      },
+      {
+        week: 5,
+        title: "Coverage Analysis",
+        topics: ["Address coverage", "Functional coverage", "Code coverage", "Coverage closure"],
+      },
+      {
+        week: 6,
+        title: "Debug and Optimization",
+        topics: ["Debug techniques", "Performance analysis", "Optimization strategies", "Best practices"],
+      },
+      {
+        week: 7,
+        title: "Project Implementation",
+        topics: ["Complete decoder verification", "Multi-slave testing", "Integration scenarios", "Documentation"],
+      },
+      {
+        week: 8,
+        title: "Final Assessment",
+        topics: ["Project review", "Results presentation", "Industry applications", "Career guidance"],
       },
     ],
     schedule: {
@@ -1457,41 +1590,21 @@ export const coursesData: Course[] = [
         answer:
           "AHB-LITE decoder verification focuses on validating address decoding logic, slave selection, and proper routing in multi-slave systems.",
       },
-    ],
-    materials: [
       {
-        type: "Decoder Models",
-        title: "AHB-LITE Decoder IP",
-        description: "Complete decoder models and verification components",
+        question: "What are the prerequisites?",
+        answer: "Basic understanding of AMBA protocols, address decoding concepts, and verification methodologies.",
       },
-    ],
-    certificate: {
-      title: "AHB-LITE Decoder Verification Certificate",
-      description: "Validates expertise in AHB-LITE decoder verification and address routing",
-      features: [
-        "Decoder verification certification",
-        "Address routing expertise",
-        "Multi-slave system validation",
-        "System verification skills",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "AHB-LITE Decoder Overview",
-        duration: "17:20",
-        description: "Introduction to AHB-LITE decoder verification",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Will I work on real projects?",
+        answer: "Yes, hands-on projects with multi-slave decoder systems and real-world scenarios.",
       },
     ],
   },
   {
     id: 11,
-    title: "On-Chip AMBA BUS AHB-LITE2AHB CONVERTOR Bridge Verification",
+    title: "Verification of AHBLite to AHB Convertor ",
     description: "Verification of AHB-LITE to AHB converter bridge designs for protocol compatibility systems.",
     category: "Verification",
-    price: 269,
     rating: 4.3,
     students: 389,
     trainer: {
@@ -1505,17 +1618,6 @@ export const coursesData: Course[] = [
     duration: "10 weeks",
     weeks: 10,
     image: "/course11.png",
-    overview: {
-      welcome: "Welcome to AHB-LITE2AHB CONVERTOR Bridge Verification Course!",
-      description:
-        "Master the verification of AHB-LITE to AHB converter bridge designs for protocol compatibility systems. Learn verification techniques for protocol enhancement and feature addition.",
-      objectives: [
-        "Understand AHB-LITE2AHB conversion",
-        "Master protocol enhancement verification",
-        "Learn compatibility testing techniques",
-        "Implement converter bridge verification",
-      ],
-    },
     syllabus: [
       {
         week: 1,
@@ -1526,6 +1628,51 @@ export const coursesData: Course[] = [
           "Feature enhancement concepts",
           "Converter bridge architecture",
         ],
+      },
+      {
+        week: 2,
+        title: "Protocol Conversion Analysis",
+        topics: ["Signal mapping", "Feature addition", "Timing considerations", "Compatibility issues"],
+      },
+      {
+        week: 3,
+        title: "Verification Strategy",
+        topics: ["Test planning", "Coverage strategy", "Verification methodology", "Tool selection"],
+      },
+      {
+        week: 4,
+        title: "Environment Development",
+        topics: ["UVM testbench", "Protocol agents", "Converters", "Monitors and scoreboards"],
+      },
+      {
+        week: 5,
+        title: "Test Implementation",
+        topics: ["Basic conversion tests", "Feature verification", "Error handling", "Edge cases"],
+      },
+      {
+        week: 6,
+        title: "Advanced Testing",
+        topics: ["Performance testing", "Stress scenarios", "Compatibility validation", "System integration"],
+      },
+      {
+        week: 7,
+        title: "Coverage and Debug",
+        topics: ["Coverage analysis", "Debug methodologies", "Issue resolution", "Optimization"],
+      },
+      {
+        week: 8,
+        title: "Project Development",
+        topics: ["Complete converter verification", "Implementation", "Testing", "Analysis"],
+      },
+      {
+        week: 9,
+        title: "Integration and Validation",
+        topics: ["System-level testing", "Integration scenarios", "Final validation", "Documentation"],
+      },
+      {
+        week: 10,
+        title: "Final Review",
+        topics: ["Project presentation", "Results analysis", "Industry best practices", "Career opportunities"],
       },
     ],
     schedule: {
@@ -1542,32 +1689,15 @@ export const coursesData: Course[] = [
         answer:
           "AHB-LITE2AHB conversion is needed to interface AHB-LITE masters with full AHB systems, adding features like split transactions and retry responses.",
       },
-    ],
-    materials: [
       {
-        type: "Converter IP",
-        title: "AHB-LITE2AHB Converter Models",
-        description: "Complete converter bridge models and verification IP",
+        question: "What skills will I gain?",
+        answer:
+          "Protocol conversion verification, compatibility testing, bridge design understanding, and system integration skills.",
       },
-    ],
-    certificate: {
-      title: "AHB-LITE2AHB Converter Verification Certificate",
-      description: "Validates expertise in protocol converter verification and compatibility testing",
-      features: [
-        "Protocol converter certification",
-        "Compatibility testing expertise",
-        "Bridge verification validation",
-        "System integration skills",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "AHB-LITE2AHB Converter Introduction",
-        duration: "21:15",
-        description: "Overview of AHB-LITE to AHB converter verification",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Is this course industry-relevant?",
+        answer:
+          "Yes, protocol converters are widely used in modern SoC designs for backward compatibility and system integration.",
       },
     ],
   },
@@ -1576,7 +1706,6 @@ export const coursesData: Course[] = [
     title: "Embedded and IoT",
     description: "Comprehensive course on embedded systems design and IoT applications with hands-on projects.",
     category: "Embedded Systems",
-    price: 229,
     rating: 4.5,
     students: 567,
     trainer: {
@@ -1590,22 +1719,56 @@ export const coursesData: Course[] = [
     duration: "10 weeks",
     weeks: 10,
     image: "/course12.png",
-    overview: {
-      welcome: "Welcome to Embedded and IoT Course!",
-      description:
-        "Master embedded systems design and IoT applications. Learn microcontroller programming, sensor integration, wireless communication, and cloud connectivity.",
-      objectives: [
-        "Understand embedded systems architecture",
-        "Master microcontroller programming",
-        "Learn IoT protocols and communication",
-        "Develop complete IoT applications",
-      ],
-    },
     syllabus: [
       {
         week: 1,
         title: "Embedded Systems Fundamentals",
         topics: ["Embedded systems overview", "Microcontroller architecture", "Memory systems", "I/O interfacing"],
+      },
+      {
+        week: 2,
+        title: "Programming Fundamentals",
+        topics: ["C programming for embedded", "Memory management", "Interrupt handling", "Real-time concepts"],
+      },
+      {
+        week: 3,
+        title: "Hardware Interfacing",
+        topics: ["GPIO programming", "ADC/DAC interfacing", "Communication protocols", "Sensor integration"],
+      },
+      {
+        week: 4,
+        title: "Communication Protocols",
+        topics: ["UART, SPI, I2C", "Wireless protocols", "Network communication", "Protocol implementation"],
+      },
+      {
+        week: 5,
+        title: "IoT Fundamentals",
+        topics: ["IoT architecture", "Cloud connectivity", "Data transmission", "Security basics"],
+      },
+      {
+        week: 6,
+        title: "IoT Platforms",
+        topics: ["Arduino/ESP32", "Raspberry Pi", "Cloud platforms", "Development environments"],
+      },
+      {
+        week: 7,
+        title: "Project Development - Phase 1",
+        topics: ["Project planning", "Hardware setup", "Basic implementation", "Testing"],
+      },
+      {
+        week: 8,
+        title: "Project Development - Phase 2",
+        topics: ["Advanced features", "Cloud integration", "Data analytics", "User interface"],
+      },
+      {
+        week: 9,
+        title: "System Integration",
+        topics: ["Complete system testing", "Performance optimization", "Debugging", "Documentation"],
+      },
+      {
+        week: 10,
+        title: "Final Presentation",
+        topics: ["Project demonstration", "Technical review", "Industry applications", "Career guidance"],
       },
     ],
     schedule: {
@@ -1622,32 +1785,15 @@ export const coursesData: Course[] = [
         answer:
           "Basic C programming knowledge is helpful but not mandatory. We'll cover embedded programming from fundamentals to advanced concepts.",
       },
-    ],
-    materials: [
       {
-        type: "Hardware Kits",
-        title: "IoT Development Kits",
-        description: "Complete hardware kits with microcontrollers, sensors, and communication modules",
+        question: "What hardware will I work with?",
+        answer:
+          "Arduino, ESP32, Raspberry Pi, various sensors, and communication modules for complete IoT system development.",
       },
-    ],
-    certificate: {
-      title: "Embedded and IoT Developer Certificate",
-      description: "Validates skills in embedded systems and IoT application development",
-      features: [
-        "Embedded systems certification",
-        "IoT development validation",
-        "Hardware-software integration",
-        "Industry project experience",
-      ],
-    },
-    videos: [
       {
-        id: 1,
-        title: "Embedded Systems Introduction",
-        duration: "19:30",
-        description: "Overview of embedded systems and IoT applications",
-        url: "/placeholder-video.mp4",
-        isFree: true,
+        question: "Will I build real IoT applications?",
+        answer:
+          "Yes, you'll develop complete IoT applications from sensor data collection to cloud analytics and user interfaces.",
       },
     ],
   },

@@ -49,7 +49,7 @@ const courses = [
   },
   {
     id: 6,
-    title: "IP Verification (APB, AHB, AXI)",
+    title: "AMBA IP Verification (APB, AHB, AXI) ",
     image: "/course6.png",
     category: "Verification",
     price: 349,
@@ -58,7 +58,7 @@ const courses = [
   },
   {
     id: 7,
-    title: "On-Chip AMBA BUS AHB2AXI Bridge Verification",
+    title: "Verification of AMBA Bridge AHB2AXI",
     image: "/course7.png",
     category: "Verification",
     price: 279,
@@ -67,7 +67,7 @@ const courses = [
   },
   {
     id: 8,
-    title: "On-Chip AMBA BUS AXI2AHB Bridge Verification",
+    title: "Verification of AMBA Bridge AXI2AHB",
     image: "/course8.png",
     category: "Verification",
     price: 229,
@@ -76,7 +76,7 @@ const courses = [
   },
   {
     id: 9,
-    title: "On-Chip AMBA BUS AHB2APB Bridge Verification",
+    title: "Verification of AMBA Bridge AHB2APB",
     image: "/course9.png",
     category: "Verification",
     price: 299,
@@ -85,7 +85,7 @@ const courses = [
   },
   {
     id: 10,
-    title: "On-Chip AMBA BUS AHB-LITE DECODER Bridge Verification",
+    title: "Verification of AHB-Lite Decoder",
     image: "/course10.png",
     category: "Verification",
     price: 259,
@@ -94,7 +94,7 @@ const courses = [
   },
   {
     id: 11,
-    title: "On-Chip AMBA BUS AHB-LITE2AHB CONVERTOR Bridge Verification",
+    title: "Verification of AHBLite to AHB Convertor",
     image: "/course11.png",
     category: "Verification",
     price: 319,
