@@ -1114,18 +1114,12 @@ export const coursesData: Course[] = [
     syllabus: [
       {
         week: 1,
-        title: "Introduction to AMBA Protocols",
+        title: "AMBA Fundamentals and APB Protocol",
         topics: [
           "Overview of AMBA and the ARM ecosystem",
           "Importance of protocols in SoC design",
           "Evolution of AMBA: APB, AHB, AXI, and ACE",
           "Use-cases and real-world applications",
-        ],
-      },
-      {
-        week: 2,
-        title: "Deep Dive into AMBA APB Protocol",
-        topics: [
           "APB signal description and timing diagram",
           "Read/write transaction flow",
           "APB use in low-bandwidth peripherals",
@@ -1133,23 +1127,50 @@ export const coursesData: Course[] = [
         ],
       },
       {
-        week: 3,
-        title: "AMBA AHB Protocol",
+        week: 2,
+        title: "AHB and AXI Protocols",
         topics: [
           "AHB architecture and features",
           "Transaction types: single, burst, split, retry",
           "Bus arbitration and pipelining",
           "Designing and verifying AHB master/slave interfaces",
-        ],
-      },
-      {
-        week: 4,
-        title: "AMBA AXI Protocol",
-        topics: [
           "AXI features: multiple outstanding transactions, QoS, burst types",
           "AXI signal groups: Read/Write address, data, response channels",
           "AXI4 vs AXI4-Lite",
           "Transaction flow and timing diagrams",
+        ],
+      },
+      {
+        week: 3,
+        title: "Building UVM Testbenches and Simulation Debug",
+        topics: [
+          "UVM agent development for APB/AHB/AXI",
+          "Writing sequences and transaction classes",
+          "Integrating UVM agents into an environment",
+          "Functional and assertion-based protocol checking",
+          "Using simulators (VCS/Questa/Xcelium)",
+          "Waveform debugging",
+          "Identifying and fixing protocol violations",
+          "Log-based and GUI-based debug techniques",
+        ],
+      },
+      {
+        week: 4,
+        title: "Assertions, Coverage and Capstone Project",
+        topics: [
+          "Binding assertions to interfaces or modules",
+          "Passive checkers for protocol compliance",
+          "Reusable assertion libraries for AMBA",
+          "Assertion failures: debug and diagnosis",
+          "Assertion coverage (assertion-based metrics)",
+          "Designing covergroups for protocol verification",
+          "Writing cross-coverage and coverpoints for APB/AHB/AXI",
+          "Coverage-driven verification methodology",
+          "Regression setup and reporting",
+          "Developing a complete UVM testbench for an AMBA-compliant IP (e.g., APB UART, AHB Memory Controller, AXI DMA)",
+          "Achieving functional and code coverage targets",
+          "Debugging real-world issues",
+          "Final report and presentation",
         ],
       },
     ],
@@ -1226,37 +1247,45 @@ export const coursesData: Course[] = [
     syllabus: [
       {
         week: 1,
-        title: "Introduction to AMBA Protocols",
+        title: "Introduction to AMBA Protocols and Bridge Architecture",
         topics: [
           "Overview of AHB and AXI",
           "Signal-level and transaction-level comparison",
           "Role of AHB-AXI Bridge in SoC",
-        ],
-      },
-      {
-        week: 2,
-        title: "Bridge Architecture Understanding",
-        topics: [
           "Read/Write operation flow through the bridge",
           "Handling protocol differences (e.g., burst types, handshakes, pipelining)",
           "Timing and latency considerations",
         ],
       },
       {
-        week: 3,
-        title: "SystemVerilog for Verification",
-        topics: ["Classes, randomization, interfaces, and assertions", "Writing testbenches for bridge DUTs"],
+        week: 2,
+        title: "SystemVerilog for Verification and Protocol Compliance",
+        topics: [
+          "Classes, randomization, interfaces, and assertions",
+          "Writing testbenches for bridge DUTs",
+          "Checking data integrity across the bridge",
+          "Handling burst conversion and transaction splitting",
+          "Assertions for handshake and response correctness",
+        ],
       },
       {
-        week: 4,
+        week: 3,
         title: "UVM-Based Verification Environment",
         topics: [
-          "UVM component hierarchy: agents, sequences, monitors, scoreboard",
+          "UVM component hierarchy: agents, sequences, monitors, scoreboards",
           "Writing reusable and modular code for AHB master and AXI slave agents",
           "Integrating UVM components to test the bridge",
         ],
       },
-    ],
+      {
+        week: 4,
+        title: "Coverage, Debugging, and Final Integration",
+        topics: [
+          "Functional coverage design and analysis",
+          "Using waveform viewers and logs for debugging",
+          "Achieving coverage closure and regression strategies",
+        ],
+      },],
     schedule: {
       duration: "4 weeks (8 sessions, 2 per week)",
       sessions: "Live sessions + intensive lab work",
