@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export function Header() {
   return (
-    <header className="bg-white/98 shadow-lg border-b border-gray-100 sticky top-0 z-50 backdrop-blur-sm">
+    <header className="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-32 py-4">
           {/* Logo Section */}
