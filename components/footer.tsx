@@ -21,7 +21,7 @@ export function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link href="#" className="hover:text-white">
-                  Design Verification
+                  FPGA Based Design System
                 </Link>
               </li>
               <li>
@@ -31,12 +31,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#" className="hover:text-white">
-                  Physical Design
+                  Design Verification
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-white">
-                  FPGA Based Design System
+                  Physical Design
                 </Link>
               </li>
             </ul>

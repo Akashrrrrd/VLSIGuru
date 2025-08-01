@@ -29,6 +29,11 @@ export interface Course {
     tools: string[]
     fee: number
     breakdown: string
+    stages?: {
+      stage: string
+      description: string
+      duration: string
+    }[]
   }
   faqs: {
     question: string
@@ -1006,7 +1011,8 @@ export const coursesData: Course[] = [
   {
     id: 5,
     title: "Gate Level Simulation",
-    description: "Master gate-level simulation techniques for digital circuit verification and timing analysis.",
+    description:
+      "This course is designed to provide a comprehensive understanding of Gate-Level Simulation (GLS) - a critical verification step in the ASIC design flow that ensures the synthesized netlist behaves functionally equivalent to the RTL, meets timing, and integrates correctly with the back-end flow. Learners will gain in-depth knowledge of how GLS fits into the ASIC design and verification lifecycle, focusing on the transition from RTL to synthesized gate-level netlist, and addressing timing verification, power-aware simulation, glitch detection, and X-propagation handling. The course covers functional and timing simulation using Standard Delay Format (SDF), setup for zero-delay and annotated simulations, as well as techniques to debug mismatches between RTL and post-synthesis behavior. It emphasizes practical setup, scripting, waveform analysis, and identifying issues such as uninitialized signals and race conditions. Participants will simulate both clean and X-check-enabled GLS environments using industry tools like VCS, ModelSim, or QuestaSim, and understand how to validate the final netlist before tape-out.",
     category: "VLSI Design",
     rating: 4.8,
     students: 1250,
@@ -1018,77 +1024,119 @@ export const coursesData: Course[] = [
       specialization: "Gate Level Simulation, Timing Analysis, Digital Verification",
       bio: "Dr. Rajesh has extensive experience in gate-level simulation and has worked with major semiconductor companies on complex SoC designs.",
     },
-    duration: "8 weeks",
-    weeks: 8,
+    duration: "4 Weeks",
+    weeks: 4,
     image: "/course5.png",
     syllabus: [
       {
         week: 1,
-        title: "Introduction to Gate Level Simulation",
+        title: "Introduction to GLS & ASIC Flow",
         topics: [
-          "Digital circuit fundamentals",
-          "Gate-level netlist structure",
-          "Simulation vs synthesis flow",
-          "Industry tools overview",
+          "ASIC design and verification flow overview",
+          "Role of Gate-Level Simulation in sign-off",
+          "Netlist generation: RTL → synthesis → gate-level netlist",
+          "Types of simulations: RTL vs GLS vs Post-layout",
+          "Zero-delay and unit-delay simulations",
+          "Reading and understanding the synthesized netlist",
+          "Lab: Simulate a basic netlist with zero delay",
         ],
       },
       {
         week: 2,
-        title: "Timing Analysis Basics",
-        topics: ["Setup and hold timing", "Delay calculation", "Critical path analysis", "Timing constraints"],
+        title: "SDF and Timing-Back-Annotation",
+        topics: [
+          "Introduction to SDF (Standard Delay Format)",
+          "Setup of SDF-annotated GLS: tools, options, and configurations",
+          "File hierarchy: .v, .sdf, .sdc, .spef",
+          "SDF annotation modes: max, min, typical",
+          "Gate-level timing violations: setup, hold, and path delays",
+          "Lab: Simulate with SDF annotation and debug violations",
+        ],
       },
       {
         week: 3,
-        title: "Power Estimation Techniques",
-        topics: ["Static power analysis", "Dynamic power calculation", "Power optimization", "Low power design"],
+        title: "X-Propagation, Glitch Handling & Scan Insertion",
+        topics: [
+          "Causes of X-propagation in gate-level simulation",
+          "Simulation options: +no_notifier, +transport_path, +delay_mode",
+          "Glitch detection and uninitialized net behavior",
+          "Reset sequencing and power-up conditions",
+          "Lab: Debug an X-mismatch and simulate scan-enabled netlist",
+        ],
       },
       {
         week: 4,
-        title: "Functional Verification",
-        topics: ["Test pattern generation", "Coverage analysis", "Fault simulation", "Debug techniques"],
-      },
-      {
-        week: 5,
-        title: "Advanced Simulation Topics",
-        topics: ["Multi-corner analysis", "Process variation", "Temperature effects", "Voltage scaling"],
-      },
-      {
-        week: 6,
-        title: "Industry Tools and Flows",
-        topics: ["Commercial simulators", "Tool setup", "Script automation", "Result analysis"],
-      },
-      {
-        week: 7,
-        title: "Project Work",
-        topics: ["Hands-on simulation project", "Real design analysis", "Report generation", "Optimization"],
-      },
-      {
-        week: 8,
-        title: "Final Assessment",
-        topics: ["Project presentation", "Technical review", "Industry best practices", "Career guidance"],
+        title: "Debug, Sign-off, and Project Work",
+        topics: [
+          "Debugging tools and techniques: waveform viewers, logs",
+          "Integration of GLS in regression flow",
+          "Final checklist before tape-out: LINT, CDC, timing, and GLS",
+          "Final Project: End-to-end GLS setup and simulation",
+          "Interview preparation: GLS-related questions and scenarios",
+          "Lab: Full GLS simulation with waveform analysis and report generation",
+        ],
       },
     ],
     schedule: {
-      duration: "8 weeks (16 sessions, 2 per week)",
-      sessions: "Live sessions + self-paced assignments",
-      mode: "Hybrid (Online live sessions with hands-on labs)",
-      tools: ["Synopsys VCS", "Cadence NC-Sim", "ModelSim", "Custom testbenches"],
-      fee: 199,
-      breakdown: "Weekly hands-on exercises, project-based assignments, and comprehensive assessments",
+      duration: "4 Weeks",
+      stages: [
+        {
+          stage: "I",
+          description: "Introduction to GLS & ASIC Flow",
+          duration: "1 Week",
+        },
+        {
+          stage: "II",
+          description: "SDF and Timing-Back-Annotation",
+          duration: "1 Week",
+        },
+        {
+          stage: "III",
+          description: "X-Propagation, Glitch Handling",
+          duration: "1 Week",
+        },
+        {
+          stage: "IV",
+          description: "Debug, Sign-off, and Project Work",
+          duration: "1 Week",
+        },
+      ],
+      sessions: "Live sessions + practical labs",
+      mode: "Interactive online sessions with real-time protocol analysis",
+      tools: ["VCS", "ModelSim", "QuestaSim"],
+      fee: 299,
+      breakdown: "Weekly assignments and Assessments will be conducted.",
     },
     faqs: [
       {
-        question: "What will I learn in this course?",
+        question: "Who should take this course?",
         answer:
-          "You'll master gate-level simulation techniques, timing analysis, power estimation, and industry-standard verification methodologies used in modern semiconductor design.",
+          "Design Verification Engineers, DFT Engineers, Physical Design and STA Engineers, and graduate students preparing for RTL-to-GDSII flow roles.",
       },
       {
         question: "What are the prerequisites?",
-        answer: "Basic knowledge of digital electronics, Verilog/VHDL, and computer architecture.",
+        answer:
+          "Basic knowledge of digital logic design, familiarity with Verilog/SystemVerilog, and some exposure to simulation tools like ModelSim, VCS, or QuestaSim.",
       },
       {
-        question: "Is this course hands-on?",
-        answer: "Yes, the course includes extensive hands-on exercises using industry-standard simulation tools.",
+        question: "What are the key tools used?",
+        answer:
+          "Simulators: VCS, ModelSim, QuestaSim. Optional tools include DVE and GTKWave for waveform analysis. Formats used include Verilog netlist, SDF, and SDC.",
+      },
+      {
+        question: "What kind of netlists are simulated?",
+        answer:
+          "Synthesized gate-level netlists with and without timing. Optionally, post-layout netlists with parasitic annotations are also simulated.",
+      },
+      {
+        question: "Will this help with job interviews?",
+        answer:
+          "Absolutely. GLS is a critical skill for backend, DFT, and late-stage verification engineers. This course covers interview-relevant questions and practical flows.",
+      },
+      {
+        question: "Will I receive any certificate upon completion?",
+        answer:
+          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
     ],
   },
@@ -1227,9 +1275,9 @@ export const coursesData: Course[] = [
   },
   {
     id: 7,
-    title: "Verification of AMBA Bridge AHB2AXI",
+    title: "Verification of AMBA Bridge - AHB2AXI",
     description:
-      "This course is designed to equip learners with the practical and theoretical skills needed to verify an AMBA AHB to AXI Bridge, a critical component in modern SoC interconnect systems. The bridge plays a vital role in enabling communication between modules using different protocols—AHB (Advanced High-performance Bus) and AXI (Advanced eXtensible Interface). The course takes a hands-on approach, guiding students through the design behavior of the bridge and building a SystemVerilog UVM-based verification environment to verify its correctness and compliance. The focus is on functional verification, including transaction modeling, protocol conversion validation, coverage closure, and debugging.",
+      "This course is designed to equip learners with the skills and knowledge required to verify an AXI to AHB Bridge, a critical IP used in SoCs to enable communication between high-performance AXI masters and legacy AHB-based subsystems. The focus is on functional verification using SystemVerilog and UVM, with an emphasis on protocol compliance, data integrity, and performance validation. Participants will explore the AXI and AHB protocol architectures, including their handshaking, data transfer mechanisms, and transaction types. The course then dives into the design intent and functional behavior of the AXI2AHB bridge, detailing how AXI transactions are converted to AHB-compliant ones. A complete UVM-based verification environment will be developed, including stimulus generation, monitors, checkers, scoreboards, functional coverage, and assertion-based verification. Students will also gain hands-on experience in writing reusable and scalable testbenches, debugging with waveforms, and analyzing coverage metrics for verification closure.",
     category: "Verification",
     rating: 4.7,
     students: 756,
@@ -1241,53 +1289,86 @@ export const coursesData: Course[] = [
       specialization: "Bridge Verification, Interconnect Design, System-level Verification",
       bio: "Vikram specializes in complex SoC verification with focus on interconnect and bridge verification for high-performance computing systems.",
     },
-    duration: "4 weeks",
+    duration: "4 Weeks",
     weeks: 4,
     image: "/course7.png",
     syllabus: [
       {
         week: 1,
-        title: "Introduction to AMBA Protocols and Bridge Architecture",
+        title: "AMBA Protocols & Bridge Fundamentals",
         topics: [
-          "Overview of AHB and AXI",
-          "Signal-level and transaction-level comparison",
-          "Role of AHB-AXI Bridge in SoC",
-          "Read/Write operation flow through the bridge",
-          "Handling protocol differences (e.g., burst types, handshakes, pipelining)",
-          "Timing and latency considerations",
+          "Introduction to AMBA protocols (AXI & AHB)",
+          "AXI protocol deep dive: channels, bursts, responses",
+          "AHB protocol overview: timing, transfers, handshaking",
+          "AXI vs AHB: key differences",
+          "AXI2AHB Bridge architecture and functional behavior",
+          "Lab: Simple AXI/AHB traffic generation in SystemVerilog",
         ],
       },
       {
         week: 2,
-        title: "SystemVerilog for Verification and Protocol Compliance",
+        title: "UVM Agent Development",
         topics: [
-          "Classes, randomization, interfaces, and assertions",
-          "Writing testbenches for bridge DUTs",
-          "Checking data integrity across the bridge",
-          "Handling burst conversion and transaction splitting",
-          "Assertions for handshake and response correctness",
+          "SystemVerilog constructs for verification",
+          "UVM testbench architecture overview",
+          "AXI Master UVM agent: driver, sequencer, monitor",
+          "AHB Slave UVM agent: monitor and driver behavior",
+          "Transaction classes and virtual interfaces",
+          "Connecting agents using UVM factory and config_db",
+          "Lab: AXI and AHB UVM agent development and basic test",
         ],
       },
       {
         week: 3,
-        title: "UVM-Based Verification Environment",
+        title: "Environment Integration & Testcases",
         topics: [
-          "UVM component hierarchy: agents, sequences, monitors, scoreboards",
-          "Writing reusable and modular code for AHB master and AXI slave agents",
-          "Integrating UVM components to test the bridge",
+          "DUT integration: AXI2AHB Bridge instantiation",
+          "Building UVM environment and top-level testbench",
+          "Writing sequences: aligned, unaligned, bursts",
+          "Scoreboard development for transaction checking",
+          "Functional coverage: covergroups and sampling",
+          "Assertions: interface-level and protocol assertions",
+          "Lab: Directed and random testcases for bridge verification",
         ],
       },
       {
         week: 4,
-        title: "Coverage, Debugging, and Final Integration",
+        title: "Verification Closure & Project",
         topics: [
-          "Functional coverage design and analysis",
-          "Using waveform viewers and logs for debugging",
-          "Achieving coverage closure and regression strategies",
+          "Advanced scenarios: back-to-back, wait states, errors",
+          "Assertion and Coverage analysis and closure strategy",
+          "Debugging using waveforms and logs",
+          "Final project: complete AXI2AHB bridge verification",
+          "Documentation and testcase checklist",
+          "Interview preparation and verification FAQ",
+          "Lab: Full functional verification with coverage report",
         ],
-      },],
+      },
+    ],
     schedule: {
-      duration: "4 weeks (8 sessions, 2 per week)",
+      duration: "4 Weeks",
+      stages: [
+        {
+          stage: "I",
+          description: "Introduction to AMBA Protocols & Bridge Fundamentals",
+          duration: "1 Week",
+        },
+        {
+          stage: "II",
+          description: "UVM Agent Development",
+          duration: "1 Week",
+        },
+        {
+          stage: "III",
+          description: "Environment Integration & Testcases",
+          duration: "1 Week",
+        },
+        {
+          stage: "IV",
+          description: "Verification Closure & Project",
+          duration: "1 Week",
+        },
+      ],
       sessions: "Live sessions + intensive lab work",
       mode: "Project-based learning with real bridge designs",
       tools: ["Questa Sim", "Synopsys VCS", "Formal verification tools", "Custom bridge models"],
@@ -1296,159 +1377,187 @@ export const coursesData: Course[] = [
     },
     faqs: [
       {
-        question: "What is the AHB to AXI bridge?",
+        question: "What are the prerequisites for this course?",
         answer:
-          "It is a hardware module that enables communication between IP blocks using the AHB protocol and those using the AXI protocol, ensuring compatibility and data transfer across different AMBA interfaces.",
+          "Basic understanding of digital design and Verilog\nFamiliarity with SystemVerilog syntax\nSome exposure to UVM is helpful but not mandatory",
       },
       {
-        question: "What makes this course different?",
+        question: "What is the main goal of this course?",
         answer:
-          "This course specifically focuses on protocol bridge verification, a real-world scenario in SoC design, using SystemVerilog and UVM, covering both technical depth and practical implementation.",
+          "To develop a complete UVM-based verification environment for the AXI2AHB bridge and understand how to test and validate its protocol conversion functionality.",
       },
       {
-        question: "Is this course suitable for beginners?",
+        question: "What tools are used during the course?",
         answer:
-          "Yes, if you already have: Basic knowledge of digital design and Some familiarity with Verilog/SystemVerilog and UVM.",
+          "Commonly used tools include ModelSim, QuestaSim, VCS, or any simulator that supports SystemVerilog and UVM.",
       },
       {
-        question: "Will I work on real hardware or IP?",
+        question: "Will I learn assertion-based verification in this course?",
         answer:
-          "No physical hardware is required. You'll verify a synthesizable RTL model of a bridge. The course focuses on simulation and testbench development, which reflects standard industry practice.",
+          "Yes, basic interface-level assertions and protocol assertions will be introduced and applied during bridge verification.",
       },
       {
-        question: "Will I get hands-on experience?",
+        question: "Is this course suitable for job preparation in verification?",
         answer:
-          "Yes, the course includes: Labs after each module, Full project from scratch, and Debugging tasks and coverage analysis.",
+          "Absolutely. The course includes interview preparation, covers real-world SoC verification scenarios, and focuses on industry-relevant skills.",
       },
       {
-        question: "Will I receive a certificate?",
+        question: "Will I receive any certificate upon completion?",
         answer:
-          "Yes, upon successful completion of the course and final project submission, you'll receive a certificate of completion.",
+          "Yes, if this course is offered through a training institute or platform, a completion certificate is usually provided.",
       },
       {
-        question: "Can I reuse the UVM components I build?",
+        question: "Can I use this knowledge for other AMBA bridges?",
         answer:
-          "Yes, the UVM agents for AHB and AXI are developed as modular and reusable components, suitable for use in future IP or SoC-level verification environments.",
-      },
-      {
-        question: "Does the course cover assertions?",
-        answer:
-          "Yes. You'll learn how to write SystemVerilog assertions for protocol-level checks, such as handshake timing, burst length correctness, and data/response verification.",
-      },
-      {
-        question: "What kind of support is provided?",
-        answer: "Instructor-led Q&A sessions, Debug help during labs/projects, and Community/forum support.",
+          "Yes. Understanding AXI2AHB verification provides a strong foundation for verifying other AMBA bridges like AHB2AXI or AXI2APB.",
       },
     ],
   },
   {
     id: 8,
-    title: "Verification of AMBA Bridge AXI2AHB",
-    description: "Specialized verification of AXI to AHB bridge designs for on-chip interconnect systems.",
+    title: "Verification of AMBA Bridge - AXI2AHB",
+    description:
+      "This course is designed to equip learners with the skills and knowledge required to verify an AXI to AHB Bridge, a critical IP used in SoCs to enable communication between high-performance AXI masters and legacy AHB-based subsystems. The focus is on functional verification using SystemVerilog and UVM, with an emphasis on protocol compliance, data integrity, and performance validation. Participants will explore the AXI and AHB protocol architectures, including their handshaking, data transfer mechanisms, and transaction types. The course then dives into the design intent and functional behavior of the AXI2AHB bridge, detailing how AXI transactions are converted to AHB-compliant ones. A complete UVM-based verification environment will be developed, including stimulus generation, monitors, checkers, scoreboards, functional coverage, and assertion-based verification. Students will also gain hands-on experience in writing reusable and scalable testbenches, debugging with waveforms, and analyzing coverage metrics for verification closure.",
     category: "Verification",
-    rating: 4.6,
-    students: 634,
+    rating: 4.7,
+    students: 756,
     trainer: {
-      name: "Ms. Kavya Reddy",
-      title: "Senior Verification Engineer",
-      experience: "12+ years in Bridge Verification",
-      education: "M.Tech in VLSI Design, IIT Hyderabad",
-      specialization: "AXI2AHB Bridge Verification, Protocol Conversion, System Integration",
-      bio: "Kavya is an expert in bridge verification with extensive experience in AXI to AHB protocol conversion and system-level verification.",
+      name: "Mr. Vikram Singh",
+      title: "Principal Verification Engineer",
+      experience: "15+ years in SoC Verification",
+      education: "M.S. in Computer Engineering, Stanford University",
+      specialization: "Bridge Verification, Interconnect Design, System-level Verification",
+      bio: "Vikram specializes in complex SoC verification with focus on interconnect and bridge verification for high-performance computing systems.",
     },
-    duration: "11 weeks",
-    weeks: 11,
-    image: "/course8.png",
+    duration: "4 Weeks",
+    weeks: 4,
+    image: "/course7.png",
     syllabus: [
       {
         week: 1,
-        title: "AXI2AHB Bridge Fundamentals",
+        title: "AMBA Protocols & Bridge Fundamentals",
         topics: [
-          "AXI2AHB bridge overview",
-          "Reverse protocol conversion",
-          "Bridge design challenges",
-          "Performance considerations",
+          "Introduction to AMBA protocols (AXI & AHB)",
+          "AXI protocol deep dive: channels, bursts, responses",
+          "AHB protocol overview: timing, transfers, handshaking",
+          "AXI vs AHB: key differences",
+          "AXI2AHB Bridge architecture and functional behavior",
+          "Lab: Simple AXI/AHB traffic generation in SystemVerilog",
         ],
       },
       {
         week: 2,
-        title: "Protocol Analysis",
-        topics: ["AXI to AHB mapping", "Signal conversion", "Timing requirements", "Error handling"],
+        title: "UVM Agent Development",
+        topics: [
+          "SystemVerilog constructs for verification",
+          "UVM testbench architecture overview",
+          "AXI Master UVM agent: driver, sequencer, monitor",
+          "AHB Slave UVM agent: monitor and driver behavior",
+          "Transaction classes and virtual interfaces",
+          "Connecting agents using UVM factory and config_db",
+          "Lab: AXI and AHB UVM agent development and basic test",
+        ],
       },
       {
         week: 3,
-        title: "Verification Environment Setup",
-        topics: ["UVM testbench architecture", "Agent development", "Interface design", "Test planning"],
+        title: "Environment Integration & Testcases",
+        topics: [
+          "DUT integration: AXI2AHB Bridge instantiation",
+          "Building UVM environment and top-level testbench",
+          "Writing sequences: aligned, unaligned, bursts",
+          "Scoreboard development for transaction checking",
+          "Functional coverage: covergroups and sampling",
+          "Assertions: interface-level and protocol assertions",
+          "Lab: Directed and random testcases for bridge verification",
+        ],
       },
       {
         week: 4,
-        title: "Test Development",
-        topics: ["Basic functionality tests", "Corner case scenarios", "Error injection", "Performance tests"],
-      },
-      {
-        week: 5,
-        title: "Coverage and Assertions",
-        topics: ["Functional coverage", "Code coverage", "Assertion development", "Coverage analysis"],
-      },
-      {
-        week: 6,
-        title: "Debug and Analysis",
-        topics: ["Waveform analysis", "Debug techniques", "Issue resolution", "Performance tuning"],
-      },
-      {
-        week: 7,
-        title: "Advanced Topics",
-        topics: ["Multi-master scenarios", "Outstanding transactions", "QoS handling", "Power considerations"],
-      },
-      {
-        week: 8,
-        title: "Integration Testing",
-        topics: ["System-level testing", "Integration scenarios", "Regression testing", "Automation"],
-      },
-      {
-        week: 9,
-        title: "Project Work - Phase 1",
-        topics: ["Project setup", "Initial implementation", "Basic testing", "Review and feedback"],
-      },
-      {
-        week: 10,
-        title: "Project Work - Phase 2",
-        topics: ["Advanced testing", "Coverage closure", "Debug and optimization", "Documentation"],
-      },
-      {
-        week: 11,
-        title: "Final Assessment",
-        topics: ["Project presentation", "Technical review", "Best practices", "Career guidance"],
+        title: "Verification Closure & Project",
+        topics: [
+          "Advanced scenarios: back-to-back, wait states, errors",
+          "Assertion and Coverage analysis and closure strategy",
+          "Debugging using waveforms and logs",
+          "Final project: complete AXI2AHB bridge verification",
+          "Documentation and testcase checklist",
+          "Interview preparation and verification FAQ",
+          "Lab: Full functional verification with coverage report",
+        ],
       },
     ],
     schedule: {
-      duration: "11 weeks (22 sessions, 2 per week)",
-      sessions: "Live sessions + bridge verification labs",
-      mode: "Hands-on verification with real bridge implementations",
-      tools: ["Questa Sim", "VCS", "Bridge verification IP", "Protocol analyzers"],
-      fee: 289,
-      breakdown: "AXI2AHB specific verification projects and comprehensive testing methodologies",
+      duration: "4 Weeks",
+      stages: [
+        {
+          stage: "I",
+          description: "Introduction to AMBA Protocols & Bridge Fundamentals",
+          duration: "1 Week",
+        },
+        {
+          stage: "II",
+          description: "UVM Agent Development",
+          duration: "1 Week",
+        },
+        {
+          stage: "III",
+          description: "Environment Integration & Testcases",
+          duration: "1 Week",
+        },
+        {
+          stage: "IV",
+          description: "Verification Closure & Project",
+          duration: "1 Week",
+        },
+      ],
+      sessions: "Live sessions + intensive lab work",
+      mode: "Project-based learning with real bridge designs",
+      tools: ["Questa Sim", "Synopsys VCS", "Formal verification tools", "Custom bridge models"],
+      fee: 299,
+      breakdown: "Weekly assignments and Assessments will be conducted.",
     },
     faqs: [
       {
-        question: "How is AXI2AHB different from AHB2AXI verification?",
+        question: "What are the prerequisites for this course?",
         answer:
-          "AXI2AHB involves reverse protocol conversion with different challenges in handling AXI's advanced features when converting to simpler AHB protocol.",
+          "Basic understanding of digital design and Verilog\nFamiliarity with SystemVerilog syntax\nSome exposure to UVM is helpful but not mandatory",
       },
       {
-        question: "What are the prerequisites?",
-        answer: "Basic knowledge of AMBA protocols, SystemVerilog, and UVM methodology.",
+        question: "What is the main goal of this course?",
+        answer:
+          "To develop a complete UVM-based verification environment for the AXI2AHB bridge and understand how to test and validate its protocol conversion functionality.",
       },
       {
-        question: "Will I get hands-on experience?",
-        answer: "Yes, extensive hands-on labs and project work with real bridge designs.",
+        question: "What tools are used during the course?",
+        answer:
+          "Commonly used tools include ModelSim, QuestaSim, VCS, or any simulator that supports SystemVerilog and UVM.",
+      },
+      {
+        question: "Will I learn assertion-based verification in this course?",
+        answer:
+          "Yes, basic interface-level assertions and protocol assertions will be introduced and applied during bridge verification.",
+      },
+      {
+        question: "Is this course suitable for job preparation in verification?",
+        answer:
+          "Absolutely. The course includes interview preparation, covers real-world SoC verification scenarios, and focuses on industry-relevant skills.",
+      },
+      {
+        question: "Will I receive any certificate upon completion?",
+        answer:
+          "Yes, if this course is offered through a training institute or platform, a completion certificate is usually provided.",
+      },
+      {
+        question: "Can I use this knowledge for other AMBA bridges?",
+        answer:
+          "Yes. Understanding AXI2AHB verification provides a strong foundation for verifying other AMBA bridges like AHB2AXI or AXI2APB.",
       },
     ],
   },
   {
     id: 9,
-    title: "Verification of AMBA Bridge AHB2APB",
-    description: "Comprehensive verification of AHB to APB bridge designs for peripheral interface systems.",
+    title: "Verification of AMBA Bridge - AHB2APB",
+    description:
+      "This course provides a comprehensive understanding of the functional verification of the AHB to APB bridge, a critical component used in SoCs to interface high-speed AHB buses with low-power APB peripherals. The course focuses on both protocol understanding and UVM-based testbench development, making it ideal for engineers aiming to master real-time SoC verification workflows. The course begins with an in-depth study of AMBA AHB and APB protocols, covering signal definitions, timing diagrams, and data transfer operations. It then delves into the AHB2APB bridge design architecture, exploring how AHB transactions are translated into APB accesses and how control logic manages the protocol differences. Participants will then learn to build a modular and reusable UVM testbench for verifying the AHB2APB bridge. Emphasis is placed on developing UVM agents, sequences, monitors, and scoreboards, along with applying assertion-based verification and functional coverage to ensure protocol and design correctness.",
     category: "Verification",
     rating: 4.5,
     students: 567,
@@ -1460,63 +1569,87 @@ export const coursesData: Course[] = [
       specialization: "AHB2APB Bridge, Peripheral Verification, System Integration",
       bio: "Arjun specializes in AHB to APB bridge verification with extensive experience in peripheral interface verification and system integration.",
     },
-    duration: "9 weeks",
-    weeks: 9,
+    duration: "4 Weeks",
+    weeks: 4,
     image: "/course9.png",
     syllabus: [
       {
         week: 1,
-        title: "AHB2APB Bridge Overview",
+        title: "AMBA Protocols & Bridge Architecture",
         topics: [
-          "AHB2APB bridge architecture",
-          "Protocol downgrade concepts",
-          "Peripheral interface requirements",
-          "Bridge timing considerations",
+          "Introduction to AMBA protocols: AHB and APB",
+          "AHB protocol deep dive: signals, bursts, handshaking",
+          "APB protocol fundamentals: simple bus protocol, PSEL/PENABLE",
+          "AHB vs APB: timing and structural differences",
+          "AHB2APB Bridge architecture and control logic",
+          "Use cases and placement in SoC designs",
+          "Lab: Develop basic AHB/APB signal generators in SystemVerilog",
         ],
       },
       {
         week: 2,
-        title: "Protocol Fundamentals",
-        topics: ["AHB protocol review", "APB protocol details", "Bridge functionality", "Design constraints"],
+        title: "Building UVM Agents",
+        topics: [
+          "SystemVerilog refresher: interfaces, OOP, classes",
+          "UVM testbench architecture and simulation flow",
+          "AHB Master agent development (driver, sequencer, monitor)",
+          "APB Slave agent development (driver, monitor)",
+          "Defining transaction classes for AHB and APB",
+          "UVM configuration database and virtual interface handling",
+          "Lab: Develop and test standalone AHB/APB agents",
+        ],
       },
       {
         week: 3,
-        title: "Verification Planning",
-        topics: ["Test plan development", "Coverage planning", "Verification strategy", "Tool selection"],
+        title: "Integration and Verification Environment",
+        topics: [
+          "DUT integration: connecting AHB2APB Bridge with UVM agents",
+          "Developing the UVM environment and top-level test",
+          "Writing sequences: read/write, back-to-back, wait states",
+          "Building scoreboard and data checking logic",
+          "Functional coverage: covergroups for AHB and APB operations",
+          "Assertions: signal-level and protocol compliance",
+          "Lab: Run directed testcases and evaluate functional coverage",
+        ],
       },
       {
         week: 4,
-        title: "Testbench Development",
-        topics: ["UVM environment setup", "Agent development", "Sequence creation", "Scoreboard design"],
-      },
-      {
-        week: 5,
-        title: "Test Implementation",
-        topics: ["Basic tests", "Error scenarios", "Edge cases", "Performance validation"],
-      },
-      {
-        week: 6,
-        title: "Coverage and Debug",
-        topics: ["Coverage analysis", "Debug techniques", "Issue resolution", "Optimization"],
-      },
-      {
-        week: 7,
-        title: "Advanced Verification",
-        topics: ["System integration", "Multi-peripheral testing", "Power verification", "Timing analysis"],
-      },
-      {
-        week: 8,
-        title: "Project Work",
-        topics: ["Complete verification project", "Implementation", "Testing", "Documentation"],
-      },
-      {
-        week: 9,
-        title: "Final Review",
-        topics: ["Project presentation", "Results analysis", "Best practices", "Industry insights"],
+        title: "Project, Debug, and Closure",
+        topics: [
+          "Final project setup: full AHB2APB bridge verification",
+          "Randomized testing and protocol stress scenarios",
+          "Debug techniques: waveform analysis, log tracing",
+          "Coverage closure and gap analysis",
+          "Writing test plan and verification report",
+          "Interview preparation: common questions in AHB/APB verification",
+          "Lab: Final project execution and result review",
+        ],
       },
     ],
     schedule: {
-      duration: "9 weeks (18 sessions, 2 per week)",
+      duration: "4 Weeks",
+      stages: [
+        {
+          stage: "I",
+          description: "Introduction to AMBA Protocols & Bridge Fundamentals",
+          duration: "1 Week",
+        },
+        {
+          stage: "II",
+          description: "UVM Agent Development",
+          duration: "1 Week",
+        },
+        {
+          stage: "III",
+          description: "Environment Integration & Testcases",
+          duration: "1 Week",
+        },
+        {
+          stage: "IV",
+          description: "Verification Closure & Project",
+          duration: "1 Week",
+        },
+      ],
       sessions: "Interactive sessions + peripheral verification labs",
       mode: "Practical verification with real peripheral interfaces",
       tools: ["Simulation tools", "Bridge verification IP", "Protocol checkers", "Debug tools"],
@@ -1525,17 +1658,39 @@ export const coursesData: Course[] = [
     },
     faqs: [
       {
-        question: "What is unique about AHB2APB bridge verification?",
+        question: "What is the AHB2APB bridge and why is it important?",
         answer:
-          "AHB2APB verification focuses on protocol downgrade from high-speed AHB to simple APB, ensuring proper peripheral access and timing compliance.",
+          "The AHB2APB bridge connects the high-speed AHB bus to the low-power APB bus, enabling communication between a system's performance-critical core and its peripheral devices like UART, timers, and GPIO.",
       },
       {
-        question: "What are the career opportunities?",
-        answer: "Bridge verification engineer, peripheral verification specialist, system integration engineer.",
+        question: "Who should take this course?",
+        answer:
+          "This course is ideal for:\n•\tVLSI and embedded engineers\n•\tStudents and graduates preparing for SoC/ASIC verification roles\n•\tProfessionals upskilling in UVM and AMBA protocol verification",
       },
       {
-        question: "Is this suitable for beginners?",
-        answer: "Yes, with basic knowledge of digital design and AMBA protocols. The course starts with fundamentals.",
+        question: "What are the prerequisites for this course?",
+        answer:
+          "Basic knowledge of digital design and Verilog\n•\tFamiliarity with SystemVerilog is recommended\n•\tUVM experience is helpful ",
+      },
+      {
+        question: "What simulators or tools are used?",
+        answer:
+          "The course uses industry-standard simulators like ModelSim, QuestaSim, or Synopsys VCS. Students can also work with open-source tools if needed.",
+      },
+      {
+        question: "Will I learn to use assertions and functional coverage?",
+        answer:
+          "Yes. You'll implement SystemVerilog assertions (SVAs) and functional coverage to validate protocol correctness and ensure verification completeness.",
+      },
+      {
+        question: "Will I get a certificate after completion?",
+        answer:
+          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
+      },
+      {
+        question: "Will this help me in job interviews?",
+        answer:
+          "Definitely. The course covers real-time verification scenarios, includes interview preparation, and provides experience with industry practices relevant to job roles in ASIC and IP verification.",
       },
     ],
   },
@@ -1543,7 +1698,7 @@ export const coursesData: Course[] = [
     id: 10,
     title: "Verification of AHB-Lite Decoder",
     description:
-      "Specialized verification of AHB-LITE decoder bridge designs for address decoding and routing systems.",
+      "This course is designed to provide a solid foundation in the functional verification of an AHB-Lite Decoder, a key component in AMBA-based SoCs used to decode addresses and route AHB transactions to multiple slave peripherals. The focus is on understanding both the AHB-Lite protocol and building a SystemVerilog UVM-based verification environment for the decoder. Participants will begin with a detailed study of the AMBA AHB-Lite protocol, including signal definitions, transaction types, bus arbitration, and timing behavior. The course then moves to the design and functional role of an AHB-Lite decoder, which selects target slaves based on address decoding logic. Participants will build a UVM testbench for the AHB-Lite decoder, including a master agent, a multi-slave setup, and a coverage-driven verification environment. The training will emphasize writing directed and randomized testcases, functional coverage, assertions, and using waveform debugging tools to ensure complete verification.",
     category: "Verification",
     rating: 4.4,
     students: 423,
@@ -1555,58 +1710,90 @@ export const coursesData: Course[] = [
       specialization: "AHB-LITE Decoder, Address Decoding, System Verification",
       bio: "Dr. Meera is an expert in system-level verification with focus on AHB-LITE decoder bridges and address routing verification.",
     },
-    duration: "8 weeks",
-    weeks: 8,
+    duration: "4 Weeks",
+    weeks: 4,
     image: "/course10.png",
     syllabus: [
       {
         week: 1,
-        title: "AHB-LITE Decoder Fundamentals",
+        title: "AHB-Lite Protocol & Decoder Design",
         topics: [
-          "AHB-LITE decoder overview",
-          "Address decoding concepts",
-          "Multi-slave system architecture",
-          "Routing mechanisms",
+          "Introduction to the AMBA family and AHB-Lite protocol",
+          "AHB-Lite signals: HADDR, HTRANS, HREADY, HRESP, HWRITE, etc.",
+          "Transaction types: IDLE, NONSEQ, SEQ",
+          "Timing diagrams and bus cycles",
+          "Address decoding logic and decoder functionality",
+          "Use of decoders in SoCs with multiple slave peripherals",
+          "Lab: Model a simple AHB-Lite transaction in SystemVerilog",
         ],
       },
       {
         week: 2,
-        title: "Address Decoding Logic",
-        topics: ["Address mapping", "Decode logic design", "Error handling", "Default slave response"],
+        title: "UVM Agent Development",
+        topics: [
+          "UVM architecture overview and base classes",
+          "Developing an AHB-Lite Master UVM agent",
+          "Sequence item, driver, sequencer, monitor",
+          "Modeling multiple AHB-Lite slaves (passive/reactive)",
+          "Writing reusable transaction classes",
+          "UVM configuration and virtual interface usage",
+          "Lab: Simulate basic AHB read/write traffic with one slave",
+        ],
       },
       {
         week: 3,
-        title: "Verification Environment",
-        topics: ["Testbench architecture", "Multi-slave agents", "Address generators", "Response checkers"],
+        title: "Environment Integration & Decoder Verification",
+        topics: [
+          "Instantiating and connecting the AHB-Lite Decoder DUT",
+          "Building the UVM environment: env, agent, scoreboard",
+          "Test scenarios:",
+          "Valid address routing",
+          "Invalid/masked address handling",
+          "Back-to-back transactions",
+          "Developing a reference model or decoder logic checker",
+          "Coverage points: address range, HTRANS types, slave hit/miss",
+          "Interface assertions to check protocol compliance",
+          "Lab: Write and run directed testcases with multiple slaves",
+        ],
       },
       {
         week: 4,
-        title: "Test Development",
-        topics: ["Address range tests", "Boundary conditions", "Error scenarios", "Performance tests"],
-      },
-      {
-        week: 5,
-        title: "Coverage Analysis",
-        topics: ["Address coverage", "Functional coverage", "Code coverage", "Coverage closure"],
-      },
-      {
-        week: 6,
-        title: "Debug and Optimization",
-        topics: ["Debug techniques", "Performance analysis", "Optimization strategies", "Best practices"],
-      },
-      {
-        week: 7,
-        title: "Project Implementation",
-        topics: ["Complete decoder verification", "Multi-slave testing", "Integration scenarios", "Documentation"],
-      },
-      {
-        week: 8,
-        title: "Final Assessment",
-        topics: ["Project review", "Results presentation", "Industry applications", "Career guidance"],
+        title: "Advanced Testing & Project Completion",
+        topics: [
+          "Randomized sequences and coverage-driven verification",
+          "Debugging waveform and transaction mismatches",
+          "Generating functional coverage reports and merging results",
+          "Final project: Full UVM testbench for AHB-Lite decoder",
+          "Writing a test plan and result documentation",
+          "Interview Q&A on AHB protocol and decoder logic",
+          "Lab: Final verification project and review session",
+        ],
       },
     ],
     schedule: {
-      duration: "8 weeks (16 sessions, 2 per week)",
+      duration: "4 Weeks",
+      stages: [
+        {
+          stage: "I",
+          description: "AHB-Lite Protocol & Decoder Design",
+          duration: "1 Week",
+        },
+        {
+          stage: "II",
+          description: "UVM Agent Development",
+          duration: "1 Week",
+        },
+        {
+          stage: "III",
+          description: "Environment Integration & Decoder Verification",
+          duration: "1 Week",
+        },
+        {
+          stage: "IV",
+          description: "Advanced Testing & Project Completion",
+          duration: "1 Week",
+        },
+      ],
       sessions: "Live sessions + decoder verification labs",
       mode: "Hands-on verification with multi-slave systems",
       tools: ["SystemVerilog", "UVM", "Decoder verification IP", "Address analyzers"],
@@ -1615,24 +1802,40 @@ export const coursesData: Course[] = [
     },
     faqs: [
       {
-        question: "What is AHB-LITE decoder verification?",
-        answer:
-          "AHB-LITE decoder verification focuses on validating address decoding logic, slave selection, and proper routing in multi-slave systems.",
-      },
-      {
         question: "What are the prerequisites?",
-        answer: "Basic understanding of AMBA protocols, address decoding concepts, and verification methodologies.",
+        answer:
+          "Basic digital design and Verilog/SystemVerilog knowledge, Interest in functional verification and SoC design",
       },
       {
-        question: "Will I work on real projects?",
-        answer: "Yes, hands-on projects with multi-slave decoder systems and real-world scenarios.",
+        question: "What tools are used in this course?",
+        answer:
+          "Industry-standard tools like ModelSim, QuestaSim, or VCS for simulation. You can also use open-source simulators for practice.",
+      },
+      {
+        question: "Will I build a real verification project?",
+        answer:
+          "Yes, the final week involves developing a complete UVM testbench for a multi-slave AHB-Lite decoder and verifying its functionality.",
+      },
+      {
+        question: "Will I learn assertions and coverage?",
+        answer: "Yes, both SystemVerilog Assertions (SVA) and functional coverage are part of the curriculum.",
+      },
+      {
+        question: "Is this course useful for job interviews?",
+        answer:
+          "Absolutely. AHB-Lite is widely used, and decoder verification is a common task in IP/SOC verification interviews. The course includes interview preparation tips as well.",
+      },
+      {
+        question: "Will I receive any certificate upon completion?",
+        answer:
+          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
     ],
   },
   {
     id: 11,
-    title: "Verification of AHBLite to AHB Convertor ",
-    description: "Verification of AHB-LITE to AHB converter bridge designs for protocol compatibility systems.",
+    title: "Verification of AHB-Lite to AHB Converter",
+    description: "This course is designed to provide a comprehensive understanding of Gate-Level Simulation (GLS) - a critical verification step in the ASIC design flow that ensures the synthesized netlist behaves functionally equivalent to the RTL, meets timing, and integrates correctly with the back-end flow. Learners will gain in-depth knowledge of how GLS fits into the ASIC design and verification lifecycle, focusing on the transition from RTL to synthesized gate-level netlist, and addressing timing verification, power-aware simulation, glitch detection, and X-propagation handling. The course covers functional and timing simulation using Standard Delay Format (SDF), setup for zero-delay and annotated simulations, as well as techniques to debug mismatches between RTL and post-synthesis behavior. It emphasizes practical setup, scripting, waveform analysis, and identifying issues such as uninitialized signals and race conditions. Participants will simulate both clean and X-check-enabled GLS environments using industry tools like VCS, ModelSim, or QuestaSim, and understand how to validate the final netlist before tape-out.",
     category: "Verification",
     rating: 4.3,
     students: 389,
@@ -1644,89 +1847,119 @@ export const coursesData: Course[] = [
       specialization: "AHB-LITE2AHB Conversion, Protocol Compatibility, Bridge Verification",
       bio: "Rohit specializes in protocol conversion verification with expertise in AHB-LITE to AHB converter bridges and compatibility testing.",
     },
-    duration: "10 weeks",
-    weeks: 10,
+    duration: "4 Weeks",
+    weeks: 4,
     image: "/course11.png",
     syllabus: [
       {
         week: 1,
-        title: "AHB-LITE2AHB Converter Fundamentals",
+        title: "Introduction to GLS & ASIC Flow",
         topics: [
-          "AHB-LITE vs AHB differences",
-          "Protocol conversion requirements",
-          "Feature enhancement concepts",
-          "Converter bridge architecture",
+          "ASIC design and verification flow overview",
+          "Role of Gate-Level Simulation in sign-off",
+          "Netlist generation: RTL → synthesis → gate-level netlist",
+          "Types of simulations: RTL vs GLS vs Post-layout",
+          "Zero-delay and unit-delay simulations",
+          "Reading and understanding the synthesized netlist",
+          "Lab: Simulate a basic netlist with zero delay",
         ],
       },
       {
         week: 2,
-        title: "Protocol Conversion Analysis",
-        topics: ["Signal mapping", "Feature addition", "Timing considerations", "Compatibility issues"],
+        title: "SDF and Timing-Back-Annotation",
+        topics: [
+          "Introduction to SDF (Standard Delay Format)",
+          "Setup of SDF-annotated GLS: tools, options, and configurations",
+          "File hierarchy: .v, .sdf, .sdc, .spef",
+          "SDF annotation modes: max, min, typical",
+          "Gate-level timing violations: setup, hold, and path delays",
+          "Lab: Simulate with SDF annotation and debug violations",
+        ],
       },
       {
         week: 3,
-        title: "Verification Strategy",
-        topics: ["Test planning", "Coverage strategy", "Verification methodology", "Tool selection"],
+        title: "X-Propagation, Glitch Handling & Scan Insertion",
+        topics: [
+          "Causes of X-propagation in gate-level simulation",
+          "Simulation options: +no_notifier, +transport_path, +delay_mode",
+          "Glitch detection and uninitialized net behavior",
+          "Reset sequencing and power-up conditions",
+          "Lab: Debug an X-mismatch and simulate scan-enabled netlist",
+        ],
       },
       {
         week: 4,
-        title: "Environment Development",
-        topics: ["UVM testbench", "Protocol agents", "Converters", "Monitors and scoreboards"],
-      },
-      {
-        week: 5,
-        title: "Test Implementation",
-        topics: ["Basic conversion tests", "Feature verification", "Error handling", "Edge cases"],
-      },
-      {
-        week: 6,
-        title: "Advanced Testing",
-        topics: ["Performance testing", "Stress scenarios", "Compatibility validation", "System integration"],
-      },
-      {
-        week: 7,
-        title: "Coverage and Debug",
-        topics: ["Coverage analysis", "Debug methodologies", "Issue resolution", "Optimization"],
-      },
-      {
-        week: 8,
-        title: "Project Development",
-        topics: ["Complete converter verification", "Implementation", "Testing", "Analysis"],
-      },
-      {
-        week: 9,
-        title: "Integration and Validation",
-        topics: ["System-level testing", "Integration scenarios", "Final validation", "Documentation"],
-      },
-      {
-        week: 10,
-        title: "Final Review",
-        topics: ["Project presentation", "Results analysis", "Industry best practices", "Career opportunities"],
+        title: "Debug, Sign-off, and Project Work",
+        topics: [
+          "Debugging tools and techniques: waveform viewers, logs",
+          "Integration of GLS in regression flow",
+          "Final checklist before tape-out: LINT, CDC, timing, and GLS",
+          "Final Project: End-to-end GLS setup and simulation",
+          "Interview preparation: GLS-related questions and scenarios",
+          "Lab: Full GLS simulation with waveform analysis and report generation",
+        ],
       },
     ],
     schedule: {
-      duration: "10 weeks (20 sessions, 2 per week)",
-      sessions: "Interactive sessions + converter verification labs",
-      mode: "Practical verification with protocol conversion",
-      tools: ["Verification tools", "Protocol analyzers", "Converter IP", "Debug utilities"],
-      fee: 269,
-      breakdown: "Converter bridge verification projects and protocol compatibility testing",
+      duration: "4 Weeks",
+      stages: [
+        {
+          stage: "I",
+          description: "Introduction to GLS & ASIC Flow",
+          duration: "1 Week",
+        },
+        {
+          stage: "II",
+          description: "SDF and Timing-Back-Annotation",
+          duration: "1 Week",
+        },
+        {
+          stage: "III",
+          description: "X-Propagation, Glitch Handling",
+          duration: "1 Week",
+        },
+        {
+          stage: "IV",
+          description: "Debug, Sign-off, and Project Work",
+          duration: "1 Week",
+        },
+      ],
+      sessions: "Live sessions + practical labs",
+      mode: "Interactive online sessions with real-time protocol analysis",
+      tools: ["VCS", "ModelSim", "QuestaSim"],
+      fee: 299,
+      breakdown: "Weekly assignments and Assessments will be conducted.",
     },
     faqs: [
       {
-        question: "Why is AHB-LITE2AHB conversion needed?",
+        question: "Who should take this course?",
         answer:
-          "AHB-LITE2AHB conversion is needed to interface AHB-LITE masters with full AHB systems, adding features like split transactions and retry responses.",
+          "Design Verification Engineers, DFT Engineers, Physical Design and STA Engineers, and graduate students preparing for RTL-to-GDSII flow roles.",
       },
       {
-        question: "What skills will I gain?",
+        question: "What are the prerequisites?",
         answer:
-          "Protocol conversion verification, compatibility testing, bridge design understanding, and system integration skills.",
+          "Basic knowledge of digital logic design, familiarity with Verilog/SystemVerilog, and some exposure to simulation tools like ModelSim, VCS, or QuestaSim.",
       },
       {
-        question: "Is this course industry-relevant?",
+        question: "What are the key tools used?",
         answer:
-          "Yes, protocol converters are widely used in modern SoC designs for backward compatibility and system integration.",
+          "Simulators: VCS, ModelSim, QuestaSim. Optional tools include DVE and GTKWave for waveform analysis. Formats used include Verilog netlist, SDF, and SDC.",
+      },
+      {
+        question: "What kind of netlists are simulated?",
+        answer:
+          "Synthesized gate-level netlists with and without timing. Optionally, post-layout netlists with parasitic annotations are also simulated.",
+      },
+      {
+        question: "Will this help with job interviews?",
+        answer:
+          "Absolutely. GLS is a critical skill for backend, DFT, and late-stage verification engineers. This course covers interview-relevant questions and practical flows.",
+      },
+      {
+        question: "Will I receive any certificate upon completion?",
+        answer:
+          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
     ],
   },

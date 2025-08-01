@@ -35,6 +35,20 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
 
   // Function to get schedule data from course data
   const getScheduleData = () => {
+    // If schedule has stages, use them directly
+    if (course.schedule?.stages && course.schedule.stages.length > 0) {
+      const scheduleData = course.schedule.stages.map((stage) => ({
+        stage: stage.stage,
+        description: stage.description,
+        duration: stage.duration,
+      }))
+      return {
+        duration: course.schedule.duration,
+        data: scheduleData,
+        total: course.schedule.duration,
+      }
+    }
+
     // For courses with detailed syllabus, create schedule from syllabus
     if (course.syllabus && course.syllabus.length > 0) {
       const scheduleData = []
