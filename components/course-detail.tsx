@@ -194,16 +194,16 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Course Header */}
-      <div className="grid lg:grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <div>
           <Badge className="mb-4">{course.category}</Badge>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{course.title}</h1>
-          <p className="text-gray-600 mb-6">{course.description}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{course.title}</h1>
+          <p className="text-gray-600 mb-6 text-sm sm:text-base">{course.description}</p>
 
           {/* Course Duration */}
           <div className="flex items-center gap-3 mb-6">
             <Clock className="w-5 h-5 text-green-500" />
-            <span className="font-semibold">Duration: {course.duration}</span>
+            <span className="font-semibold text-sm sm:text-base">Duration: {course.duration}</span>
           </div>
         </div>
         <div className="relative">
@@ -212,7 +212,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
             alt={course.title}
             width={600}
             height={400}
-            className="w-full h-64 lg:h-80 object-cover rounded-lg"
+            className="w-full max-h-64 sm:max-h-80 object-cover rounded-lg"
           />
         </div>
       </div>

@@ -3,17 +3,7 @@ export interface Course {
   title: string
   description: string
   category: string
-  rating: number
-  students: number
   discount?: number
-  trainer: {
-    name: string
-    title: string
-    experience: string
-    education: string
-    specialization: string
-    bio: string
-  }
   duration: string
   weeks: number
   image: string
@@ -48,21 +38,12 @@ export const coursesData: Course[] = [
     description:
       "The primary objective of the Design Verification Course is to equip engineers and VLSI professionals with the skills and methodologies necessary to validate the correctness, performance, and reliability of digital designs before fabrication. This course provides a comprehensive understanding of design verification concepts, methodologies, and practical skills required to verify digital designs effectively. The course focuses on industry-standard verification techniques, languages, and tools such as SystemVerilog, UVM (Universal Verification Methodology), and Assertion-Based Verification.",
     category: "VLSI Design",
-    rating: 4.8,
-    students: 1100,
-    discount: 10,
-    trainer: {
-      name: "Prof. Arun Kumar",
-      title: "Senior Design Verification Engineer",
-      experience: "15+ years in VLSI Design and Verification",
-      education: "M.Tech/Ph.D. in VLSI Design / ECE, Alumni of IIT/NIT",
-      specialization:
-        "SystemVerilog & UVM, Functional and Formal Verification, RTL Design & Debug, SoC-level Verification and Assertion-based Verification",
-      bio: "Senior Design Verification Engineer and Lead with 15+ years of experience in VLSI Design & Verification with industry background in top semiconductor companies.",
-    },
-    duration: "24 weeks",
-    weeks: 24,
-    image: "/course1.png",
+  rating: 4.8,
+  students: 1100,
+  discount: 10,
+  duration: "24 weeks",
+  weeks: 24,
+  image: "/course1.png",
     syllabus: [
       {
         week: 1,
@@ -316,19 +297,11 @@ export const coursesData: Course[] = [
     description:
       "Design For Testability is a specialization in the SOC design cycle, which facilitates design for detecting manufacturing defects. With the increase in size and complexity of chips, facilitated by the advancement of manufacturing technologies, Design for Testability has evolved as a specialization in itself over a period of time. In the design for Test Course the importance is given to cover the concepts, methodology thoroughly with the right emphasis on hands-on training, using Synopsys DFT Tools with at least 50% time allocated to lab Sessions.",
     category: "VLSI Design",
-    rating: 4.6,
-    students: 890,
-    trainer: {
-      name: "Dr. Anita Desai",
-      title: "DFT Methodology Expert",
-      experience: "12+ years in DFT and Test Engineering",
-      education: "Ph.D. in Computer Science, IISc Bangalore",
-      specialization: "DFT, BIST, Scan Design, Test Pattern Generation",
-      bio: "Dr. Anita is a renowned expert in DFT methodologies with extensive experience in test engineering for complex SoC designs.",
-    },
-    duration: "24 weeks",
-    weeks: 24,
-    image: "/course2.png",
+  rating: 4.6,
+  students: 890,
+  duration: "24 weeks",
+  weeks: 24,
+  image: "/course2.png",
     syllabus: [
       {
         week: 1,
@@ -544,19 +517,11 @@ export const coursesData: Course[] = [
     description:
       "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure. Students learn about power planning, clock tree synthesis, DRC/LVS verification, and sign-off methodologies. This course is designed for students with a basic understanding of digital electronics, Verilog and CMOS concepts for them to handle critical roles in semiconductor design teams.",
     category: "Physical Design",
-    rating: 4.7,
-    students: 456,
-    trainer: {
-      name: "Mr. Deepak Joshi",
-      title: "Physical Design Manager",
-      experience: "17+ years in Physical Design and Backend",
-      education: "M.Tech in VLSI Design, IIT Kanpur",
-      specialization: "Physical Design Flow, Timing Closure, Signal Integrity",
-      bio: "Deepak is a physical design expert with extensive experience in advanced node implementations and has led multiple successful tape-outs.",
-    },
-    duration: "24 weeks",
-    weeks: 24,
-    image: "/course3.png",
+  rating: 4.7,
+  students: 456,
+  duration: "24 weeks",
+  weeks: 24,
+  image: "/course3.png",
     syllabus: [
       {
         week: 1,
@@ -836,19 +801,11 @@ export const coursesData: Course[] = [
     description:
       "The FPGA Based System Design course aims to equip students with a solid foundation in designing and implementing digital systems using Field Programmable Gate Arrays (FPGAs). The course focuses on teaching hardware description languages like Verilog or VHDL for modeling and simulating digital logic, along with practical exposure to FPGA toolchains for synthesis, place-and-route, and implementation. Candidates will learn to build system-level designs by integrating IP cores, soft-core processors, and custom hardware accelerators. Emphasis is placed on hands-on development using industry-standard FPGA platforms, enabling learners to prototype embedded systems that combine both hardware and software components.",
     category: "FPGA",
-    rating: 4.8,
-    students: 445,
-    trainer: {
-      name: "Dr. Sanjay Mehta",
-      title: "FPGA Design Specialist",
-      experience: "13+ years in FPGA and Reconfigurable Computing",
-      education: "Ph.D. in Computer Engineering, IIT Roorkee",
-      specialization: "FPGA Architecture, High-Level Synthesis, DSP Implementation",
-      bio: "Dr. Sanjay specializes in FPGA-based system design and has developed numerous high-performance computing solutions using reconfigurable architectures.",
-    },
-    duration: "12 weeks",
-    weeks: 12,
-    image: "/course4.png",
+  rating: 4.8,
+  students: 445,
+  duration: "12 weeks",
+  weeks: 12,
+  image: "/course4.png",
     syllabus: [
       {
         week: 1,
@@ -1146,19 +1103,11 @@ export const coursesData: Course[] = [
     description:
       "The primary objective of AMBA protocol verification using SystemVerilog and UVM is to ensure that the design under test (DUT) strictly adheres to the protocol specifications (e.g., AXI, AHB, APB) in both functional behavior and timing. A UVM-based testbench is developed to generate legal and corner-case stimulus, using sequences to simulate various bus transactions while drivers, monitors, and scoreboards check correctness and data integrity. SystemVerilog Assertions (SVA) are integrated to enforce protocol rules such as proper handshakes, signal stability, ordering, and exclusive access conditions, catching violations early during simulation.",
     category: "Verification",
-    rating: 4.9,
-    students: 980,
-    trainer: {
-      name: "Ms. Priya Patel",
-      title: "Verification Lead",
-      experience: "10+ years in Protocol Verification",
-      education: "M.Tech in VLSI Design, NIT Warangal",
-      specialization: "AMBA Protocols, UVM, SystemVerilog",
-      bio: "Priya is a verification expert specializing in AMBA protocol verification with extensive experience in automotive and mobile SoC verification.",
-    },
-    duration: "4 weeks",
-    weeks: 4,
-    image: "/course6.png",
+  rating: 4.9,
+  students: 980,
+  duration: "4 Weeks",
+  weeks: 4,
+  image: "/course6.png",
     syllabus: [
       {
         week: 1,
