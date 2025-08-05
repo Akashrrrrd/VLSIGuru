@@ -9,9 +9,6 @@ export function HeroSection() {
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
           <span className="text-red-600">sVIOS TECHNOLOGIES</span>
         </h1>
-        <h2 className="text-3xl md:text-4xl font-semibold text-gray-700 mb-6">
-          Gateway to the world of VLSI and IoT
-        </h2>
         <p className="text-xl md:text-2xl text-gray-600 max-w-6xl mx-auto leading-relaxed text-justify">
           sVIOS Technologies leverages its extensive industry understanding and digital capabilities to create top-notch end-to-end engineering solutions. By integrating several sectors and technologies with the contributions offered by various individuals who specialize in their areas of expertise, issues can potentially be solved more effectively and quickly. We are able to address the most significant and complex problems in the automotive, high-tech, healthcare, medical device, robotics, and semiconductor sectors because to our multifaceted approach. We produce highly trained engineers and assists global electronics industry in accomplishing its growing need for expertise in VLSI, robotics, and smart automation.
         </p>
