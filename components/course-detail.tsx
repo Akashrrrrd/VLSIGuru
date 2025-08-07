@@ -191,6 +191,39 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
 
   const scheduleInfo = getScheduleData()
 
+  // Check if this is the Embedded and IoT course
+  const isUnderConstruction = course.title === "Embedded and IoT"
+
+  if (isUnderConstruction) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center py-16">
+          <div className="max-w-2xl mx-auto">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{course.title}</h1>
+            <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-6 rounded-lg mb-8">
+              <h2 className="text-2xl font-bold mb-2">🚧 Under Construction</h2>
+              <p className="text-lg">
+                This course is currently being updated with new content and features. 
+                Please check back soon for the enhanced learning experience!
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-600">
+                We're working hard to bring you the most comprehensive Embedded and IoT course 
+                with hands-on projects and industry-relevant content.
+              </p>
+              <Link href="/courses">
+                <Button size="lg" className="bg-red-600 hover:bg-red-700 mt-2">
+                  Browse Other Courses
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Course Header */}
