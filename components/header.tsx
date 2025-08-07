@@ -89,18 +89,7 @@ export function Header() {
           </div>
 
           {/* Center Title - Hidden on mobile and small tablets */}
-          <div className="hidden lg:flex flex-1 items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-3xl font-extrabold text-black tracking-tight leading-tight">
-                Gateway to the world of
-                <br />
-                <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-700">
-                  VLSI and IoT
-                </span>
-              </h1>
-              <div className="mt-2 h-1 w-24 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
-            </div>
-          </div>
+          {/* Removed the center title div */}
 
           {/* Navigation Links - Desktop */}
           <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
