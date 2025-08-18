@@ -1,11 +1,64 @@
-import { Footer } from "@/components/footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+'use client';
+
+import { useState } from 'react';
+import { Footer } from '@/components/footer';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="py-16">
@@ -79,16 +132,66 @@ export default function ContactPage() {
                 <CardTitle>Send us a message</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="First Name" />
-                  <Input placeholder="Last Name" />
-                </div>
-                <Input placeholder="Email" type="email" />
-                <Input placeholder="Subject" />
-                <Textarea placeholder="Your message" rows={6} />
-                <Button className="w-full bg-red-600 hover:bg-red-700">
-                  Send Message
-                </Button>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <Input
+                      name="firstName"
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                    <Input
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <Input
+                    name="email"
+                    placeholder="Email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Input
+                    name="subject"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Textarea
+                    name="message"
+                    placeholder="Your message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                  
+                  {submitStatus === 'success' && (
+                    <div className="p-3 bg-green-100 text-green-700 rounded-md">
+                      Message sent successfully! We'll get back to you soon.
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="p-3 bg-red-100 text-red-700 rounded-md">
+                      Failed to send message. Please try again.
+                    </div>
+                  )}
+                  
+                  <Button
+                    type="submit"
+                    className="w-full bg-red-600 hover:bg-red-700"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
 
@@ -103,11 +206,11 @@ export default function ContactPage() {
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="SVIOS Technologies Location"
-                />
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="SVIOS Technologies Location"
+                  />
                 </div>
               </CardContent>
             </Card>
