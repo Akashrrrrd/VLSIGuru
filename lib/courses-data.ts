@@ -29,21 +29,26 @@ export interface Course {
     question: string
     answer: string
   }[]
+  trainer?: {
+    name: string
+    title: string
+    experience: string
+    education: string
+    specialization: string
+    bio: string
+  }
 }
 
 export const coursesData: Course[] = [
   {
     id: 1,
     title: "Design Verification",
-    description:
-      "The primary objective of the Design Verification Course is to equip engineers and VLSI professionals with the skills and methodologies necessary to validate the correctness, performance, and reliability of digital designs before fabrication. This course provides a comprehensive understanding of design verification concepts, methodologies, and practical skills required to verify digital designs effectively. The course focuses on industry-standard verification techniques, languages, and tools such as SystemVerilog, UVM (Universal Verification Methodology), and Assertion-Based Verification.",
+    description: "The primary objective of the Design Verification Course is to equip engineers and VLSI professionals with the skills and methodologies necessary to validate the correctness, performance, and reliability of digital designs before fabrication. This course provides a comprehensive understanding of design verification concepts, methodologies, and practical skills required to verify digital designs effectively. The course focuses on industry-standard verification techniques, languages, and tools such as SystemVerilog, UVM (Universal Verification Methodology), and Assertion-Based Verification.",
     category: "VLSI Design",
-  rating: 4.8,
-  students: 1100,
-  discount: 10,
-  duration: "24 weeks",
-  weeks: 24,
-  image: "/course1.png",
+    discount: 10,
+    duration: "24 weeks",
+    weeks: 24,
+    image: "/course1.png",
     syllabus: [
       {
         week: 1,
@@ -247,19 +252,16 @@ export const coursesData: Course[] = [
       mode: "Hybrid learning with hands-on labs and industry projects",
       tools: ["SystemVerilog", "UVM", "Questa Sim", "VCS", "Assertion tools"],
       fee: 250,
-      breakdown:
-        "Weekly assignments and Module Assessments will be conducted. Assessments will be in the form of written test / Presentation / MCQ / Coding.",
+      breakdown: "Weekly assignments and Module Assessments will be conducted. Assessments will be in the form of written test / Presentation / MCQ / Coding.",
     },
     faqs: [
       {
         question: "Who can attend the course?",
-        answer:
-          "Engineering Students from ECE/EEE/EIE/VLSI/CSE programs, B.E/B.Tech fresh graduates from ECE/EEE/EIE/VLSI/CSE programs, Engineers already working in VLSI, Embedded Systems, ASIC/FPGA Design, or hardware/software co-design, looking to transition into or strengthen their knowledge of Verification, and Industry-Sponsored Trainees.",
+        answer: "Engineering Students from ECE/EEE/EIE/VLSI/CSE programs, B.E/B.Tech fresh graduates from ECE/EEE/EIE/VLSI/CSE programs, Engineers already working in VLSI, Embedded Systems, ASIC/FPGA Design, or hardware/software co-design, looking to transition into or strengthen their knowledge of Verification, and Industry-Sponsored Trainees.",
       },
       {
         question: "What are the pre-requisites to attend this course?",
-        answer:
-          "Knowledge of Digital Electronics and Logic Design, Familiarity with HDLs like Verilog or VHDL, and Basic understanding of Computer Architecture.",
+        answer: "Knowledge of Digital Electronics and Logic Design, Familiarity with HDLs like Verilog or VHDL, and Basic understanding of Computer Architecture.",
       },
       {
         question: "Is there a certificate provided?",
@@ -267,18 +269,15 @@ export const coursesData: Course[] = [
       },
       {
         question: "What is the duration of the course?",
-        answer:
-          "The course duration typically ranges from 24 to 28 weeks (for intensive offline batches) to 28 to 36 months (for part time / weekend batches).",
+        answer: "The course duration typically ranges from 24 to 28 weeks (for intensive offline batches) to 28 to 36 months (for part time / weekend batches).",
       },
       {
         question: "Is there any hands-on/project work?",
-        answer:
-          "Yes, this course includes Real-world verification projects, Assignments on testbench development, Debugging and coverage analysis, and Final capstone or mini-projects.",
+        answer: "Yes, this course includes Real-world verification projects, Assignments on testbench development, Debugging and coverage analysis, and Final capstone or mini-projects.",
       },
       {
         question: "Will this help me get a job?",
-        answer:
-          "Absolutely. Design Verification is in high demand in the VLSI and semiconductor industries. This course can strengthen your resume, prepare you for technical interviews, and help with internships or full-time roles in companies like Intel, Qualcomm, AMD, Cadence, Synopsys, etc.",
+        answer: "Absolutely. Design Verification is in high demand in the VLSI and semiconductor industries. This course can strengthen your resume, prepare you for technical interviews, and help with internships or full-time roles in companies like Intel, Qualcomm, AMD, Cadence, Synopsys, etc.",
       },
       {
         question: "Are placement services provided?",
@@ -286,22 +285,18 @@ export const coursesData: Course[] = [
       },
       {
         question: "Is this course online or in-person?",
-        answer:
-          "Yes this is offered in In-person offline sessions, Fully online (live or self-paced), and Hybrid (online + lab sessions) modes.",
+        answer: "Yes this is offered in In-person offline sessions, Fully online (live or self-paced), and Hybrid (online + lab sessions) modes.",
       },
     ],
   },
   {
     id: 2,
     title: "Design For Testability",
-    description:
-      "Design For Testability is a specialization in the SOC design cycle, which facilitates design for detecting manufacturing defects. With the increase in size and complexity of chips, facilitated by the advancement of manufacturing technologies, Design for Testability has evolved as a specialization in itself over a period of time. In the design for Test Course the importance is given to cover the concepts, methodology thoroughly with the right emphasis on hands-on training, using Synopsys DFT Tools with at least 50% time allocated to lab Sessions.",
+    description: "Design For Testability is a specialization in the SOC design cycle, which facilitates design for detecting manufacturing defects. With the increase in size and complexity of chips, facilitated by the advancement of manufacturing technologies, Design for Testability has evolved as a specialization in itself over a period of time. In the design for Test Course the importance is given to cover the concepts, methodology thoroughly with the right emphasis on hands-on training, using Synopsys DFT Tools with at least 50% time allocated to lab Sessions.",
     category: "VLSI Design",
-  rating: 4.6,
-  students: 890,
-  duration: "24 weeks",
-  weeks: 24,
-  image: "/course2.png",
+    duration: "24 weeks",
+    weeks: 24,
+    image: "/course2.png",
     syllabus: [
       {
         week: 1,
@@ -475,53 +470,43 @@ export const coursesData: Course[] = [
       mode: "Hands-on DFT implementation with real designs",
       tools: ["Synopsys DFT Compiler", "Cadence Modus", "TetraMAX", "Test tools"],
       fee: 199,
-      breakdown:
-        "Weekly assignments and Module Assessments will be conducted. Assessments will be in the form of written test / Presentation / MCQ / Coding.",
+      breakdown: "Weekly assignments and Module Assessments will be conducted. Assessments will be in the form of written test / Presentation / MCQ / Coding.",
     },
     faqs: [
       {
         question: "Who should take this course?",
-        answer:
-          "This course is ideal for VLSI/ASIC/FPGA design engineers, Verification engineers transitioning into DFT roles, Electrical/Electronics engineering students, and Professionals preparing for roles in semiconductor test and product engineering.",
+        answer: "This course is ideal for VLSI/ASIC/FPGA design engineers, Verification engineers transitioning into DFT roles, Electrical/Electronics engineering students, and Professionals preparing for roles in semiconductor test and product engineering.",
       },
       {
         question: "What are the prerequisites?",
-        answer:
-          "You should have basic knowledge of Digital Electronics, familiarity with Verilog/VHDL, and some exposure to ASIC design flow and timing concepts.",
+        answer: "You should have basic knowledge of Digital Electronics, familiarity with Verilog/VHDL, and some exposure to ASIC design flow and timing concepts.",
       },
       {
         question: "Is the course theoretical or hands-on?",
-        answer:
-          "The course is a blend of theory and hands-on labs. You will use tools like DFTAdvisor, FastScan, or Tessent, insert scan chains, generate patterns, and simulate faults, and work on a DFT-enabled RTL-to-GDS flow.",
+        answer: "The course is a blend of theory and hands-on labs. You will use tools like DFTAdvisor, FastScan, or Tessent, insert scan chains, generate patterns, and simulate faults, and work on a DFT-enabled RTL-to-GDS flow.",
       },
       {
         question: "What kind of projects will I work on?",
-        answer:
-          "Example projects include scan insertion and ATPG pattern generation for an RTL block, fault coverage analysis and improvement, BIST controller design and implementation, and boundary scan implementation for a SoC block.",
+        answer: "Example projects include scan insertion and ATPG pattern generation for an RTL block, fault coverage analysis and improvement, BIST controller design and implementation, and boundary scan implementation for a SoC block.",
       },
       {
         question: "Will I get a certificate?",
-        answer:
-          "Yes. Upon successful completion of assignments and final project, a Certificate of Completion will be issued.",
+        answer: "Yes. Upon successful completion of assignments and final project, a Certificate of Completion will be issued.",
       },
       {
         question: "Are there career opportunities in DFT?",
-        answer:
-          "Absolutely. DFT is a core specialization in the semiconductor industry. Roles include DFT Engineer, Test/Validation Engineer, Product Engineer, and SoC Integration Engineer (with DFT knowledge).",
+        answer: "Absolutely. DFT is a core specialization in the semiconductor industry. Roles include DFT Engineer, Test/Validation Engineer, Product Engineer, and SoC Integration Engineer (with DFT knowledge).",
       },
     ],
   },
   {
     id: 3,
     title: "Physical Design",
-    description:
-      "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure. Students learn about power planning, clock tree synthesis, DRC/LVS verification, and sign-off methodologies. This course is designed for students with a basic understanding of digital electronics, Verilog and CMOS concepts for them to handle critical roles in semiconductor design teams.",
+    description: "The VLSI Physical Design course explains how a high-level hardware design turns into a layout ready for chip fabrication. Covering the entire backend flow — from floorplanning, placement to routing and timing closure. Students learn about power planning, clock tree synthesis, DRC/LVS verification, and sign-off methodologies. This course is designed for students with a basic understanding of digital electronics, Verilog and CMOS concepts for them to handle critical roles in semiconductor design teams.",
     category: "Physical Design",
-  rating: 4.7,
-  students: 456,
-  duration: "24 weeks",
-  weeks: 24,
-  image: "/course3.png",
+    duration: "24 weeks",
+    weeks: 24,
+    image: "/course3.png",
     syllabus: [
       {
         week: 1,
@@ -764,48 +749,39 @@ export const coursesData: Course[] = [
       mode: "Comprehensive hands-on learning with real physical design projects",
       tools: ["Cadence Innovus", "Synopsys IC Compiler", "Calibre", "PrimeTime", "Physical verification tools"],
       fee: 289,
-      breakdown:
-        "8-stage learning approach: Digital Logic & Verilog (4 weeks), Linux & Scripting (2 weeks), Physical Design Theory (10 weeks), STA and Sign-off (4 weeks), Live Project Work (3 weeks), Interview Preparation (1 week)",
+      breakdown: "8-stage learning approach: Digital Logic & Verilog (4 weeks), Linux & Scripting (2 weeks), Physical Design Theory (10 weeks), STA and Sign-off (4 weeks), Live Project Work (3 weeks), Interview Preparation (1 week)",
     },
     faqs: [
       {
         question: "What is Physical Design in VLSI?",
-        answer:
-          "Physical Design is the process of transforming a gate-level netlist into a physical layout that can be manufactured. It includes floorplanning, placement, routing, and verification steps.",
+        answer: "Physical Design is the process of transforming a gate-level netlist into a physical layout that can be manufactured. It includes floorplanning, placement, routing, and verification steps.",
       },
       {
         question: "What are the prerequisites for this course?",
-        answer:
-          "Basic understanding of digital electronics, Verilog HDL, and CMOS concepts. Knowledge of logic design and computer architecture is helpful.",
+        answer: "Basic understanding of digital electronics, Verilog HDL, and CMOS concepts. Knowledge of logic design and computer architecture is helpful.",
       },
       {
         question: "Will I work on real industry projects?",
-        answer:
-          "Yes, the course includes extensive lab work and projects including block-level and mini SoC physical implementation using industry-standard tools.",
+        answer: "Yes, the course includes extensive lab work and projects including block-level and mini SoC physical implementation using industry-standard tools.",
       },
       {
         question: "What tools will I learn?",
-        answer:
-          "You'll work with industry-standard tools including Cadence Innovus, Synopsys IC Compiler, Calibre for verification, and PrimeTime for timing analysis.",
+        answer: "You'll work with industry-standard tools including Cadence Innovus, Synopsys IC Compiler, Calibre for verification, and PrimeTime for timing analysis.",
       },
       {
         question: "What career opportunities are available after this course?",
-        answer:
-          "Physical Design Engineer, Backend Engineer, CAD Engineer, Timing Analysis Engineer, and Physical Verification Engineer roles in semiconductor companies.",
+        answer: "Physical Design Engineer, Backend Engineer, CAD Engineer, Timing Analysis Engineer, and Physical Verification Engineer roles in semiconductor companies.",
       },
     ],
   },
   {
     id: 4,
     title: "FPGA Based System Design",
-    description:
-      "The FPGA Based System Design course aims to equip students with a solid foundation in designing and implementing digital systems using Field Programmable Gate Arrays (FPGAs). The course focuses on teaching hardware description languages like Verilog or VHDL for modeling and simulating digital logic, along with practical exposure to FPGA toolchains for synthesis, place-and-route, and implementation. Candidates will learn to build system-level designs by integrating IP cores, soft-core processors, and custom hardware accelerators. Emphasis is placed on hands-on development using industry-standard FPGA platforms, enabling learners to prototype embedded systems that combine both hardware and software components.",
+    description: "The FPGA Based System Design course aims to equip students with a solid foundation in designing and implementing digital systems using Field Programmable Gate Arrays (FPGAs). The course focuses on teaching hardware description languages like Verilog or VHDL for modeling and simulating digital logic, along with practical exposure to FPGA toolchains for synthesis, place-and-route, and implementation. Candidates will learn to build system-level designs by integrating IP cores, soft-core processors, and custom hardware accelerators. Emphasis is placed on hands-on development using industry-standard FPGA platforms, enabling learners to prototype embedded systems that combine both hardware and software components.",
     category: "FPGA",
-  rating: 4.8,
-  students: 445,
-  duration: "12 weeks",
-  weeks: 12,
-  image: "/course4.png",
+    duration: "12 weeks",
+    weeks: 12,
+    image: "/course4.png",
     syllabus: [
       {
         week: 1,
@@ -917,28 +893,23 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "What is the objective of this course?",
-        answer:
-          "The course aims to provide hands-on, industry-relevant skills in FPGA System Design, focusing on RTL coding, simulation, synthesis, and real-time project implementation using Verilog and popular FPGA toolchains like Xilinx Vivado or Intel Quartus.",
+        answer: "The course aims to provide hands-on, industry-relevant skills in FPGA System Design, focusing on RTL coding, simulation, synthesis, and real-time project implementation using Verilog and popular FPGA toolchains like Xilinx Vivado or Intel Quartus.",
       },
       {
         question: "Who can enroll in this course?",
-        answer:
-          "B.E./B.Tech/M.E./M.Tech students from ECE, EEE, Instrumentation, Working professionals looking to switch to FPGA/VLSI domain, Faculty members upskilling in Digital/Embedded domains, and Fresh graduates aiming for core hardware jobs.",
+        answer: "B.E./B.Tech/M.E./M.Tech students from ECE, EEE, Instrumentation, Working professionals looking to switch to FPGA/VLSI domain, Faculty members upskilling in Digital/Embedded domains, and Fresh graduates aiming for core hardware jobs.",
       },
       {
         question: "Do I need prior knowledge of Verilog or FPGA?",
-        answer:
-          "No prior FPGA experience is required. Basic digital electronics knowledge (gates, flip-flops, counters, FSMs) is recommended. The course starts from fundamentals and moves to advanced topics.",
+        answer: "No prior FPGA experience is required. Basic digital electronics knowledge (gates, flip-flops, counters, FSMs) is recommended. The course starts from fundamentals and moves to advanced topics.",
       },
       {
         question: "What tools and software will I learn?",
-        answer:
-          "Xilinx Vivado or Intel Quartus Prime (depending on FPGA board), ModelSim/QuestaSim for simulation, Git/GitHub (basic version control), and optionally: Vivado IP Integrator, MicroBlaze/Nios II.",
+        answer: "Xilinx Vivado or Intel Quartus Prime (depending on FPGA board), ModelSim/QuestaSim for simulation, Git/GitHub (basic version control), and optionally: Vivado IP Integrator, MicroBlaze/Nios II.",
       },
       {
         question: "Will I get hands-on experience?",
-        answer:
-          "Yes, this is a project-driven course. Students will implement multiple real-time digital systems and communication protocols on FPGA, along with testbenches and simulations.",
+        answer: "Yes, this is a project-driven course. Students will implement multiple real-time digital systems and communication protocols on FPGA, along with testbenches and simulations.",
       },
       {
         question: "Is hardware mandatory for this course?",
@@ -950,29 +921,23 @@ export const coursesData: Course[] = [
       },
       {
         question: "Will I get a certificate?",
-        answer:
-          "Yes, participants will receive a course completion certificate. For those completing all project submissions, a Project Excellence Certificate will also be awarded.",
+        answer: "Yes, participants will receive a course completion certificate. For those completing all project submissions, a Project Excellence Certificate will also be awarded.",
       },
       {
         question: "Will this help in VLSI/FPGA job interviews?",
-        answer:
-          "Absolutely. The course includes interview preparation, resume review, and mock interviews focused on RTL, FPGA, and system design topics commonly asked in companies like Intel, Xilinx, AMD, Wipro, Tata Elxsi, etc.",
+        answer: "Absolutely. The course includes interview preparation, resume review, and mock interviews focused on RTL, FPGA, and system design topics commonly asked in companies like Intel, Xilinx, AMD, Wipro, Tata Elxsi, etc.",
       },
       {
         question: "Is placement assistance provided?",
-        answer:
-          "Yes, job-oriented batches may include: Resume forwarding to hiring partners, Mock interviews, and Job alerts in FPGA/VLSI domain. (Note: Final selection depends on individual performance and company criteria.)",
+        answer: "Yes, job-oriented batches may include: Resume forwarding to hiring partners, Mock interviews, and Job alerts in FPGA/VLSI domain. (Note: Final selection depends on individual performance and company criteria.)",
       },
     ],
   },
   {
     id: 5,
     title: "Gate Level Simulation",
-    description:
-      "This course is designed to provide a comprehensive understanding of Gate-Level Simulation (GLS) - a critical verification step in the ASIC design flow that ensures the synthesized netlist behaves functionally equivalent to the RTL, meets timing, and integrates correctly with the back-end flow. Learners will gain in-depth knowledge of how GLS fits into the ASIC design and verification lifecycle, focusing on the transition from RTL to synthesized gate-level netlist, and addressing timing verification, power-aware simulation, glitch detection, and X-propagation handling. The course covers functional and timing simulation using Standard Delay Format (SDF), setup for zero-delay and annotated simulations, as well as techniques to debug mismatches between RTL and post-synthesis behavior. It emphasizes practical setup, scripting, waveform analysis, and identifying issues such as uninitialized signals and race conditions. Participants will simulate both clean and X-check-enabled GLS environments using industry tools like VCS, ModelSim, or QuestaSim, and understand how to validate the final netlist before tape-out.",
+    description: "This course is designed to provide a comprehensive understanding of Gate-Level Simulation (GLS) - a critical verification step in the ASIC design flow that ensures the synthesized netlist behaves functionally equivalent to the RTL, meets timing, and integrates correctly with the back-end flow. Learners will gain in-depth knowledge of how GLS fits into the ASIC design and verification lifecycle, focusing on the transition from RTL to synthesized gate-level netlist, and addressing timing verification, power-aware simulation, glitch detection, and X-propagation handling. The course covers functional and timing simulation using Standard Delay Format (SDF), setup for zero-delay and annotated simulations, as well as techniques to debug mismatches between RTL and post-synthesis behavior. It emphasizes practical setup, scripting, waveform analysis, and identifying issues such as uninitialized signals and race conditions. Participants will simulate both clean and X-check-enabled GLS environments using industry tools like VCS, ModelSim, or QuestaSim, and understand how to validate the final netlist before tape-out.",
     category: "VLSI Design",
-    rating: 4.8,
-    students: 1250,
     trainer: {
       name: "Dr. Rajesh Sharma",
       title: "Senior VLSI Design Engineer",
@@ -1067,47 +1032,38 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "Who should take this course?",
-        answer:
-          "Design Verification Engineers, DFT Engineers, Physical Design and STA Engineers, and graduate students preparing for RTL-to-GDSII flow roles.",
+        answer: "Design Verification Engineers, DFT Engineers, Physical Design and STA Engineers, and graduate students preparing for RTL-to-GDSII flow roles.",
       },
       {
         question: "What are the prerequisites?",
-        answer:
-          "Basic knowledge of digital logic design, familiarity with Verilog/SystemVerilog, and some exposure to simulation tools like ModelSim, VCS, or QuestaSim.",
+        answer: "Basic knowledge of digital logic design, familiarity with Verilog/SystemVerilog, and some exposure to simulation tools like ModelSim, VCS, or QuestaSim.",
       },
       {
         question: "What are the key tools used?",
-        answer:
-          "Simulators: VCS, ModelSim, QuestaSim. Optional tools include DVE and GTKWave for waveform analysis. Formats used include Verilog netlist, SDF, and SDC.",
+        answer: "Simulators: VCS, ModelSim, QuestaSim. Optional tools include DVE and GTKWave for waveform analysis. Formats used include Verilog netlist, SDF, and SDC.",
       },
       {
         question: "What kind of netlists are simulated?",
-        answer:
-          "Synthesized gate-level netlists with and without timing. Optionally, post-layout netlists with parasitic annotations are also simulated.",
+        answer: "Synthesized gate-level netlists with and without timing. Optionally, post-layout netlists with parasitic annotations are also simulated.",
       },
       {
         question: "Will this help with job interviews?",
-        answer:
-          "Absolutely. GLS is a critical skill for backend, DFT, and late-stage verification engineers. This course covers interview-relevant questions and practical flows.",
+        answer: "Absolutely. GLS is a critical skill for backend, DFT, and late-stage verification engineers. This course covers interview-relevant questions and practical flows.",
       },
       {
         question: "Will I receive any certificate upon completion?",
-        answer:
-          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
+        answer: "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
     ],
   },
   {
     id: 6,
     title: "AMBA IP Verification (APB, AHB, AXI) ",
-    description:
-      "The primary objective of AMBA protocol verification using SystemVerilog and UVM is to ensure that the design under test (DUT) strictly adheres to the protocol specifications (e.g., AXI, AHB, APB) in both functional behavior and timing. A UVM-based testbench is developed to generate legal and corner-case stimulus, using sequences to simulate various bus transactions while drivers, monitors, and scoreboards check correctness and data integrity. SystemVerilog Assertions (SVA) are integrated to enforce protocol rules such as proper handshakes, signal stability, ordering, and exclusive access conditions, catching violations early during simulation.",
+    description: "The primary objective of AMBA protocol verification using SystemVerilog and UVM is to ensure that the design under test (DUT) strictly adheres to the protocol specifications (e.g., AXI, AHB, APB) in both functional behavior and timing. A UVM-based testbench is developed to generate legal and corner-case stimulus, using sequences to simulate various bus transactions while drivers, monitors, and scoreboards check correctness and data integrity. SystemVerilog Assertions (SVA) are integrated to enforce protocol rules such as proper handshakes, signal stability, ordering, and exclusive access conditions, catching violations early during simulation.",
     category: "Verification",
-  rating: 4.9,
-  students: 980,
-  duration: "4 Weeks",
-  weeks: 4,
-  image: "/course6.png",
+    duration: "4 Weeks",
+    weeks: 4,
+    image: "/course6.png",
     syllabus: [
       {
         week: 1,
@@ -1182,54 +1138,43 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "Who is this course intended for?",
-        answer:
-          "This course is designed for VLSI design and verification engineers, Students pursuing a career in semiconductor or embedded systems, Professionals looking to upskill in protocol-based verification using UVM, and Anyone with a background in digital design and basic Verilog/SystemVerilog.",
+        answer: "This course is designed for VLSI design and verification engineers, Students pursuing a career in semiconductor or embedded systems, Professionals looking to upskill in protocol-based verification using UVM, and Anyone with a background in digital design and basic Verilog/SystemVerilog.",
       },
       {
         question: "What are the prerequisites for this course?",
-        answer:
-          "Basic knowledge of Digital Electronics and Computer Architecture, Familiarity with Verilog/SystemVerilog, and Understanding of simulation tools (like ModelSim/VCS/Questa) is helpful but not mandatory.",
+        answer: "Basic knowledge of Digital Electronics and Computer Architecture, Familiarity with Verilog/SystemVerilog, and Understanding of simulation tools (like ModelSim/VCS/Questa) is helpful but not mandatory.",
       },
       {
         question: "What will I learn by the end of the course?",
-        answer:
-          "You will be able to understand and verify AMBA protocols (APB, AHB, AXI), build a complete UVM-based testbench, write SystemVerilog test cases and sequences for AMBA-based DUTs, analyze functional coverage, assertions, and debug failures, and apply reusable verification methodologies in real-world SoC projects.",
+        answer: "You will be able to understand and verify AMBA protocols (APB, AHB, AXI), build a complete UVM-based testbench, write SystemVerilog test cases and sequences for AMBA-based DUTs, analyze functional coverage, assertions, and debug failures, and apply reusable verification methodologies in real-world SoC projects.",
       },
       {
         question: "Which AMBA protocols are covered in this course?",
-        answer:
-          "APB (Advanced Peripheral Bus), AHB (Advanced High-performance Bus), and AXI (Advanced eXtensible Interface) – including AXI4 and AXI-Lite.",
+        answer: "APB (Advanced Peripheral Bus), AHB (Advanced High-performance Bus), and AXI (Advanced eXtensible Interface) – including AXI4 and AXI-Lite.",
       },
       {
         question: "Will there be hands-on labs or projects?",
-        answer:
-          "Yes. The course includes: Lab sessions using SystemVerilog and UVM, Step-by-step projects for verifying APB, AHB, and AXI, and Debugging and simulation exercises using industry-standard tools.",
+        answer: "Yes. The course includes: Lab sessions using SystemVerilog and UVM, Step-by-step projects for verifying APB, AHB, and AXI, and Debugging and simulation exercises using industry-standard tools.",
       },
       {
         question: "What tools and simulators will be used?",
-        answer:
-          "SystemVerilog simulators such as Mentor Questa, Synopsys VCS, or Cadence Xcelium. Open-source tools may also be introduced for practice (e.g., edaplayground).",
+        answer: "SystemVerilog simulators such as Mentor Questa, Synopsys VCS, or Cadence Xcelium. Open-source tools may also be introduced for practice (e.g., edaplayground).",
       },
       {
         question: "Will I get a certificate?",
-        answer:
-          "Yes, a certificate of completion will be provided upon: Successful completion of assignments/projects and Attendance and/or performance-based criteria.",
+        answer: "Yes, a certificate of completion will be provided upon: Successful completion of assignments/projects and Attendance and/or performance-based criteria.",
       },
       {
         question: "What kind of support is provided during the course?",
-        answer:
-          "Depending on the course provider, support may include: Instructor Q&A sessions, Forums or chat groups, and 1:1 mentorship or project reviews.",
+        answer: "Depending on the course provider, support may include: Instructor Q&A sessions, Forums or chat groups, and 1:1 mentorship or project reviews.",
       },
     ],
   },
   {
     id: 7,
     title: "Verification of AMBA Bridge - AHB2AXI",
-    description:
-      "This course is designed to equip learners with the skills and knowledge required to verify an AXI to AHB Bridge, a critical IP used in SoCs to enable communication between high-performance AXI masters and legacy AHB-based subsystems. The focus is on functional verification using SystemVerilog and UVM, with an emphasis on protocol compliance, data integrity, and performance validation. Participants will explore the AXI and AHB protocol architectures, including their handshaking, data transfer mechanisms, and transaction types. The course then dives into the design intent and functional behavior of the AXI2AHB bridge, detailing how AXI transactions are converted to AHB-compliant ones. A complete UVM-based verification environment will be developed, including stimulus generation, monitors, checkers, scoreboards, functional coverage, and assertion-based verification. Students will also gain hands-on experience in writing reusable and scalable testbenches, debugging with waveforms, and analyzing coverage metrics for verification closure.",
+    description: "This course is designed to equip learners with the skills and knowledge required to verify an AXI to AHB Bridge, a critical IP used in SoCs to enable communication between high-performance AXI masters and legacy AHB-based subsystems. The focus is on functional verification using SystemVerilog and UVM, with an emphasis on protocol compliance, data integrity, and performance validation. Participants will explore the AXI and AHB protocol architectures, including their handshaking, data transfer mechanisms, and transaction types. The course then dives into the design intent and functional behavior of the AXI2AHB bridge, detailing how AXI transactions are converted to AHB-compliant ones. A complete UVM-based verification environment will be developed, including stimulus generation, monitors, checkers, scoreboards, functional coverage, and assertion-based verification. Students will also gain hands-on experience in writing reusable and scalable testbenches, debugging with waveforms, and analyzing coverage metrics for verification closure.",
     category: "Verification",
-    rating: 4.7,
-    students: 756,
     trainer: {
       name: "Mr. Vikram Singh",
       title: "Principal Verification Engineer",
@@ -1327,49 +1272,39 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "What are the prerequisites for this course?",
-        answer:
-          "Basic understanding of digital design and Verilog\nFamiliarity with SystemVerilog syntax\nSome exposure to UVM is helpful but not mandatory",
+        answer: "Basic understanding of digital design and Verilog\nFamiliarity with SystemVerilog syntax\nSome exposure to UVM is helpful but not mandatory",
       },
       {
         question: "What is the main goal of this course?",
-        answer:
-          "To develop a complete UVM-based verification environment for the AXI2AHB bridge and understand how to test and validate its protocol conversion functionality.",
+        answer: "To develop a complete UVM-based verification environment for the AXI2AHB bridge and understand how to test and validate its protocol conversion functionality.",
       },
       {
         question: "What tools are used during the course?",
-        answer:
-          "Commonly used tools include ModelSim, QuestaSim, VCS, or any simulator that supports SystemVerilog and UVM.",
+        answer: "Commonly used tools include ModelSim, QuestaSim, VCS, or any simulator that supports SystemVerilog and UVM.",
       },
       {
         question: "Will I learn assertion-based verification in this course?",
-        answer:
-          "Yes, basic interface-level assertions and protocol assertions will be introduced and applied during bridge verification.",
+        answer: "Yes, basic interface-level assertions and protocol assertions will be introduced and applied during bridge verification.",
       },
       {
         question: "Is this course suitable for job preparation in verification?",
-        answer:
-          "Absolutely. The course includes interview preparation, covers real-world SoC verification scenarios, and focuses on industry-relevant skills.",
+        answer: "Absolutely. The course includes interview preparation, covers real-world SoC verification scenarios, and focuses on industry-relevant skills.",
       },
       {
         question: "Will I receive any certificate upon completion?",
-        answer:
-          "Yes, if this course is offered through a training institute or platform, a completion certificate is usually provided.",
+        answer: "Yes, if this course is offered through a training institute or platform, a completion certificate is usually provided.",
       },
       {
         question: "Can I use this knowledge for other AMBA bridges?",
-        answer:
-          "Yes. Understanding AXI2AHB verification provides a strong foundation for verifying other AMBA bridges like AHB2AXI or AXI2APB.",
+        answer: "Yes. Understanding AXI2AHB verification provides a strong foundation for verifying other AMBA bridges like AHB2AXI or AXI2APB.",
       },
     ],
   },
   {
     id: 8,
     title: "Verification of AMBA Bridge - AXI2AHB",
-    description:
-      "This course is designed to equip learners with the skills and knowledge required to verify an AXI to AHB Bridge, a critical IP used in SoCs to enable communication between high-performance AXI masters and legacy AHB-based subsystems. The focus is on functional verification using SystemVerilog and UVM, with an emphasis on protocol compliance, data integrity, and performance validation. Participants will explore the AXI and AHB protocol architectures, including their handshaking, data transfer mechanisms, and transaction types. The course then dives into the design intent and functional behavior of the AXI2AHB bridge, detailing how AXI transactions are converted to AHB-compliant ones. A complete UVM-based verification environment will be developed, including stimulus generation, monitors, checkers, scoreboards, functional coverage, and assertion-based verification. Students will also gain hands-on experience in writing reusable and scalable testbenches, debugging with waveforms, and analyzing coverage metrics for verification closure.",
+    description: "This course is designed to equip learners with the skills and knowledge required to verify an AXI to AHB Bridge, a critical IP used in SoCs to enable communication between high-performance AXI masters and legacy AHB-based subsystems. The focus is on functional verification using SystemVerilog and UVM, with an emphasis on protocol compliance, data integrity, and performance validation. Participants will explore the AXI and AHB protocol architectures, including their handshaking, data transfer mechanisms, and transaction types. The course then dives into the design intent and functional behavior of the AXI2AHB bridge, detailing how AXI transactions are converted to AHB-compliant ones. A complete UVM-based verification environment will be developed, including stimulus generation, monitors, checkers, scoreboards, functional coverage, and assertion-based verification. Students will also gain hands-on experience in writing reusable and scalable testbenches, debugging with waveforms, and analyzing coverage metrics for verification closure.",
     category: "Verification",
-    rating: 4.7,
-    students: 756,
     trainer: {
       name: "Mr. Vikram Singh",
       title: "Principal Verification Engineer",
@@ -1467,49 +1402,39 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "What are the prerequisites for this course?",
-        answer:
-          "Basic understanding of digital design and Verilog\nFamiliarity with SystemVerilog syntax\nSome exposure to UVM is helpful but not mandatory",
+        answer: "Basic understanding of digital design and Verilog\nFamiliarity with SystemVerilog syntax\nSome exposure to UVM is helpful but not mandatory",
       },
       {
         question: "What is the main goal of this course?",
-        answer:
-          "To develop a complete UVM-based verification environment for the AXI2AHB bridge and understand how to test and validate its protocol conversion functionality.",
+        answer: "To develop a complete UVM-based verification environment for the AXI2AHB bridge and understand how to test and validate its protocol conversion functionality.",
       },
       {
         question: "What tools are used during the course?",
-        answer:
-          "Commonly used tools include ModelSim, QuestaSim, VCS, or any simulator that supports SystemVerilog and UVM.",
+        answer: "Commonly used tools include ModelSim, QuestaSim, VCS, or any simulator that supports SystemVerilog and UVM.",
       },
       {
         question: "Will I learn assertion-based verification in this course?",
-        answer:
-          "Yes, basic interface-level assertions and protocol assertions will be introduced and applied during bridge verification.",
+        answer: "Yes, basic interface-level assertions and protocol assertions will be introduced and applied during bridge verification.",
       },
       {
         question: "Is this course suitable for job preparation in verification?",
-        answer:
-          "Absolutely. The course includes interview preparation, covers real-world SoC verification scenarios, and focuses on industry-relevant skills.",
+        answer: "Absolutely. The course includes interview preparation, covers real-world SoC verification scenarios, and focuses on industry-relevant skills.",
       },
       {
         question: "Will I receive any certificate upon completion?",
-        answer:
-          "Yes, if this course is offered through a training institute or platform, a completion certificate is usually provided.",
+        answer: "Yes, if this course is offered through a training institute or platform, a completion certificate is usually provided.",
       },
       {
         question: "Can I use this knowledge for other AMBA bridges?",
-        answer:
-          "Yes. Understanding AXI2AHB verification provides a strong foundation for verifying other AMBA bridges like AHB2AXI or AXI2APB.",
+        answer: "Yes. Understanding AXI2AHB verification provides a strong foundation for verifying other AMBA bridges like AHB2AXI or AXI2APB.",
       },
     ],
   },
   {
     id: 9,
     title: "Verification of AMBA Bridge - AHB2APB",
-    description:
-      "This course provides a comprehensive understanding of the functional verification of the AHB to APB bridge, a critical component used in SoCs to interface high-speed AHB buses with low-power APB peripherals. The course focuses on both protocol understanding and UVM-based testbench development, making it ideal for engineers aiming to master real-time SoC verification workflows. The course begins with an in-depth study of AMBA AHB and APB protocols, covering signal definitions, timing diagrams, and data transfer operations. It then delves into the AHB2APB bridge design architecture, exploring how AHB transactions are translated into APB accesses and how control logic manages the protocol differences. Participants will then learn to build a modular and reusable UVM testbench for verifying the AHB2APB bridge. Emphasis is placed on developing UVM agents, sequences, monitors, and scoreboards, along with applying assertion-based verification and functional coverage to ensure protocol and design correctness.",
+    description: "This course provides a comprehensive understanding of the functional verification of the AHB to APB bridge, a critical component used in SoCs to interface high-speed AHB buses with low-power APB peripherals. The course focuses on both protocol understanding and UVM-based testbench development, making it ideal for engineers aiming to master real-time SoC verification workflows. The course begins with an in-depth study of AMBA AHB and APB protocols, covering signal definitions, timing diagrams, and data transfer operations. It then delves into the AHB2APB bridge design architecture, exploring how AHB transactions are translated into APB accesses and how control logic manages the protocol differences. Participants will then learn to build a modular and reusable UVM testbench for verifying the AHB2APB bridge. Emphasis is placed on developing UVM agents, sequences, monitors, and scoreboards, along with applying assertion-based verification and functional coverage to ensure protocol and design correctness.",
     category: "Verification",
-    rating: 4.5,
-    students: 567,
     trainer: {
       name: "Mr. Arjun Kumar",
       title: "Bridge Verification Specialist",
@@ -1608,49 +1533,39 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "What is the AHB2APB bridge and why is it important?",
-        answer:
-          "The AHB2APB bridge connects the high-speed AHB bus to the low-power APB bus, enabling communication between a system's performance-critical core and its peripheral devices like UART, timers, and GPIO.",
+        answer: "The AHB2APB bridge connects the high-speed AHB bus to the low-power APB bus, enabling communication between a system's performance-critical core and its peripheral devices like UART, timers, and GPIO.",
       },
       {
         question: "Who should take this course?",
-        answer:
-          "This course is ideal for:\n•\tVLSI and embedded engineers\n•\tStudents and graduates preparing for SoC/ASIC verification roles\n•\tProfessionals upskilling in UVM and AMBA protocol verification",
+        answer: "This course is ideal for:\n•\tVLSI and embedded engineers\n•\tStudents and graduates preparing for SoC/ASIC verification roles\n•\tProfessionals upskilling in UVM and AMBA protocol verification",
       },
       {
         question: "What are the prerequisites for this course?",
-        answer:
-          "Basic knowledge of digital design and Verilog\n•\tFamiliarity with SystemVerilog is recommended\n•\tUVM experience is helpful ",
+        answer: "Basic knowledge of digital design and Verilog\n•\tFamiliarity with SystemVerilog is recommended\n•\tUVM experience is helpful ",
       },
       {
         question: "What simulators or tools are used?",
-        answer:
-          "The course uses industry-standard simulators like ModelSim, QuestaSim, or Synopsys VCS. Students can also work with open-source tools if needed.",
+        answer: "The course uses industry-standard simulators like ModelSim, QuestaSim, or Synopsys VCS. Students can also work with open-source tools if needed.",
       },
       {
         question: "Will I learn to use assertions and functional coverage?",
-        answer:
-          "Yes. You'll implement SystemVerilog assertions (SVAs) and functional coverage to validate protocol correctness and ensure verification completeness.",
+        answer: "Yes. You'll implement SystemVerilog assertions (SVAs) and functional coverage to validate protocol correctness and ensure verification completeness.",
       },
       {
         question: "Will I get a certificate after completion?",
-        answer:
-          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
+        answer: "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
       {
         question: "Will this help me in job interviews?",
-        answer:
-          "Definitely. The course covers real-time verification scenarios, includes interview preparation, and provides experience with industry practices relevant to job roles in ASIC and IP verification.",
+        answer: "Definitely. The course covers real-time verification scenarios, includes interview preparation, and provides experience with industry practices relevant to job roles in ASIC and IP verification.",
       },
     ],
   },
   {
     id: 10,
     title: "Verification of AHB-Lite Decoder",
-    description:
-      "This course is designed to provide a solid foundation in the functional verification of an AHB-Lite Decoder, a key component in AMBA-based SoCs used to decode addresses and route AHB transactions to multiple slave peripherals. The focus is on understanding both the AHB-Lite protocol and building a SystemVerilog UVM-based verification environment for the decoder. Participants will begin with a detailed study of the AMBA AHB-Lite protocol, including signal definitions, transaction types, bus arbitration, and timing behavior. The course then moves to the design and functional role of an AHB-Lite decoder, which selects target slaves based on address decoding logic. Participants will build a UVM testbench for the AHB-Lite decoder, including a master agent, a multi-slave setup, and a coverage-driven verification environment. The training will emphasize writing directed and randomized testcases, functional coverage, assertions, and using waveform debugging tools to ensure complete verification.",
+    description: "This course is designed to provide a solid foundation in the functional verification of an AHB-Lite Decoder, a key component in AMBA-based SoCs used to decode addresses and route AHB transactions to multiple slave peripherals. The focus is on understanding both the AHB-Lite protocol and building a SystemVerilog UVM-based verification environment for the decoder. Participants will begin with a detailed study of the AMBA AHB-Lite protocol, including signal definitions, transaction types, bus arbitration, and timing behavior. The course then moves to the design and functional role of an AHB-Lite decoder, which selects target slaves based on address decoding logic. Participants will build a UVM testbench for the AHB-Lite decoder, including a master agent, a multi-slave setup, and a coverage-driven verification environment. The training will emphasize writing directed and randomized testcases, functional coverage, assertions, and using waveform debugging tools to ensure complete verification.",
     category: "Verification",
-    rating: 4.4,
-    students: 423,
     trainer: {
       name: "Dr. Meera Nair",
       title: "System Verification Lead",
@@ -1752,18 +1667,15 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "What are the prerequisites?",
-        answer:
-          "Basic digital design and Verilog/SystemVerilog knowledge, Interest in functional verification and SoC design",
+        answer: "Basic digital design and Verilog/SystemVerilog knowledge, Interest in functional verification and SoC design",
       },
       {
         question: "What tools are used in this course?",
-        answer:
-          "Industry-standard tools like ModelSim, QuestaSim, or VCS for simulation. You can also use open-source simulators for practice.",
+        answer: "Industry-standard tools like ModelSim, QuestaSim, or VCS for simulation. You can also use open-source simulators for practice.",
       },
       {
         question: "Will I build a real verification project?",
-        answer:
-          "Yes, the final week involves developing a complete UVM testbench for a multi-slave AHB-Lite decoder and verifying its functionality.",
+        answer: "Yes, the final week involves developing a complete UVM testbench for a multi-slave AHB-Lite decoder and verifying its functionality.",
       },
       {
         question: "Will I learn assertions and coverage?",
@@ -1771,13 +1683,11 @@ export const coursesData: Course[] = [
       },
       {
         question: "Is this course useful for job interviews?",
-        answer:
-          "Absolutely. AHB-Lite is widely used, and decoder verification is a common task in IP/SOC verification interviews. The course includes interview preparation tips as well.",
+        answer: "Absolutely. AHB-Lite is widely used, and decoder verification is a common task in IP/SOC verification interviews. The course includes interview preparation tips as well.",
       },
       {
         question: "Will I receive any certificate upon completion?",
-        answer:
-          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
+        answer: "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
     ],
   },
@@ -1786,8 +1696,6 @@ export const coursesData: Course[] = [
     title: "Verification of AHB-Lite to AHB Converter",
     description: "This course is designed to provide a comprehensive understanding of Gate-Level Simulation (GLS) - a critical verification step in the ASIC design flow that ensures the synthesized netlist behaves functionally equivalent to the RTL, meets timing, and integrates correctly with the back-end flow. Learners will gain in-depth knowledge of how GLS fits into the ASIC design and verification lifecycle, focusing on the transition from RTL to synthesized gate-level netlist, and addressing timing verification, power-aware simulation, glitch detection, and X-propagation handling. The course covers functional and timing simulation using Standard Delay Format (SDF), setup for zero-delay and annotated simulations, as well as techniques to debug mismatches between RTL and post-synthesis behavior. It emphasizes practical setup, scripting, waveform analysis, and identifying issues such as uninitialized signals and race conditions. Participants will simulate both clean and X-check-enabled GLS environments using industry tools like VCS, ModelSim, or QuestaSim, and understand how to validate the final netlist before tape-out.",
     category: "Verification",
-    rating: 4.3,
-    students: 389,
     trainer: {
       name: "Mr. Rohit Sharma",
       title: "Protocol Verification Engineer",
@@ -1882,129 +1790,249 @@ export const coursesData: Course[] = [
     faqs: [
       {
         question: "Who should take this course?",
-        answer:
-          "Design Verification Engineers, DFT Engineers, Physical Design and STA Engineers, and graduate students preparing for RTL-to-GDSII flow roles.",
+        answer: "Design Verification Engineers, DFT Engineers, Physical Design and STA Engineers, and graduate students preparing for RTL-to-GDSII flow roles.",
       },
       {
         question: "What are the prerequisites?",
-        answer:
-          "Basic knowledge of digital logic design, familiarity with Verilog/SystemVerilog, and some exposure to simulation tools like ModelSim, VCS, or QuestaSim.",
+        answer: "Basic knowledge of digital logic design, familiarity with Verilog/SystemVerilog, and some exposure to simulation tools like ModelSim, VCS, or QuestaSim.",
       },
       {
         question: "What are the key tools used?",
-        answer:
-          "Simulators: VCS, ModelSim, QuestaSim. Optional tools include DVE and GTKWave for waveform analysis. Formats used include Verilog netlist, SDF, and SDC.",
+        answer: "Simulators: VCS, ModelSim, QuestaSim. Optional tools include DVE and GTKWave for waveform analysis. Formats used include Verilog netlist, SDF, and SDC.",
       },
       {
         question: "What kind of netlists are simulated?",
-        answer:
-          "Synthesized gate-level netlists with and without timing. Optionally, post-layout netlists with parasitic annotations are also simulated.",
+        answer: "Synthesized gate-level netlists with and without timing. Optionally, post-layout netlists with parasitic annotations are also simulated.",
       },
       {
         question: "Will this help with job interviews?",
-        answer:
-          "Absolutely. GLS is a critical skill for backend, DFT, and late-stage verification engineers. This course covers interview-relevant questions and practical flows.",
+        answer: "Absolutely. GLS is a critical skill for backend, DFT, and late-stage verification engineers. This course covers interview-relevant questions and practical flows.",
       },
       {
         question: "Will I receive any certificate upon completion?",
-        answer:
-          "Yes, after successful completion of the course, a course completion certificate is usually provided.",
+        answer: "Yes, after successful completion of the course, a course completion certificate is usually provided.",
       },
     ],
   },
   {
     id: 12,
-    title: "Embedded and IoT",
-    description: "Comprehensive course on embedded systems design and IoT applications with hands-on projects.",
-    category: "Embedded Systems",
-    rating: 4.5,
-    students: 567,
-    trainer: {
-      name: "Mr. Karthik Nair",
-      title: "Embedded Systems Architect",
-      experience: "11+ years in Embedded and IoT Development",
-      education: "M.Tech in Embedded Systems, BITS Pilani",
-      specialization: "IoT Architecture, Embedded Programming, Wireless Communication",
-      bio: "Karthik is an embedded systems expert with extensive experience in IoT product development and has led multiple successful IoT deployments.",
-    },
-    duration: "10 weeks",
-    weeks: 10,
-    image: "/course12.png",
+    title: "Embedded Systems and Internet of Things (IoT)",
+    description: "The Embedded Systems and Internet of Things (IoT) course is designed to provide students with a comprehensive understanding of embedded hardware, software, and IoT technologies that power modern smart devices and applications. This program bridges the gap between electronics, programming, and communication technologies, enabling learners to build real-world IoT solutions. Participants will gain hands-on experience with microcontrollers (Arduino, ESP32, STM32), sensors, actuators, communication protocols (I2C, SPI, UART), and cloud platforms. The course covers system design, interfacing techniques, real-time data monitoring, and wireless connectivity using Wi-Fi, Bluetooth, and MQTT. The course blends theoretical concepts with hands-on practice using popular microcontrollers like ESP32, Arduino, and STM32, along with IoT platforms such as Blynk, ThingSpeak, and AWS IoT.",
+    category: "Embedded Systems & IoT",
+    discount: 15,
+    duration: "16 weeks",
+    weeks: 16,
+    image: "/course2.png",
     syllabus: [
       {
         week: 1,
-        title: "Embedded Systems Fundamentals",
-        topics: ["Embedded systems overview", "Microcontroller architecture", "Memory systems", "I/O interfacing"],
+        title: "Fundamentals of Embedded Systems & Microcontrollers - Part 1",
+        topics: [
+          "Embedded Systems & IoT Overview",
+          "Applications & Industry Use-Cases",
+          "Basics of Electronics",
+          "Microcontroller Architecture & Selection (Arduino, ESP32, STM32)",
+        ],
       },
       {
         week: 2,
-        title: "Programming Fundamentals",
-        topics: ["C programming for embedded", "Memory management", "Interrupt handling", "Real-time concepts"],
+        title: "Fundamentals of Embedded Systems & Microcontrollers - Part 2",
+        topics: [
+          "IDE Setup and Programming Fundamentals",
+          "Digital I/O: LEDs, Buttons",
+          "Analog I/O: LDR, Potentiometer",
+          "PWM Control: LED Fading, Buzzer Tone",
+        ],
       },
       {
         week: 3,
-        title: "Hardware Interfacing",
-        topics: ["GPIO programming", "ADC/DAC interfacing", "Communication protocols", "Sensor integration"],
+        title: "Microcontroller Basics",
+        topics: [
+          "Microcontroller Features & Development Setup",
+          "GPIO Control (LED, Relay, Buzzer)",
+          "ADC & DAC Applications",
+          "Using Serial Monitor for Debugging",
+        ],
       },
       {
         week: 4,
-        title: "Communication Protocols",
-        topics: ["UART, SPI, I2C", "Wireless protocols", "Network communication", "Protocol implementation"],
+        title: "Mini Projects",
+        topics: [
+          "Automatic Night Lamp (LDR + LED)",
+          "Traffic Light Simulation",
+          "Digital Piano (Buzzer + Buttons)",
+        ],
       },
       {
         week: 5,
-        title: "IoT Fundamentals",
-        topics: ["IoT architecture", "Cloud connectivity", "Data transmission", "Security basics"],
+        title: "Sensor Interfacing & Communication Protocols - Part 1",
+        topics: [
+          "DHT11/DHT22 (Temperature & Humidity)",
+          "BMP180/BME280 (Pressure & Altitude)",
+          "Ultrasonic Sensor (Distance Measurement)",
+        ],
       },
       {
         week: 6,
-        title: "IoT Platforms",
-        topics: ["Arduino/ESP32", "Raspberry Pi", "Cloud platforms", "Development environments"],
+        title: "Displays & Output Devices",
+        topics: [
+          "OLED (I2C) Interfacing with ESP32",
+          "LCD Display (I2C/SPI)",
+          "Seven Segment Displays",
+        ],
       },
       {
         week: 7,
-        title: "Project Development - Phase 1",
-        topics: ["Project planning", "Hardware setup", "Basic implementation", "Testing"],
+        title: "Communication Protocols",
+        topics: [
+          "I2C Basics & Applications",
+          "SPI Protocol (SD Card Data Logging)",
+          "UART Serial Communication",
+        ],
       },
       {
         week: 8,
-        title: "Project Development - Phase 2",
-        topics: ["Advanced features", "Cloud integration", "Data analytics", "User interface"],
+        title: "Mini Projects",
+        topics: [
+          "Digital Thermometer with OLED",
+          "Distance Measuring Device",
+          "Data Logger for Temperature & Humidity",
+        ],
       },
       {
         week: 9,
-        title: "System Integration",
-        topics: ["Complete system testing", "Performance optimization", "Debugging", "Documentation"],
+        title: "IoT Connectivity & Cloud Integration - Part 1",
+        topics: [
+          "IoT Architecture & Components",
+          "Networking Basics (IP, MAC, HTTP, MQTT)",
+          "Wi-Fi Setup & Web Server on ESP32",
+        ],
       },
       {
         week: 10,
-        title: "Final Presentation",
-        topics: ["Project demonstration", "Technical review", "Industry applications", "Career guidance"],
+        title: "IoT Platforms",
+        topics: [
+          "ThingSpeak Data Logging & Visualization",
+          "Blynk App for Remote Device Control",
+          "Adafruit IO Integration",
+        ],
+      },
+      {
+        week: 11,
+        title: "Advanced IoT Applications",
+        topics: [
+          "Real-time Data Monitoring",
+          "Sending Alerts via Email/SMS",
+          "OTA (Over-the-Air) Updates",
+        ],
+      },
+      {
+        week: 12,
+        title: "Mini Projects",
+        topics: [
+          "IoT Weather Monitoring Station",
+          "Smart Garden (Soil Moisture Sensor + Pump + IoT Control)",
+          "IoT-based Home Automation",
+        ],
+      },
+      {
+        week: 13,
+        title: "Advanced IoT Applications - Smart Systems",
+        topics: [
+          "Gesture Sensors (APDS9960)",
+          "Touch Sensors (TTP223)",
+          "RFID Authentication",
+        ],
+      },
+      {
+        week: 14,
+        title: "Industrial IoT Applications",
+        topics: [
+          "Energy Monitoring (Current Sensors)",
+          "Smart Factory Case Study",
+          "Predictive Maintenance Concepts",
+        ],
+      },
+      {
+        week: 15,
+        title: "Project Development",
+        topics: [
+          "Selecting Project Topics",
+          "Hardware & Software Design",
+          "Cloud & Mobile App Integration",
+        ],
+      },
+      {
+        week: 16,
+        title: "Final Project & Submission",
+        topics: [
+          "Project Testing & Debugging",
+          "Presentation & Demonstration",
+        ],
       },
     ],
     schedule: {
-      duration: "10 weeks (20 sessions, 2 per week)",
-      sessions: "Hands-on development + IoT project work",
-      mode: "Project-based learning with real hardware",
-      tools: ["Arduino/ESP32", "Raspberry Pi", "Cloud platforms", "Development tools"],
-      fee: 229,
-      breakdown: "Hardware projects, IoT system development, and complete end-to-end application implementation",
+      duration: "4 Months",
+      stages: [
+        {
+          stage: "I",
+          description: "Fundamentals of Embedded Systems & Microcontrollers",
+          duration: "1 Month",
+        },
+        {
+          stage: "II",
+          description: "Sensor Interfacing & Communication Protocols",
+          duration: "1 Month",
+        },
+        {
+          stage: "III",
+          description: "IoT Connectivity & Cloud Integration",
+          duration: "1 Month",
+        },
+        {
+          stage: "IV",
+          description: "Advanced IoT Applications & Project Development",
+          duration: "1 Month",
+        },
+      ],
+      sessions: "Live sessions + hands-on projects",
+      mode: "Practical IoT development with real hardware",
+      tools: ["Arduino IDE", "ESP32", "IoT platforms", "Sensors and actuators"],
+      fee: 199,
+      breakdown: "IoT projects, sensor interfacing, and cloud integration exercises",
     },
     faqs: [
       {
-        question: "Do I need prior embedded programming experience?",
-        answer:
-          "Basic C programming knowledge is helpful but not mandatory. We'll cover embedded programming from fundamentals to advanced concepts.",
+        question: "What is this course about?",
+        answer: "This course covers the fundamentals and practical applications of Embedded Systems and the Internet of Things (IoT), including microcontroller programming, sensor interfacing, and cloud-based IoT solutions.",
       },
       {
-        question: "What hardware will I work with?",
-        answer:
-          "Arduino, ESP32, Raspberry Pi, various sensors, and communication modules for complete IoT system development.",
+        question: "Who can join this course?",
+        answer: "Engineering students, hobbyists, professionals, and anyone interested in learning embedded programming and IoT development can join.",
       },
       {
-        question: "Will I build real IoT applications?",
-        answer:
-          "Yes, you'll develop complete IoT applications from sensor data collection to cloud analytics and user interfaces.",
+        question: "Do I need prior experience in programming or electronics?",
+        answer: "Basic knowledge of C programming and electronics is helpful, but not mandatory. We start from the fundamentals and progress to advanced topics.",
+      },
+      {
+        question: "Which microcontrollers will be covered?",
+        answer: "We will work mainly with Arduino, ESP32, and an introduction to STM32.",
+      },
+      {
+        question: "What kind of projects will I work on?",
+        answer: "You'll build projects such as LED automation, Digital thermometer with OLED, IoT weather station, and IoT-based home automation system.",
+      },
+      {
+        question: "Will I get hands-on experience?",
+        answer: "Yes, the course includes practical sessions with hardware kits and guided project building.",
+      },
+      {
+        question: "Is the kit included in the course fee?",
+        answer: "Yes, the required Embedded & IoT kit (microcontroller, sensors, actuators) will be provided for hands-on practice.",
+      },
+      {
+        question: "Will I receive a certificate after completion?",
+        answer: "Yes, participants will receive a Course Completion Certificate after successfully completing the course and projects.",
       },
     ],
   },

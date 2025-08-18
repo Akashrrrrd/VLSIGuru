@@ -20,17 +20,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
   const course = getCourseById(Number.parseInt(courseId))
 
   if (!course) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Course Not Found</h1>
-          <p className="text-gray-600 mb-6">The course you're looking for doesn't exist.</p>
-          <Link href="/courses">
-            <Button>Browse All Courses</Button>
-          </Link>
-        </div>
-      </div>
-    )
+    return <div>Course not found</div>
   }
 
   // Function to get schedule data from course data
@@ -191,39 +181,6 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
 
   const scheduleInfo = getScheduleData()
 
-  // Check if this is the Embedded and IoT course
-  const isUnderConstruction = course.title === "Embedded and IoT"
-
-  if (isUnderConstruction) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center py-16">
-          <div className="max-w-2xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{course.title}</h1>
-            <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-bold mb-2">🚧 Under Construction</h2>
-              <p className="text-lg">
-                This course is currently being updated with new content and features. 
-                Please check back soon for the enhanced learning experience!
-              </p>
-            </div>
-            <div className="space-y-4">
-              <p className="text-gray-600">
-                We're working hard to bring you the most comprehensive Embedded and IoT course 
-                with hands-on projects and industry-relevant content.
-              </p>
-              <Link href="/courses">
-                <Button size="lg" className="bg-red-600 hover:bg-red-700 mt-2">
-                  Browse Other Courses
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Course Header */}
@@ -231,7 +188,7 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
         <div>
           <Badge className="mb-4">{course.category}</Badge>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{course.title}</h1>
-          <p className="text-gray-600 mb-6 text-sm sm:text-base">{course.description}</p>
+          <p className="text-gray-600 mb-6 text-sm sm:text-base text-justify">{course.description}</p>
 
           {/* Course Duration */}
           <div className="flex items-center gap-3 mb-6">
@@ -251,22 +208,20 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
       </div>
 
       {/* Enrollment */}
-  <CardContent className="p-2 mb-4">
-    <div className="flex justify-end">
-      <Link
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfCgEnbswX5k-KNOW43rvgYlNxxHHZa5AKK4SYAtWV959o1bg/viewform?usp=header"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Button size="lg" className="bg-red-600 hover:bg-red-700 gap-2">
-          <GraduationCap className="w-4 h-4" />
-          Enroll Now
-        </Button>
-      </Link>
-    </div>
-  </CardContent>
-
-
+      <CardContent className="p-2 mb-4">
+        <div className="flex justify-end">
+          <Link
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfCgEnbswX5k-KNOW43rvgYlNxxHHZa5AKK4SYAtWV959o1bg/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" className="bg-red-600 hover:bg-red-700 gap-2">
+              <GraduationCap className="w-4 h-4" />
+              Enroll Now
+            </Button>
+          </Link>
+        </div>
+      </CardContent>
 
       {/* Course Content Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -298,9 +253,9 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
                   <Collapsible key={index}>
                     <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gradient-to-r from-red-50 to-blue-50 rounded-lg hover:from-red-100 hover:to-blue-100 transition-colors">
                       <div className="flex items-center gap-3">
-<div className="w-8 h-8 min-w-8 flex-shrink-0 bg-red-600 text-white rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
-  {week.week}
-</div>
+                        <div className="w-8 h-8 min-w-8 flex-shrink-0 bg-red-600 text-white rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
+                          {week.week}
+                        </div>
                         <span className="font-semibold text-left">{week.title}</span>
                       </div>
                       <ChevronDown className="w-5 h-5 text-red-600" />
